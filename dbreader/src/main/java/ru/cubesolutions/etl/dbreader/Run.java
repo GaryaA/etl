@@ -27,7 +27,7 @@ public class Run {
     public static void main(String[] args) throws IOException {
         Run run = new Run();
         ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
-        ses.scheduleWithFixedDelay(run::push, 0, Config.TIME_BETWEEN_STEPS_IN_MILLISECONDS, TimeUnit.SECONDS);
+        ses.scheduleWithFixedDelay(run::push, 0, Config.TIME_BETWEEN_STEPS_IN_MILLISECONDS, TimeUnit.MILLISECONDS);
     }
 
     private void push() {
