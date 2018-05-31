@@ -48,7 +48,7 @@ public class DB {
 
                     ResultSetMetaData metaData = rs.getMetaData();
                     for (int i = 1; i < metaData.getColumnCount() + 1; i++) {
-                        params.put(metaData.getColumnLabel(i), "" + rs.getObject(metaData.getColumnName(i)));
+                        params.put(metaData.getColumnLabel(i).replace("_", ""), "" + rs.getObject(metaData.getColumnName(i)));
                     }
 
                     result.add(params);

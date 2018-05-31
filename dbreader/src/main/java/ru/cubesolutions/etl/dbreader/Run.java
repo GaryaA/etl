@@ -94,7 +94,7 @@ public class Run {
         }
         long max = -1;
         for (Map<String, String> eventMap : eventMaps) {
-            long current = Long.parseLong(eventMap.get("id"));
+            long current = Long.parseLong(eventMap.get(Config.FIELD_ID_NAME));
             if (current > max) {
                 max = current;
             }
