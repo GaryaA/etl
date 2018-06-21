@@ -25,11 +25,35 @@ public class Run implements Runnable {
     private final static Logger log = Logger.getLogger(Run.class);
 
     private static Long LAST_ID;
+    private static Producer producer;
 
     public static void main(String[] args) throws IOException {
         Run run = new Run();
+        initMqProducer();
         ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
         ses.scheduleWithFixedDelay(run, 0, Config.TIME_BETWEEN_STEPS_IN_MILLISECONDS, TimeUnit.MILLISECONDS);
+        closeMqProducer();
+    }
+
+    private static void initMqProducer() {
+        RabbitConfig rabbitConfig = new RabbitConfig(Config.MQ_HOST, Config.MQ_PORT, Config.MQ_V_HOST, Config.MQ_USER, Config.MQ_PASSWORD);
+        Producer producerr;
+        try {
+            producerr = new Producer(rabbitConfig);
+            producerr.queueDeclare(Config.QUEUE);
+        } catch (IOException e) {
+            log.error("Can't connect to rabbitmq", e);
+            throw new RuntimeException("Can't connect to rabbitmq", e);
+        }
+        producer = producerr;
+    }
+
+    private static void closeMqProducer() {
+        try {
+            producer.close();
+        } catch (Exception e) {
+            log.error("", e);
+        }
     }
 
     private void push() {
@@ -59,16 +83,6 @@ public class Run implements Runnable {
             return;
         }
 
-        RabbitConfig rabbitConfig = new RabbitConfig(Config.MQ_HOST, Config.MQ_PORT, Config.MQ_V_HOST, Config.MQ_USER, Config.MQ_PASSWORD);
-        Producer producer;
-        try {
-            producer = new Producer(rabbitConfig);
-            producer.queueDeclare(Config.QUEUE);
-        } catch (IOException e) {
-            log.error("Can't connect to rabbitmq", e);
-            throw new RuntimeException("Can't connect to rabbitmq", e);
-        }
-
         ObjectMapper mapper = new ObjectMapper();
         try {
             long startPush = System.currentTimeMillis();
@@ -77,9 +91,7 @@ public class Run implements Runnable {
                 producer.sendMessage(eventBytes, "", Config.QUEUE);
             }
             log.info(eventMaps.size() + " record is pushed, " + (System.currentTimeMillis() - startPush) + "ms");
-            producer.close();
         } catch (Exception e) {
-            e.printStackTrace();
             log.error(e);
             throw new RuntimeException("Can't parse json", e);
         }
