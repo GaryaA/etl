@@ -29,10 +29,11 @@ public class Run implements Runnable {
 
     public static void main(String[] args) throws IOException {
         Run run = new Run();
-        initMqProducer();
+        if (Config.UNLOADING_ONE_TIME) {
+            initMqProducer();
+        }
         ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
         ses.scheduleWithFixedDelay(run, 0, Config.TIME_BETWEEN_STEPS_IN_MILLISECONDS, TimeUnit.MILLISECONDS);
-//        closeMqProducer();
     }
 
     private static void initMqProducer() {
@@ -85,12 +86,18 @@ public class Run implements Runnable {
 
         ObjectMapper mapper = new ObjectMapper();
         try {
+            if (!Config.UNLOADING_ONE_TIME) {
+                initMqProducer();
+            }
             long startPush = System.currentTimeMillis();
             for (Map<String, String> eventMap : eventMaps) {
                 byte[] eventBytes = mapper.writer().writeValueAsBytes(eventMap);
                 producer.sendMessage(eventBytes, "", Config.QUEUE);
             }
             log.info(eventMaps.size() + " record is pushed, " + (System.currentTimeMillis() - startPush) + "ms");
+            if (!Config.UNLOADING_ONE_TIME) {
+                closeMqProducer();
+            }
         } catch (Exception e) {
             log.error(e);
             throw new RuntimeException("Can't parse json", e);

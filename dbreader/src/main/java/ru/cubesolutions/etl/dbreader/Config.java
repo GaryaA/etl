@@ -34,6 +34,7 @@ public class Config {
     public static String QUEUE;
 
     public static Boolean LAST_ID_IN_MEMORY;
+    public static Boolean UNLOADING_ONE_TIME;
 
 
     static {
@@ -77,6 +78,7 @@ public class Config {
         QUEUE = props.getProperty("queue");
 
         LAST_ID_IN_MEMORY = Boolean.parseBoolean(props.getProperty("last-id-in-memory"));
+        UNLOADING_ONE_TIME = Boolean.parseBoolean(props.getProperty("unloading-one-time"));
     }
 
 }

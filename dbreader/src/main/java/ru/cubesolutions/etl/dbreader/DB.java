@@ -39,7 +39,7 @@ public class DB {
                 PreparedStatement ps = connection.prepareStatement(String.format(sql, idStart, idStart + step));
                 long start = System.currentTimeMillis();
                 ResultSet rs = ps.executeQuery();
-                log.debug("sql execution: " + (System.currentTimeMillis() - start) + "ms");
+                log.info("sql execution: " + (System.currentTimeMillis() - start) + "ms");
 
                 int mark = 0;
                 while (rs.next()) {
