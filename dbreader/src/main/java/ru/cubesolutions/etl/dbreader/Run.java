@@ -49,45 +49,25 @@ public class Run implements Runnable {
         log.info(eventMaps.size() + " records is read, " + (System.currentTimeMillis() - start) + "ms");
 
         if (eventMaps.isEmpty()) {
-            log.debug("eventMaps.isEmpty()");
             return;
         }
-        log.debug("eventMaps is not empty");
-
-        log.debug("Config.MQ_HOST=" + Config.MQ_HOST);
-        log.debug("Config.MQ_PORT=" + Config.MQ_PORT);
-        log.debug("Config.MQ_V_HOST=" + Config.MQ_V_HOST);
-        log.debug("Config.MQ_USER=" + Config.MQ_USER);
-        try {
-            log.debug(Class.forName("ru.cubesolutions.rabbitmq.RabbitConfig").getClass());
-            log.debug(Class.forName("ru.cubesolutions.rabbitmq.RabbitConfig").getCanonicalName());
-        } catch (ClassNotFoundException e) {
-            log.error("", e);
-        }
-        log.debug("rabbitConfig");
 
         RabbitConfig rabbitConfig = new RabbitConfig(Config.MQ_HOST, Config.MQ_PORT, Config.MQ_V_HOST, Config.MQ_USER, Config.MQ_PASSWORD);
-        log.debug("rabbitConfig");
         Producer producer;
-        log.debug("producer");
         try {
             producer = new Producer(rabbitConfig);
-            log.debug("producer = new Producer(rabbitConfig);");
             producer.queueDeclare(Config.QUEUE);
-            log.debug("producer.queueDeclare(Config.QUEUE);");
         } catch (IOException e) {
             log.error("Can't connect to rabbitmq", e);
             throw new RuntimeException("Can't connect to rabbitmq", e);
         }
 
         ObjectMapper mapper = new ObjectMapper();
-        log.debug("ObjectMapper mapper = new ObjectMapper();");
         try {
             long startPush = System.currentTimeMillis();
             for (Map<String, String> eventMap : eventMaps) {
                 byte[] eventBytes = mapper.writer().writeValueAsBytes(eventMap);
                 producer.sendMessage(eventBytes, "", Config.QUEUE);
-                log.debug("producer.sendMessage(eventBytes, \"\", Config.QUEUE);");
             }
             log.info(eventMaps.size() + " record is pushed, " + (System.currentTimeMillis() - startPush) + "ms");
             producer.close();
