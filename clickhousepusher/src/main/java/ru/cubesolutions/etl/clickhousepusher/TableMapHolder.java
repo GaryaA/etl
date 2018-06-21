@@ -30,7 +30,7 @@ public class TableMapHolder {
 
     static {
         Properties props = new Properties();
-        try (InputStream is = new FileInputStream("./conf/clickhousepusher.properties")) {
+        try (InputStream is = new FileInputStream("clickhousepusher.properties")) {
             props.load(is);
         } catch (FileNotFoundException e) {
             try (InputStream input = AppConfig.class.getResourceAsStream("/clickhousepusher.properties")) {
