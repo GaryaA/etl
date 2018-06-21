@@ -64,6 +64,7 @@ public class Run implements Runnable {
         } catch (ClassNotFoundException e) {
             log.error("", e);
         }
+        log.debug("rabbitConfig");
 
         RabbitConfig rabbitConfig = new RabbitConfig(Config.MQ_HOST, Config.MQ_PORT, Config.MQ_V_HOST, Config.MQ_USER, Config.MQ_PASSWORD);
         log.debug("rabbitConfig");
