@@ -38,17 +38,10 @@ public class DB {
                 connection.setAutoCommit(false);
                 log.debug("sql: " + String.format(sql, idStart, idStart + step));
                 PreparedStatement ps = connection.prepareStatement(sql);
-                ps.setFetchSize(50);
-                ResultSet rs = ps.executeQuery();
-                while(rs.next()) {
-                    log.info("a row was returned");
-                }
-                rs.close();
-
                 ps.setFetchSize(0);
 
                 long start = System.currentTimeMillis();
-                rs = ps.executeQuery();
+                ResultSet rs = ps.executeQuery();
                 log.info("sql execution: " + (System.currentTimeMillis() - start) + "ms");
 
                 int mark = 0;
