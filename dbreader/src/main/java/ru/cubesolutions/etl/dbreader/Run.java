@@ -58,7 +58,6 @@ public class Run implements Runnable {
         log.debug("Config.MQ_PORT=" + Config.MQ_PORT);
         log.debug("Config.MQ_V_HOST=" + Config.MQ_V_HOST);
         log.debug("Config.MQ_USER=" + Config.MQ_USER);
-        log.debug("Config.MQ_PASSWORD=" + Config.MQ_PASSWORD);
 
         RabbitConfig rabbitConfig = new RabbitConfig(Config.MQ_HOST, Config.MQ_PORT, Config.MQ_V_HOST, Config.MQ_USER, Config.MQ_PASSWORD);
         log.debug("rabbitConfig");
