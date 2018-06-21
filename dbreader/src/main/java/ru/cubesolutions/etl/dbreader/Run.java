@@ -32,7 +32,7 @@ public class Run implements Runnable {
         initMqProducer();
         ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
         ses.scheduleWithFixedDelay(run, 0, Config.TIME_BETWEEN_STEPS_IN_MILLISECONDS, TimeUnit.MILLISECONDS);
-        closeMqProducer();
+//        closeMqProducer();
     }
 
     private static void initMqProducer() {
