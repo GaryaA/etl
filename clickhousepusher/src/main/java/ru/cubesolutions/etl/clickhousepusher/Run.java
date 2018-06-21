@@ -13,21 +13,26 @@ import static ru.cubesolutions.etl.clickhousepusher.Utils.stop;
 /**
  * Created by Garya on 09.04.2018.
  */
-public class Run {
+public class Run implements Runnable {
 
     private final static Logger log = Logger.getLogger(AppConfig.class);
 
     public static void main(String[] args) {
         Run run = new Run();
         ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
-        ses.scheduleWithFixedDelay(run::taskPushOneBatch, 0, AppConfig.getInstance().getTimeBetweenBatchesInMilliseconds(), TimeUnit.MILLISECONDS);
+        ses.scheduleWithFixedDelay(run, 0, AppConfig.getInstance().getTimeBetweenBatchesInMilliseconds(), TimeUnit.MILLISECONDS);
     }
 
     private void taskPushOneBatch() {
         ExecutorService es = Executors.newSingleThreadExecutor();
-        es.execute(ConsumerJob.INSTANCE::start);
+        es.execute(ConsumerJob.INSTANCE);
         sleepInMilliseconds(AppConfig.getInstance().getTimeForOneBatchInMilliseconds());
         ConsumerJob.INSTANCE.stop();
         stop(es, 60);
+    }
+
+    @Override
+    public void run() {
+        taskPushOneBatch();
     }
 }

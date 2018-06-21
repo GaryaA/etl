@@ -22,6 +22,7 @@ public class Config {
 
     public static int STEP_VALUE;
     public static int TIME_BETWEEN_STEPS_IN_MILLISECONDS;
+    public static String FIELD_ID_NAME;
     public static String INITIAL_ID_SQL;
     public static String SQL;
 
@@ -62,6 +63,7 @@ public class Config {
 
         STEP_VALUE = Integer.parseInt(props.getProperty("step-value"));
         TIME_BETWEEN_STEPS_IN_MILLISECONDS = Integer.parseInt(props.getProperty("time-between-steps-in-milliseconds"));
+        FIELD_ID_NAME = props.getProperty("field-id-name");
         INITIAL_ID_SQL = props.getProperty("initial-id-sql");
         SQL = props.getProperty("sql");
 

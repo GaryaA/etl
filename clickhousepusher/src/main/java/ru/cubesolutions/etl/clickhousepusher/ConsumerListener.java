@@ -36,7 +36,7 @@ public class ConsumerListener extends DefaultConsumer {
     public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
             throws IOException {
         String json = new String(body, "UTF-8");
-        Event event = new Event(mapper.readValue(json, new TypeReference<Map<String, String>>() {
+        Event event = new Event(mapper.<Map<String, String>>readValue(json, new TypeReference<Map<String, String>>() {
         }));
         eventsWithDeliveryTags.put(envelope.getDeliveryTag(), event);
         log.debug("delivery tag:" + envelope.getDeliveryTag());

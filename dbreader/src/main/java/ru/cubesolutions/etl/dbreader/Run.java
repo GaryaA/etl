@@ -20,14 +20,14 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Garya on 08.04.2018.
  */
-public class Run {
+public class Run implements Runnable {
 
-    private final static Logger log = Logger.getLogger(DB.class);
+    private final static Logger log = Logger.getLogger(Run.class);
 
     public static void main(String[] args) throws IOException {
         Run run = new Run();
         ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
-        ses.scheduleWithFixedDelay(run::push, 0, Config.TIME_BETWEEN_STEPS_IN_MILLISECONDS, TimeUnit.MILLISECONDS);
+        ses.scheduleWithFixedDelay(run, 0, Config.TIME_BETWEEN_STEPS_IN_MILLISECONDS, TimeUnit.MILLISECONDS);
     }
 
     private void push() {
@@ -49,25 +49,39 @@ public class Run {
         log.info(eventMaps.size() + " records is read, " + (System.currentTimeMillis() - start) + "ms");
 
         if (eventMaps.isEmpty()) {
+            log.debug("eventMaps.isEmpty()");
             return;
         }
+        log.debug("eventMaps is not empty");
+
+        log.debug("Config.MQ_HOST=" + Config.MQ_HOST);
+        log.debug("Config.MQ_PORT=" + Config.MQ_PORT);
+        log.debug("Config.MQ_V_HOST=" + Config.MQ_V_HOST);
+        log.debug("Config.MQ_USER=" + Config.MQ_USER);
+        log.debug("Config.MQ_PASSWORD=" + Config.MQ_PASSWORD);
 
         RabbitConfig rabbitConfig = new RabbitConfig(Config.MQ_HOST, Config.MQ_PORT, Config.MQ_V_HOST, Config.MQ_USER, Config.MQ_PASSWORD);
+        log.debug("rabbitConfig");
         Producer producer;
+        log.debug("producer");
         try {
             producer = new Producer(rabbitConfig);
+            log.debug("producer = new Producer(rabbitConfig);");
+            producer.queueDeclare(Config.QUEUE);
+            log.debug("producer.queueDeclare(Config.QUEUE);");
         } catch (IOException e) {
-            e.printStackTrace();
-            log.error(e);
+            log.error("Can't connect to rabbitmq", e);
             throw new RuntimeException("Can't connect to rabbitmq", e);
         }
 
         ObjectMapper mapper = new ObjectMapper();
+        log.debug("ObjectMapper mapper = new ObjectMapper();");
         try {
             long startPush = System.currentTimeMillis();
             for (Map<String, String> eventMap : eventMaps) {
                 byte[] eventBytes = mapper.writer().writeValueAsBytes(eventMap);
                 producer.sendMessage(eventBytes, "", Config.QUEUE);
+                log.debug("producer.sendMessage(eventBytes, \"\", Config.QUEUE);");
             }
             log.info(eventMaps.size() + " record is pushed, " + (System.currentTimeMillis() - startPush) + "ms");
             producer.close();
@@ -94,7 +108,7 @@ public class Run {
         }
         long max = -1;
         for (Map<String, String> eventMap : eventMaps) {
-            long current = Long.parseLong(eventMap.get("client_pin"));
+            long current = Long.parseLong(eventMap.get(Config.FIELD_ID_NAME));
             if (current > max) {
                 max = current;
             }
@@ -103,4 +117,8 @@ public class Run {
     }
 
 
+    @Override
+    public void run() {
+        push();
+    }
 }

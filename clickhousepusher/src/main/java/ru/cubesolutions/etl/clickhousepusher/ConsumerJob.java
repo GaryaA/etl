@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Created by Garya on 10.02.2018.
  */
-public class ConsumerJob {
+public class ConsumerJob implements Runnable {
 
     private final static Logger log = Logger.getLogger(ConsumerJob.class);
 
@@ -118,5 +118,10 @@ public class ConsumerJob {
 
     public ConsumerListener getConsumerListener() {
         return consumerListener;
+    }
+
+    @Override
+    public void run() {
+        start();
     }
 }
