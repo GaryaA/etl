@@ -76,9 +76,10 @@ public class Run implements Runnable {
             log.error(e);
             throw new RuntimeException("Can't parse json", e);
         }
-
+        lastId = findMax(eventMaps);
+        log.info("last-id is " + lastId);
         try {
-            Files.write(Paths.get("last-id"), ("" + findMax(eventMaps)).getBytes(Charset.forName("UTF-8")), StandardOpenOption.CREATE);
+            Files.write(Paths.get("last-id"), ("" + lastId).getBytes(Charset.forName("UTF-8")), StandardOpenOption.CREATE);
         } catch (IOException e) {
             e.printStackTrace();
             log.error(e);
