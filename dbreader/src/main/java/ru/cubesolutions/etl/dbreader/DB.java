@@ -35,10 +35,9 @@ public class DB {
         List<Map<String, String>> result = new ArrayList<>();
         try {
             try (Connection connection = DataSource.getConnection()) {
-                connection.setAutoCommit(false);
                 log.debug("sql: " + String.format(sql, idStart, idStart + step));
                 PreparedStatement ps = connection.prepareStatement(sql);
-                ps.setFetchSize(50);
+                ps.setFetchSize(10000);
 
                 long start = System.currentTimeMillis();
                 ResultSet rs = ps.executeQuery();
@@ -55,8 +54,8 @@ public class DB {
                     }
 
                     result.add(params);
+                    log.info(mark);
                 }
-                rs.close();
                 if (mark == 0) {
                     log.info("Can't find any records");
                     return result;
