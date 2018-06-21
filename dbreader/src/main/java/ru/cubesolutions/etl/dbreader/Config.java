@@ -33,6 +33,8 @@ public class Config {
     public static String MQ_PASSWORD;
     public static String QUEUE;
 
+    public static Boolean LAST_ID_IN_MEMORY;
+
 
     static {
         init();
@@ -73,6 +75,8 @@ public class Config {
         MQ_USER = props.getProperty("mq-user");
         MQ_PASSWORD = props.getProperty("mq-password");
         QUEUE = props.getProperty("queue");
+
+        LAST_ID_IN_MEMORY = Boolean.parseBoolean(props.getProperty("last-id-in-memory"));
     }
 
 }

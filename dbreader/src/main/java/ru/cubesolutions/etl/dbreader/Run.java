@@ -24,6 +24,8 @@ public class Run implements Runnable {
 
     private final static Logger log = Logger.getLogger(Run.class);
 
+    private static Long LAST_ID;
+
     public static void main(String[] args) throws IOException {
         Run run = new Run();
         ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
@@ -33,15 +35,20 @@ public class Run implements Runnable {
     private void push() {
         log.info("Reader task started..");
         Long lastId;
-        try {
-            lastId = Long.parseLong(new String(Files.readAllBytes(Paths.get("last-id"))));
-        } catch (NoSuchFileException e) {
-            lastId = DB.getInitialId(Config.INITIAL_ID_SQL);
-        } catch (Exception e) {
-            log.error(e);
-            e.printStackTrace();
-            throw new RuntimeException(e);
+        if (Config.LAST_ID_IN_MEMORY) {
+            lastId = LAST_ID != null && LAST_ID > 0 ? LAST_ID : DB.getInitialId(Config.INITIAL_ID_SQL);
+        } else {
+            try {
+                lastId = Long.parseLong(new String(Files.readAllBytes(Paths.get("last-id"))));
+            } catch (NoSuchFileException e) {
+                lastId = DB.getInitialId(Config.INITIAL_ID_SQL);
+            } catch (Exception e) {
+                log.error(e);
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
         }
+
         log.info("Last id is " + lastId);
 
         long start = System.currentTimeMillis();
@@ -78,12 +85,16 @@ public class Run implements Runnable {
         }
         lastId = findMax(eventMaps);
         log.info("last-id is " + lastId);
-        try {
-            Files.write(Paths.get("last-id"), ("" + lastId).getBytes(Charset.forName("UTF-8")), StandardOpenOption.CREATE);
-        } catch (IOException e) {
-            e.printStackTrace();
-            log.error(e);
-            throw new RuntimeException("Can't write last id", e);
+        if (Config.LAST_ID_IN_MEMORY) {
+            LAST_ID = lastId;
+        } else {
+            try {
+                Files.write(Paths.get("last-id"), ("" + lastId).getBytes(Charset.forName("UTF-8")), StandardOpenOption.CREATE);
+            } catch (IOException e) {
+                e.printStackTrace();
+                log.error(e);
+                throw new RuntimeException("Can't write last id", e);
+            }
         }
 
         log.info("Reader task stopped..");
