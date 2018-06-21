@@ -38,7 +38,7 @@ public class DB {
                 connection.setAutoCommit(false);
                 log.debug("sql: " + String.format(sql, idStart, idStart + step));
                 PreparedStatement ps = connection.prepareStatement(sql);
-                ps.setFetchSize(0);
+                ps.setFetchSize(50);
 
                 long start = System.currentTimeMillis();
                 ResultSet rs = ps.executeQuery();
