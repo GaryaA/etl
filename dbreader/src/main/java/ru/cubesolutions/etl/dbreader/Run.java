@@ -59,6 +59,7 @@ public class Run implements Runnable {
         log.debug("Config.MQ_V_HOST=" + Config.MQ_V_HOST);
         log.debug("Config.MQ_USER=" + Config.MQ_USER);
         try {
+            log.debug(Class.forName("ru.cubesolutions.rabbitmq.RabbitConfig").getClass());
             log.debug(Class.forName("ru.cubesolutions.rabbitmq.RabbitConfig").getCanonicalName());
         } catch (ClassNotFoundException e) {
             log.error("", e);
