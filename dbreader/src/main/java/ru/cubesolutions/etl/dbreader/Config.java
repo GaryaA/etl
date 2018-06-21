@@ -20,10 +20,7 @@ public class Config {
     public static String JDBC_USER;
     public static String JDBC_PASSWORD;
 
-    public static int STEP_VALUE;
-    public static int TIME_BETWEEN_STEPS_IN_MILLISECONDS;
-    public static String FIELD_ID_NAME;
-    public static String INITIAL_ID_SQL;
+    public static int FETCH_SIZE;
     public static String SQL;
 
     public static String MQ_HOST;
@@ -32,10 +29,6 @@ public class Config {
     public static String MQ_USER;
     public static String MQ_PASSWORD;
     public static String QUEUE;
-
-    public static Boolean LAST_ID_IN_MEMORY;
-    public static Boolean UNLOADING_ONE_TIME;
-
 
     static {
         init();
@@ -64,10 +57,7 @@ public class Config {
         JDBC_USER = props.getProperty("jdbc-user");
         JDBC_PASSWORD = props.getProperty("jdbc-password");
 
-        STEP_VALUE = Integer.parseInt(props.getProperty("step-value"));
-        TIME_BETWEEN_STEPS_IN_MILLISECONDS = Integer.parseInt(props.getProperty("time-between-steps-in-milliseconds"));
-        FIELD_ID_NAME = props.getProperty("field-id-name");
-        INITIAL_ID_SQL = props.getProperty("initial-id-sql");
+        FETCH_SIZE = Integer.parseInt(props.getProperty("fetch-size"));
         SQL = props.getProperty("sql");
 
         MQ_HOST = props.getProperty("mq-host");
@@ -76,9 +66,6 @@ public class Config {
         MQ_USER = props.getProperty("mq-user");
         MQ_PASSWORD = props.getProperty("mq-password");
         QUEUE = props.getProperty("queue");
-
-        LAST_ID_IN_MEMORY = Boolean.parseBoolean(props.getProperty("last-id-in-memory"));
-        UNLOADING_ONE_TIME = Boolean.parseBoolean(props.getProperty("unloading-one-time"));
     }
 
 }
