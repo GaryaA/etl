@@ -35,10 +35,20 @@ public class DB {
         List<Map<String, String>> result = new ArrayList<>();
         try {
             try (Connection connection = DataSource.getConnection()) {
+                connection.setAutoCommit(false);
                 log.debug("sql: " + String.format(sql, idStart, idStart + step));
-                PreparedStatement ps = connection.prepareStatement(String.format(sql, idStart, idStart + step));
-                long start = System.currentTimeMillis();
+                PreparedStatement ps = connection.prepareStatement(sql);
+                ps.setFetchSize(50);
                 ResultSet rs = ps.executeQuery();
+                while(rs.next()) {
+                    log.info("a row was returned");
+                }
+                rs.close();
+
+                ps.setFetchSize(0);
+
+                long start = System.currentTimeMillis();
+                rs = ps.executeQuery();
                 log.info("sql execution: " + (System.currentTimeMillis() - start) + "ms");
 
                 int mark = 0;
@@ -53,6 +63,7 @@ public class DB {
 
                     result.add(params);
                 }
+                rs.close();
                 if (mark == 0) {
                     log.info("Can't find any records");
                     return result;
