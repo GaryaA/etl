@@ -29,6 +29,7 @@ public class MQPusher {
             throw new RuntimeException("Can't connect to rabbitmq", e);
         }
         this.producer = producer;
+        log.debug("mq producer is inited");
     }
 
     public void closeMqProducer() {

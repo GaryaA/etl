@@ -2,13 +2,11 @@ package ru.cubesolutions.etl.clickhousepusher;
 
 import org.apache.log4j.Logger;
 
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import static ru.cubesolutions.etl.clickhousepusher.Utils.sleepInMilliseconds;
-import static ru.cubesolutions.etl.clickhousepusher.Utils.stop;
 
 /**
  * Created by Garya on 09.04.2018.
@@ -24,11 +22,9 @@ public class Run implements Runnable {
     }
 
     private void taskPushOneBatch() {
-        ExecutorService es = Executors.newSingleThreadExecutor();
-        es.execute(ConsumerJob.INSTANCE);
+        ConsumerJob.INSTANCE.start();
         sleepInMilliseconds(AppConfig.getInstance().getTimeForOneBatchInMilliseconds());
         ConsumerJob.INSTANCE.stop();
-        stop(es, 60);
     }
 
     @Override
