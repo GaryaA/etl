@@ -81,7 +81,6 @@ public class ConsumerListener extends DefaultConsumer {
             log.info("Acknowledgement");
             this.getChannel().basicAck(maxTag(eventsWithDeliveryTags.keySet()), true);
             log.info("Acknowledged");
-            eventsWithDeliveryTags.clear();
         } catch (IOException e) {
             ++currentAttempt;
             log.error("Can't acknowledge events, try " + currentAttempt, e);
@@ -106,7 +105,6 @@ public class ConsumerListener extends DefaultConsumer {
             log.info("Restoration: " + eventsWithDeliveryTags.size() + " messages");
             this.getChannel().basicNack(maxTag(eventsWithDeliveryTags.keySet()), true, true);
             log.info("Restored " + eventsWithDeliveryTags.size());
-            eventsWithDeliveryTags.clear();
         } catch (IOException e) {
             ++currentAttempt;
             log.error("Can't restore input events, try " + currentAttempt, e);
@@ -135,6 +133,7 @@ public class ConsumerListener extends DefaultConsumer {
         } finally {
             lock.unlock();
         }
+        eventsWithDeliveryTags.clear();
     }
 
     private long maxTag(Set<Long> tags) {
