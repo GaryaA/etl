@@ -124,15 +124,15 @@ public class ConsumerListener extends DefaultConsumer {
             if (!eventsWithDeliveryTags.isEmpty()) {
                 clickhouseSupport.insertEvents(new ArrayList<>(eventsWithDeliveryTags.values()));
                 log.info(eventsWithDeliveryTags.size() + " events is inserted");
-                acknowledge();
+//                acknowledge();
             } else {
                 log.info("0 messages");
             }
         } catch (Exception e) {
             log.error("Can't write to clickhouse", e);
-            negateAcknowledge();
+//            negateAcknowledge();
         }
-        this.getChannel().basicConsume(AppConfig.getInstance().getQueue(), false, this);
+        this.getChannel().basicConsume(AppConfig.getInstance().getQueue(), true, this);
 //        } finally {
 //            lock.unlock();
 //        }
