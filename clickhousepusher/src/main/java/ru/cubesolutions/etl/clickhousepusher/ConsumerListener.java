@@ -125,6 +125,7 @@ public class ConsumerListener extends DefaultConsumer {
                 clickhouseSupport.insertEvents(new ArrayList<>(eventsWithDeliveryTags.values()));
                 log.info(eventsWithDeliveryTags.size() + " events is inserted");
 //                acknowledge();
+                eventsWithDeliveryTags.clear();
             } else {
                 log.info("0 messages");
             }
