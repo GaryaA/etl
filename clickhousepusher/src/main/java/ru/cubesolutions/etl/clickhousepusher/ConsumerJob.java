@@ -60,7 +60,7 @@ public class ConsumerJob implements Runnable {
         try {
             INSTANCE.getEndpoint().getChannel().basicCancel(INSTANCE.getConsumerListener().getConsumerTag());
             TimeUnit.SECONDS.sleep(2);
-            close(INSTANCE.getEndpoint());
+//            close(INSTANCE.getEndpoint());
         } catch (Exception e) {
             log.error("Can't stop consuming", e);
         } finally {
