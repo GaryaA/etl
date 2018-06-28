@@ -56,7 +56,6 @@ public class Run {
                 } else {
                     log.info(mark + " records are loaded");
                 }
-
             }
         } catch (Exception e) {
             log.error(e);

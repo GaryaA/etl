@@ -22,6 +22,7 @@ public class AppConfig {
     private String mqPassword;
     private String queue;
     private int flushCount;
+    private int timeToStopInSeconds;
 
     private String jdbcDriver;
     private String jdbcUrl;
@@ -31,7 +32,7 @@ public class AppConfig {
 
     private final static AppConfig INSTANCE;
 
-    private AppConfig(String mqHost, int mqPort, String mqVHost, String mqUser, String mqPassword, String queue, String jdbcDriver, String jdbcUrl, String jdbcUser, String jdbcPassword, int flushCount) {
+    private AppConfig(String mqHost, int mqPort, String mqVHost, String mqUser, String mqPassword, String queue, String jdbcDriver, String jdbcUrl, String jdbcUser, String jdbcPassword, int flushCount, int timeToStopInSeconds) {
         this.mqHost = mqHost;
         this.mqPort = mqPort;
         this.mqVHost = mqVHost;
@@ -44,6 +45,7 @@ public class AppConfig {
         this.jdbcPassword = jdbcPassword;
         this.tableMapHolder = TableMapHolder.getInstance();
         this.flushCount = flushCount;
+        this.timeToStopInSeconds = timeToStopInSeconds;
     }
 
     public static AppConfig getInstance() {
@@ -82,7 +84,8 @@ public class AppConfig {
         String queue = props.getProperty("queue");
 
         int flushCount = Integer.parseInt(props.getProperty("flush-count"));
-        INSTANCE = new AppConfig(mqHost, mqPort, mqVHost, mqUser, mqPassword, queue, jdbcDriver, jdbcUrl, jdbcUser, jdbcPassword, flushCount);
+        int timeToStopInSeconds = Integer.parseInt(props.getProperty("time-to-stop-in-seconds"));
+        INSTANCE = new AppConfig(mqHost, mqPort, mqVHost, mqUser, mqPassword, queue, jdbcDriver, jdbcUrl, jdbcUser, jdbcPassword, flushCount, timeToStopInSeconds);
     }
 
     public String getJdbcDriver() {
@@ -131,5 +134,9 @@ public class AppConfig {
 
     public int getFlushCount() {
         return flushCount;
+    }
+
+    public int getTimeToStopInSeconds() {
+        return timeToStopInSeconds;
     }
 }

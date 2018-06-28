@@ -44,6 +44,7 @@ public class ConsumerListener extends DefaultConsumer {
         ++counter;
         if (counter % AppConfig.getInstance().getFlushCount() == 0) {
             flush();
+            Counter.nullify();
         }
     }
 
@@ -56,6 +57,12 @@ public class ConsumerListener extends DefaultConsumer {
     @Override
     public void handleCancelOk(String consumerTag) {
         super.handleCancelOk(consumerTag);
+        try {
+            flush();
+        } catch (IOException e) {
+            log.error("", e);
+            throw new RuntimeException(e);
+        }
         log.info("Queue listening stopped");
     }
 

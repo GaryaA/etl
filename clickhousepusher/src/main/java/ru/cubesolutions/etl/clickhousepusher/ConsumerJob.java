@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ru.cubesolutions.rabbitmq.RabbitConfig;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Garya on 10.02.2018.
@@ -61,6 +62,43 @@ public class ConsumerJob implements Runnable {
             } catch (IOException ex) {
                 log.error("Can't start consuming", ex);
             }
+        }
+    }
+
+    public synchronized void stop() {
+        try {
+            INSTANCE.getEndpoint().getChannel().basicCancel(INSTANCE.getConsumerListener().getConsumerTag());
+            TimeUnit.MILLISECONDS.sleep(200);
+            close(INSTANCE.getEndpoint());
+        } catch (Exception e) {
+            log.error("Can't stop consuming", e);
+        }
+    }
+
+    private synchronized static void close(EndpointWrapper endpoint) {
+        try {
+            close(endpoint, 3, 0);
+        } catch (Exception e) {
+            log.error("Can't close connection to rabbitmq", e);
+        }
+    }
+
+    private synchronized static void close(EndpointWrapper endpoint, int attempts, int currentAttempt) throws Exception {
+        try {
+            if (endpoint.getChannel().isOpen()) {
+                endpoint.getChannel().close();
+            }
+            if (endpoint.getConnection().isOpen()) {
+                endpoint.getConnection().close();
+            }
+        } catch (Exception e) {
+            ++currentAttempt;
+            if (currentAttempt > attempts) {
+                throw e;
+            }
+            log.warn("Can't close connection to rabbitmq, try " + currentAttempt + "...", e);
+            Utils.sleepInSeconds(20);
+            close(endpoint, attempts, currentAttempt);
         }
     }
 
