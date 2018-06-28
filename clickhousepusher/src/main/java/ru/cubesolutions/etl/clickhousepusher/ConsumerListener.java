@@ -47,7 +47,6 @@ public class ConsumerListener extends DefaultConsumer {
         ++counter;
         if (counter % AppConfig.getInstance().getFlushCount() == 0) {
             flush();
-            Counter.INSTANCE.nullify();
         }
     }
 
@@ -59,7 +58,6 @@ public class ConsumerListener extends DefaultConsumer {
 
     @Override
     public void handleCancelOk(String consumerTag) {
-        super.handleCancelOk(consumerTag);
         try {
             flush();
         } catch (IOException e) {
@@ -67,6 +65,7 @@ public class ConsumerListener extends DefaultConsumer {
             throw new RuntimeException(e);
         }
         log.info("Queue listening stopped");
+        super.handleCancelOk(consumerTag);
     }
 
     private void acknowledge() {
@@ -137,6 +136,7 @@ public class ConsumerListener extends DefaultConsumer {
         } finally {
             lock.unlock();
         }
+        Counter.INSTANCE.nullify();
     }
 
     private long maxTag(Set<Long> tags) {
