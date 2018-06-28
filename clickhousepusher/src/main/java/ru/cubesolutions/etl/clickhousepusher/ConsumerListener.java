@@ -77,7 +77,7 @@ public class ConsumerListener extends DefaultConsumer {
                 this.getChannel().basicAck(tag, true);
                 log.debug("success");
             }
-            log.info("Acknowledged " + eventsWithDeliveryTags.size() + " messages");
+            log.info("Acknowledged ");
             eventsWithDeliveryTags.clear();
         } catch (IOException e) {
             ++currentAttempt;
@@ -116,7 +116,7 @@ public class ConsumerListener extends DefaultConsumer {
         }
     }
 
-    private void flush() {
+    private synchronized void flush() throws IOException {
 //        lock.lock();
 //        try {
         try {
@@ -132,6 +132,7 @@ public class ConsumerListener extends DefaultConsumer {
             log.error("Can't write to clickhouse", e);
             negateAcknowledge();
         }
+        this.getChannel().basicConsume(AppConfig.getInstance().getQueue(), false, this);
 //        } finally {
 //            lock.unlock();
 //        }
