@@ -53,6 +53,7 @@ public class ConsumerListener extends DefaultConsumer {
 
     @Override
     public void handleConsumeOk(String consumerTag) {
+        super.handleConsumeOk(consumerTag);
         log.info("Queue listening started, wait...");
     }
 
