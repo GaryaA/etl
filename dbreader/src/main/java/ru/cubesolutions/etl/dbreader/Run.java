@@ -53,7 +53,10 @@ public class Run {
                 }
                 if (mark == 0) {
                     log.info("Can't find any records");
+                } else {
+                    log.info(mark + " records are loaded");
                 }
+
             }
         } catch (Exception e) {
             log.error(e);
