@@ -38,7 +38,6 @@ public class ConsumerListener extends DefaultConsumer {
     @Override
     public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
             throws IOException {
-        super.handleDelivery(consumerTag, envelope, properties, body);
         String json = new String(body, "UTF-8");
         Event event = new Event(mapper.<Map<String, String>>readValue(json, new TypeReference<Map<String, String>>() {
         }));
@@ -52,7 +51,6 @@ public class ConsumerListener extends DefaultConsumer {
 
     @Override
     public void handleConsumeOk(String consumerTag) {
-        super.handleConsumeOk(consumerTag);
         log.info("Queue listening started, wait...");
     }
 
@@ -65,7 +63,6 @@ public class ConsumerListener extends DefaultConsumer {
             throw new RuntimeException(e);
         }
         log.info("Queue listening stopped");
-        super.handleCancelOk(consumerTag);
     }
 
     private void acknowledge() {
