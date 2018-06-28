@@ -48,7 +48,7 @@ public class Run {
                     byte[] eventBytes = mapper.writer().writeValueAsBytes(params);
                     mqPusher.push(eventBytes);
                     if (mark % Config.FETCH_SIZE == 0) {
-                        log.info(mark + " records is loaded");
+                        log.info(mark + " records are loaded");
                     }
                 }
                 if (mark == 0) {
