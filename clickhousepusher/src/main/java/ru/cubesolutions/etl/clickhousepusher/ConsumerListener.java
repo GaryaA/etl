@@ -70,9 +70,9 @@ public class ConsumerListener extends DefaultConsumer {
 
     private void acknowledge(int attempts, int currentAttempt) throws IOException {
         try {
-            log.info("Acknowledgement: " + eventsWithDeliveryTags.size() + " messages");
+            log.info("Acknowledgement");
             this.getChannel().basicAck(maxTag(eventsWithDeliveryTags.keySet()), true);
-            log.info("Acknowledged ");
+            log.info("Acknowledged");
             eventsWithDeliveryTags.clear();
         } catch (IOException e) {
             ++currentAttempt;
@@ -127,7 +127,7 @@ public class ConsumerListener extends DefaultConsumer {
     }
 
     private long maxTag(Set<Long> tags) {
-        if (tags == null && tags.isEmpty()) {
+        if (tags == null || tags.isEmpty()) {
             return -1;
         }
         long max = -1;
