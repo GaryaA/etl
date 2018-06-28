@@ -23,6 +23,8 @@ public class ConsumerListener extends DefaultConsumer {
 
     private final static Map<Long, Event> eventsWithDeliveryTags = new ConcurrentHashMap<>();
 
+    private static int counter = 0;
+
     private Lock lock;
     private ObjectMapper mapper = new ObjectMapper();
     private ClickhouseSupport clickhouseSupport = new ClickhouseSupport();
@@ -39,7 +41,11 @@ public class ConsumerListener extends DefaultConsumer {
         Event event = new Event(mapper.<Map<String, String>>readValue(json, new TypeReference<Map<String, String>>() {
         }));
         eventsWithDeliveryTags.put(envelope.getDeliveryTag(), event);
-        log.debug("delivery tag:" + envelope.getDeliveryTag());
+
+        ++counter;
+        if (counter % AppConfig.getInstance().getFlushCount() == 0) {
+            flush();
+        }
     }
 
     @Override
@@ -50,26 +56,7 @@ public class ConsumerListener extends DefaultConsumer {
 
     @Override
     public void handleCancelOk(String consumerTag) {
-        lock.lock();
-        try {
-            try {
-                log.info(eventsWithDeliveryTags.size() + " messages are consumed");
-                if (!eventsWithDeliveryTags.isEmpty()) {
-                    clickhouseSupport.insertEvents(new ArrayList<>(eventsWithDeliveryTags.values()));
-                    log.info(eventsWithDeliveryTags.size() + " events is inserted");
-                    acknowledge();
-                } else {
-                    log.info("0 messages");
-                }
-            } catch (Exception e) {
-                log.error("Can't write to clickhouse", e);
-                negateAcknowledge();
-            }
-            log.info("Queue listening stopped");
-            super.handleCancelOk(consumerTag);
-        } finally {
-            lock.unlock();
-        }
+        super.handleCancelOk(consumerTag);
     }
 
     private synchronized void acknowledge() {
@@ -125,6 +112,28 @@ public class ConsumerListener extends DefaultConsumer {
                 throw e;
             }
             negateAcknowledge(attempts, currentAttempt);
+        }
+    }
+
+    private synchronized void flush() {
+        lock.lock();
+        try {
+            try {
+                log.info(eventsWithDeliveryTags.size() + " messages are consumed");
+                if (!eventsWithDeliveryTags.isEmpty()) {
+                    clickhouseSupport.insertEvents(new ArrayList<>(eventsWithDeliveryTags.values()));
+                    log.info(eventsWithDeliveryTags.size() + " events is inserted");
+                    acknowledge();
+                } else {
+                    log.info("0 messages");
+                }
+            } catch (Exception e) {
+                log.error("Can't write to clickhouse", e);
+                negateAcknowledge();
+            }
+            log.info("Queue listening stopped");
+        } finally {
+            lock.unlock();
         }
     }
 
