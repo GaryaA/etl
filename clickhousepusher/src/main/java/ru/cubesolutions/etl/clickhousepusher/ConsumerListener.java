@@ -79,7 +79,6 @@ public class ConsumerListener extends DefaultConsumer {
 
     private void acknowledge(int attempts, int currentAttempt) throws IOException {
         try {
-            log.info("Acknowledgement");
             this.getChannel().basicAck(maxTag(eventsWithDeliveryTags.keySet()), true);
             log.info("Acknowledged");
         } catch (IOException e) {
