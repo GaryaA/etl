@@ -31,7 +31,7 @@ public class AppConfig {
 
     private final static AppConfig INSTANCE;
 
-    private AppConfig(String mqHost, int mqPort, String mqVHost, String mqUser, String mqPassword, String queue, String jdbcDriver, String jdbcUrl, String jdbcUser, String jdbcPassword, int flushCount, int timeForOneBatchInMilliseconds, int timeBetweenBatchesInMilliseconds) {
+    private AppConfig(String mqHost, int mqPort, String mqVHost, String mqUser, String mqPassword, String queue, String jdbcDriver, String jdbcUrl, String jdbcUser, String jdbcPassword, int flushCount) {
         this.mqHost = mqHost;
         this.mqPort = mqPort;
         this.mqVHost = mqVHost;
@@ -82,9 +82,7 @@ public class AppConfig {
         String queue = props.getProperty("queue");
 
         int flushCount = Integer.parseInt(props.getProperty("flush-count"));
-        int timeForOneBatchInMilliseconds = Integer.parseInt(props.getProperty("time-for-one-batch-in-milliseconds"));
-        int timeBetweenBatchesInMilliseconds = Integer.parseInt(props.getProperty("time-between-batches-in-milliseconds"));
-        INSTANCE = new AppConfig(mqHost, mqPort, mqVHost, mqUser, mqPassword, queue, jdbcDriver, jdbcUrl, jdbcUser, jdbcPassword, flushCount, timeForOneBatchInMilliseconds, timeBetweenBatchesInMilliseconds);
+        INSTANCE = new AppConfig(mqHost, mqPort, mqVHost, mqUser, mqPassword, queue, jdbcDriver, jdbcUrl, jdbcUser, jdbcPassword, flushCount);
     }
 
     public String getJdbcDriver() {
