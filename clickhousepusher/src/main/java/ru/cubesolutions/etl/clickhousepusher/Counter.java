@@ -1,5 +1,7 @@
 package ru.cubesolutions.etl.clickhousepusher;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * Created by Garya on 28.06.2018.
  */
@@ -7,21 +9,21 @@ public class Counter implements Runnable {
 
     public final static Counter INSTANCE = new Counter();
 
-    private static long C = 0;
+    private AtomicInteger i = new AtomicInteger(0);
 
     private Counter() {
     }
 
     @Override
     public void run() {
-        ++C;
+        i.incrementAndGet();
     }
 
-    public static long getC() {
-        return C;
+    public long getC() {
+        return i.get();
     }
 
-    public static void nullify() {
-        C = 0;
+    public void nullify() {
+        i.set(0);
     }
 }

@@ -44,7 +44,7 @@ public class ConsumerListener extends DefaultConsumer {
         ++counter;
         if (counter % AppConfig.getInstance().getFlushCount() == 0) {
             flush();
-            Counter.nullify();
+            Counter.INSTANCE.nullify();
         }
     }
 

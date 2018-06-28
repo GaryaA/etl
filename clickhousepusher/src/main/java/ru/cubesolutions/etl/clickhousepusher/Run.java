@@ -11,14 +11,15 @@ import java.util.concurrent.TimeUnit;
  */
 public class Run {
 
-    private final static Logger log = Logger.getLogger(AppConfig.class);
+    private final static Logger log = Logger.getLogger(Run.class);
 
     public static void main(String[] args) {
         ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
         exec.scheduleWithFixedDelay(Counter.INSTANCE, 0, 1, TimeUnit.SECONDS);
         ConsumerJob.INSTANCE.start();
+        log.info("test");
         while (true) {
-            if (Counter.getC() >= AppConfig.getInstance().getTimeToStopInSeconds()) {
+            if (Counter.INSTANCE.getC() >= AppConfig.getInstance().getTimeToStopInSeconds()) {
                 ConsumerJob.INSTANCE.stop();
                 break;
             }
