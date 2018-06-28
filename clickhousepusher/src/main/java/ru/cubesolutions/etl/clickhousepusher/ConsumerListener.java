@@ -116,7 +116,7 @@ public class ConsumerListener extends DefaultConsumer {
         }
     }
 
-    private synchronized void flush() {
+    private void flush() {
 //        lock.lock();
 //        try {
         try {
