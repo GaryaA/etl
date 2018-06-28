@@ -56,23 +56,23 @@ public class ConsumerJob implements Runnable {
     }
 
     public synchronized void stop() {
-        lock.lock();
         try {
             INSTANCE.getEndpoint().getChannel().basicCancel(INSTANCE.getConsumerListener().getConsumerTag());
-            TimeUnit.SECONDS.sleep(AppConfig.getInstance().getTimeToStopInSeconds());
+            TimeUnit.MILLISECONDS.sleep(300);
             close(INSTANCE.getEndpoint());
         } catch (Exception e) {
             log.error("Can't stop consuming", e);
-        } finally {
-            lock.unlock();
         }
     }
 
     private synchronized void close(EndpointWrapper endpoint) {
+        lock.lock();
         try {
             close(endpoint, 3, 0);
         } catch (Exception e) {
             log.error("Can't close connection to rabbitmq", e);
+        } finally {
+            lock.unlock();
         }
     }
 
