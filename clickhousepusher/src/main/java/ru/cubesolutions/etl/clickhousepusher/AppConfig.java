@@ -22,8 +22,6 @@ public class AppConfig {
     private String mqPassword;
     private String queue;
     private int flushCount;
-    private int timeForOneBatchInMilliseconds;
-    private int timeBetweenBatchesInMilliseconds;
 
     private String jdbcDriver;
     private String jdbcUrl;
@@ -46,8 +44,6 @@ public class AppConfig {
         this.jdbcPassword = jdbcPassword;
         this.tableMapHolder = TableMapHolder.getInstance();
         this.flushCount = flushCount;
-        this.timeForOneBatchInMilliseconds = timeForOneBatchInMilliseconds;
-        this.timeBetweenBatchesInMilliseconds = timeBetweenBatchesInMilliseconds;
     }
 
     public static AppConfig getInstance() {
@@ -137,13 +133,5 @@ public class AppConfig {
 
     public int getFlushCount() {
         return flushCount;
-    }
-
-    public int getTimeForOneBatchInMilliseconds() {
-        return timeForOneBatchInMilliseconds;
-    }
-
-    public int getTimeBetweenBatchesInMilliseconds() {
-        return timeBetweenBatchesInMilliseconds;
     }
 }
