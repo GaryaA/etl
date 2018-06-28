@@ -116,25 +116,24 @@ public class ConsumerListener extends DefaultConsumer {
     }
 
     private synchronized void flush() {
-        lock.lock();
+//        lock.lock();
+//        try {
         try {
-            try {
-                log.info(eventsWithDeliveryTags.size() + " messages are consumed");
-                if (!eventsWithDeliveryTags.isEmpty()) {
-                    clickhouseSupport.insertEvents(new ArrayList<>(eventsWithDeliveryTags.values()));
-                    log.info(eventsWithDeliveryTags.size() + " events is inserted");
-                    acknowledge();
-                } else {
-                    log.info("0 messages");
-                }
-            } catch (Exception e) {
-                log.error("Can't write to clickhouse", e);
-                negateAcknowledge();
+            log.info(eventsWithDeliveryTags.size() + " messages are consumed");
+            if (!eventsWithDeliveryTags.isEmpty()) {
+                clickhouseSupport.insertEvents(new ArrayList<>(eventsWithDeliveryTags.values()));
+                log.info(eventsWithDeliveryTags.size() + " events is inserted");
+                acknowledge();
+            } else {
+                log.info("0 messages");
             }
-            log.info("Queue listening stopped");
-        } finally {
-            lock.unlock();
+        } catch (Exception e) {
+            log.error("Can't write to clickhouse", e);
+            negateAcknowledge();
         }
+//        } finally {
+//            lock.unlock();
+//        }
     }
 
 }
