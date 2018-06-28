@@ -45,7 +45,7 @@ public class ConsumerJob implements Runnable {
 
     public synchronized void start() {
         try {
-            INSTANCE.getEndpoint().getChannel().basicConsume(AppConfig.getInstance().getQueue(), false, INSTANCE.getConsumerListener());
+            endpoint.getChannel().basicConsume(AppConfig.getInstance().getQueue(), false, consumerListener);
         } catch (Exception e) {
             log.error("Can't start consuming", e);
         }
@@ -53,9 +53,9 @@ public class ConsumerJob implements Runnable {
 
     public synchronized void stop() {
         try {
-            INSTANCE.getEndpoint().getChannel().basicCancel(INSTANCE.getConsumerListener().getConsumerTag());
+            endpoint.getChannel().basicCancel(consumerListener.getConsumerTag());
             TimeUnit.SECONDS.sleep(3);
-            close(INSTANCE.getEndpoint());
+            close(endpoint);
         } catch (Exception e) {
             log.error("Can't stop consuming", e);
         }
@@ -93,10 +93,6 @@ public class ConsumerJob implements Runnable {
 
     public EndpointWrapper getEndpoint() {
         return endpoint;
-    }
-
-    public ConsumerListener getConsumerListener() {
-        return consumerListener;
     }
 
     @Override
