@@ -5,6 +5,8 @@ import ru.cubesolutions.rabbitmq.RabbitConfig;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by Garya on 10.02.2018.
@@ -13,17 +15,9 @@ public class ConsumerJob implements Runnable {
 
     private final static Logger log = Logger.getLogger(ConsumerJob.class);
 
-    public static ConsumerJob INSTANCE;
+    public final static ConsumerJob INSTANCE;
 
     static {
-        init();
-    }
-
-    private synchronized static void init() {
-        init(3, 0);
-    }
-
-    private synchronized static void init(int attempts, int currentAttempt) {
         try {
             INSTANCE = new ConsumerJob(new EndpointWrapper(new RabbitConfig(
                     AppConfig.getInstance().getMqHost(),
@@ -34,22 +28,19 @@ public class ConsumerJob implements Runnable {
             )));
             INSTANCE.getEndpoint().getChannel().basicQos(AppConfig.getInstance().getFlushCount() * 2, false);
         } catch (IOException e) {
-            ++currentAttempt;
-            log.error("Can't init rabbitmq endpoint by properties, try " + currentAttempt, e);
-            if (currentAttempt > attempts) {
-                throw new RuntimeException("Can't init rabbitmq endpoint by properties, try " + currentAttempt, e);
-            }
-            Utils.sleepInSeconds(20);
-            init(attempts, currentAttempt);
+            log.error("", e);
+            throw new RuntimeException(e);
         }
     }
 
     private EndpointWrapper endpoint;
     private ConsumerListener consumerListener;
+    private Lock lock;
 
     private ConsumerJob(EndpointWrapper endpoint) {
         this.endpoint = endpoint;
-        this.consumerListener = new ConsumerListener(endpoint.getChannel());
+        this.lock = new ReentrantLock();
+        this.consumerListener = new ConsumerListener(endpoint.getChannel(), lock);
     }
 
     public synchronized void start() {
@@ -57,7 +48,6 @@ public class ConsumerJob implements Runnable {
             INSTANCE.getEndpoint().getChannel().basicConsume(AppConfig.getInstance().getQueue(), false, INSTANCE.getConsumerListener());
         } catch (Exception e) {
             try {
-                init();
                 INSTANCE.getEndpoint().getChannel().basicConsume(AppConfig.getInstance().getQueue(), false, INSTANCE.getConsumerListener());
             } catch (IOException ex) {
                 log.error("Can't start consuming", ex);
@@ -66,16 +56,19 @@ public class ConsumerJob implements Runnable {
     }
 
     public synchronized void stop() {
+        lock.lock();
         try {
             INSTANCE.getEndpoint().getChannel().basicCancel(INSTANCE.getConsumerListener().getConsumerTag());
             TimeUnit.MILLISECONDS.sleep(200);
             close(INSTANCE.getEndpoint());
         } catch (Exception e) {
             log.error("Can't stop consuming", e);
+        } finally {
+            lock.unlock();
         }
     }
 
-    private synchronized static void close(EndpointWrapper endpoint) {
+    private synchronized void close(EndpointWrapper endpoint) {
         try {
             close(endpoint, 3, 0);
         } catch (Exception e) {
@@ -83,7 +76,7 @@ public class ConsumerJob implements Runnable {
         }
     }
 
-    private synchronized static void close(EndpointWrapper endpoint, int attempts, int currentAttempt) throws Exception {
+    private synchronized void close(EndpointWrapper endpoint, int attempts, int currentAttempt) throws Exception {
         try {
             if (endpoint.getChannel().isOpen()) {
                 endpoint.getChannel().close();

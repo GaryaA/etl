@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.Lock;
 
 /**
  * Created by Garya on 09.02.2018.
@@ -27,9 +28,11 @@ public class ConsumerListener extends DefaultConsumer {
 
     private ObjectMapper mapper = new ObjectMapper();
     private ClickhouseSupport clickhouseSupport = new ClickhouseSupport();
+    private Lock lock;
 
-    public ConsumerListener(Channel channel) {
+    public ConsumerListener(Channel channel, Lock lock) {
         super(channel);
+        this.lock = lock;
     }
 
     @Override
@@ -117,6 +120,7 @@ public class ConsumerListener extends DefaultConsumer {
     }
 
     private void flush() throws IOException {
+        lock.lock();
         try {
             log.info(counter + " messages are consumed");
             if (!eventsWithDeliveryTags.isEmpty()) {
@@ -128,8 +132,10 @@ public class ConsumerListener extends DefaultConsumer {
                 log.info("0 messages");
             }
         } catch (Exception e) {
-            log.error("Can't write to clickhouse", e);
+            log.error("", e);
             negateAcknowledge();
+        } finally {
+            lock.unlock();
         }
     }
 

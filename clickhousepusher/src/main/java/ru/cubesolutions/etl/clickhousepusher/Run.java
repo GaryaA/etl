@@ -17,7 +17,6 @@ public class Run {
         ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
         exec.scheduleWithFixedDelay(Counter.INSTANCE, 0, 1, TimeUnit.SECONDS);
         ConsumerJob.INSTANCE.start();
-        log.info("test");
         while (true) {
             if (Counter.INSTANCE.getC() >= AppConfig.getInstance().getTimeToStopInSeconds()) {
                 ConsumerJob.INSTANCE.stop();
