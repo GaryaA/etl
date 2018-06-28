@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -58,7 +59,7 @@ public class ConsumerListener extends DefaultConsumer {
         log.info("Queue listening stopped");
     }
 
-    private synchronized void acknowledge() {
+    private void acknowledge() {
         try {
             acknowledge(4, 0);
         } catch (IOException e) {
@@ -67,17 +68,15 @@ public class ConsumerListener extends DefaultConsumer {
         }
     }
 
-    private synchronized void acknowledge(int attempts, int currentAttempt) throws IOException {
+    private void acknowledge(int attempts, int currentAttempt) throws IOException {
         try {
             log.info("Acknowledgement: " + eventsWithDeliveryTags.size() + " messages");
-            for (Long tag : eventsWithDeliveryTags.keySet()) {
-                this.getChannel().basicAck(tag, true);
-            }
+            this.getChannel().basicAck(maxTag(eventsWithDeliveryTags.keySet()), true);
             log.info("Acknowledged ");
             eventsWithDeliveryTags.clear();
         } catch (IOException e) {
             ++currentAttempt;
-            log.error("Can't acknowledge input events, try " + currentAttempt, e);
+            log.error("Can't acknowledge events, try " + currentAttempt, e);
             if (currentAttempt > attempts) {
                 throw e;
             }
@@ -85,7 +84,7 @@ public class ConsumerListener extends DefaultConsumer {
         }
     }
 
-    private synchronized void negateAcknowledge() {
+    private void negateAcknowledge() {
         try {
             negateAcknowledge(4, 0);
         } catch (IOException e) {
@@ -94,12 +93,10 @@ public class ConsumerListener extends DefaultConsumer {
         }
     }
 
-    private synchronized void negateAcknowledge(int attempts, int currentAttempt) throws IOException {
+    private void negateAcknowledge(int attempts, int currentAttempt) throws IOException {
         try {
             log.info("Restoration: " + eventsWithDeliveryTags.size() + " messages");
-            for (Long tag : eventsWithDeliveryTags.keySet()) {
-                this.getChannel().basicNack(tag, true, true);
-            }
+            this.getChannel().basicNack(maxTag(eventsWithDeliveryTags.keySet()), true, true);
             log.info("Restored " + eventsWithDeliveryTags.size());
             eventsWithDeliveryTags.clear();
         } catch (IOException e) {
@@ -112,7 +109,7 @@ public class ConsumerListener extends DefaultConsumer {
         }
     }
 
-    private synchronized void flush() throws IOException {
+    private void flush() throws IOException {
         try {
             log.info(counter + " messages are consumed");
             if (!eventsWithDeliveryTags.isEmpty()) {
@@ -128,5 +125,19 @@ public class ConsumerListener extends DefaultConsumer {
             negateAcknowledge();
         }
     }
+
+    private long maxTag(Set<Long> tags) {
+        if (tags == null && tags.isEmpty()) {
+            return -1;
+        }
+        long max = -1;
+        for (Long tag : tags) {
+            if (tag > max) {
+                max = tag;
+            }
+        }
+        return max;
+    }
+
 
 }
