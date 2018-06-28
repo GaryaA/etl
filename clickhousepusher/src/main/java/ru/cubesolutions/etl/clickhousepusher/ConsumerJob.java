@@ -36,7 +36,7 @@ public class ConsumerJob implements Runnable {
                     AppConfig.getInstance().getMqUser(),
                     AppConfig.getInstance().getMqPassword()
             )), new ReentrantLock());
-            INSTANCE.getEndpoint().getChannel().basicQos(AppConfig.getInstance().getFlushCount());
+//            INSTANCE.getEndpoint().getChannel().basicQos(AppConfig.getInstance().getFlushCount());
         } catch (IOException e) {
             ++currentAttempt;
             log.error("Can't init rabbitmq endpoint by properties, try " + currentAttempt, e);
