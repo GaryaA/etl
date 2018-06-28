@@ -64,7 +64,7 @@ public class ConsumerListener extends DefaultConsumer {
             if (!eventsWithDeliveryTags.isEmpty()) {
                 long start = System.currentTimeMillis();
                 clickhouseSupport.insertEvents(new ArrayList<>(eventsWithDeliveryTags.values()));
-                log.info(eventsWithDeliveryTags.size() + " events are inserted, " + (System.currentTimeMillis() - start));
+                log.info(eventsWithDeliveryTags.size() + " events are inserted, " + (System.currentTimeMillis() - start) + "ms");
                 eventsWithDeliveryTags.clear();
             } else {
                 log.info("0 messages");
