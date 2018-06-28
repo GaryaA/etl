@@ -58,6 +58,60 @@ public class ConsumerListener extends DefaultConsumer {
         log.info("Queue listening stopped");
     }
 
+    private synchronized void acknowledge() {
+        try {
+            acknowledge(4, 0);
+        } catch (IOException e) {
+            log.error("Internal error, can't acknowledge input events", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    private synchronized void acknowledge(int attempts, int currentAttempt) throws IOException {
+        try {
+            log.info("Acknowledgement: " + eventsWithDeliveryTags.size() + " messages");
+            for (Long tag : eventsWithDeliveryTags.keySet()) {
+                this.getChannel().basicAck(tag, true);
+            }
+            log.info("Acknowledged ");
+            eventsWithDeliveryTags.clear();
+        } catch (IOException e) {
+            ++currentAttempt;
+            log.error("Can't acknowledge input events, try " + currentAttempt, e);
+            if (currentAttempt > attempts) {
+                throw e;
+            }
+            acknowledge(attempts, currentAttempt);
+        }
+    }
+
+    private synchronized void negateAcknowledge() {
+        try {
+            negateAcknowledge(4, 0);
+        } catch (IOException e) {
+            log.error("Internal error, can't restore input events", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    private synchronized void negateAcknowledge(int attempts, int currentAttempt) throws IOException {
+        try {
+            log.info("Restoration: " + eventsWithDeliveryTags.size() + " messages");
+            for (Long tag : eventsWithDeliveryTags.keySet()) {
+                this.getChannel().basicNack(tag, true, true);
+            }
+            log.info("Restored " + eventsWithDeliveryTags.size());
+            eventsWithDeliveryTags.clear();
+        } catch (IOException e) {
+            ++currentAttempt;
+            log.error("Can't restore input events, try " + currentAttempt, e);
+            if (currentAttempt > attempts) {
+                throw e;
+            }
+            negateAcknowledge(attempts, currentAttempt);
+        }
+    }
+
     private synchronized void flush() throws IOException {
         try {
             log.info(counter + " messages are consumed");
@@ -65,12 +119,13 @@ public class ConsumerListener extends DefaultConsumer {
                 long start = System.currentTimeMillis();
                 clickhouseSupport.insertEvents(new ArrayList<>(eventsWithDeliveryTags.values()));
                 log.info(counter + " events are inserted, " + (System.currentTimeMillis() - start) + "ms");
-                eventsWithDeliveryTags.clear();
+                acknowledge();
             } else {
                 log.info("0 messages");
             }
         } catch (Exception e) {
             log.error("Can't write to clickhouse", e);
+            negateAcknowledge();
         }
     }
 
