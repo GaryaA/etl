@@ -45,7 +45,9 @@ public class ConsumerListener extends DefaultConsumer {
 
         ++counter;
         if (counter % AppConfig.getInstance().getFlushCount() == 0) {
+            Counter.INSTANCE.nullify();
             flush();
+            Counter.INSTANCE.nullify();
         }
     }
 
@@ -133,7 +135,6 @@ public class ConsumerListener extends DefaultConsumer {
         } finally {
             lock.unlock();
         }
-        Counter.INSTANCE.nullify();
     }
 
     private long maxTag(Set<Long> tags) {
