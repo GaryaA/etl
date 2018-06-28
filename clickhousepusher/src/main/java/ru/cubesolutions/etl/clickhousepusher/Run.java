@@ -20,7 +20,7 @@ public class Run {
         while (true) {
             if (Counter.INSTANCE.getC() >= AppConfig.getInstance().getTimeToStopInSeconds()) {
                 ConsumerJob.INSTANCE.stop();
-                exec.shutdownNow();
+//                exec.shutdownNow();
                 break;
             }
         }
