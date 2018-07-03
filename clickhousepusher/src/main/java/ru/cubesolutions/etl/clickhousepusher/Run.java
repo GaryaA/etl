@@ -23,7 +23,11 @@ public class Run {
                 exec.shutdownNow();
                 break;
             }
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                log.error("", e);
+            }
         }
     }
-
 }
