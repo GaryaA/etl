@@ -107,31 +107,23 @@ public class ClickhouseSupport {
         } else if (columnType.equals("string")) {
             ps.setString(index, value);
         } else if (columnType.equals("datetime")) {
-            if (column.getValueFormat() == null) {
-                ps.setTimestamp(index, null);
-                log.warn("Can't parse timestamp for column: " + column + ", need to set column-value-format. I'm writing " + column.getName() + " as null");
-            } else {
-                Timestamp timestamp = null;
-                try {
-                    timestamp = Timestamp.valueOf(LocalDateTime.parse(value, DateTimeFormatter.ofPattern(column.getValueFormat())));
-                } catch (Exception e) {
-                    log.warn("Can't parse timestamp for column: " + column + ", need to set correct column-value-format. I'm writing " + column.getName() + " as null");
-                }
-                ps.setTimestamp(index, timestamp);
+            Timestamp timestamp;
+            try {
+                timestamp = Timestamp.valueOf(LocalDateTime.parse(value, DateTimeFormatter.ofPattern(column.getValueFormat())));
+            } catch (Exception e) {
+                log.error("Can't parse timestamp for column: " + column + ", need to set correct column-value-format. Writing " + column.getName() + " as null");
+                throw new RuntimeException(e);
             }
+            ps.setTimestamp(index, timestamp);
         } else if (columnType.equals("date")) {
-            if (column.getValueFormat() == null) {
-                ps.setDate(index, null);
-                log.warn("Can't parse date for column: " + column + ", need to set column-value-format. I'm writing " + column.getName() + " as null");
-            } else {
-                Date date = null;
-                try {
-                    date = Date.valueOf(LocalDate.parse(value, DateTimeFormatter.ofPattern(column.getValueFormat())));
-                } catch (Exception e) {
-                    log.warn("Can't parse date for column: " + column + ", need to set correct column-value-format. I'm writing " + column.getName() + " as null");
-                }
-                ps.setDate(index, date);
+            Date date;
+            try {
+                date = Date.valueOf(LocalDate.parse(value, DateTimeFormatter.ofPattern(column.getValueFormat())));
+            } catch (Exception e) {
+                log.error("Can't parse date for column: " + column + ", need to set correct column-value-format. Writing " + column.getName() + " as null");
+                throw new RuntimeException(e);
             }
+            ps.setDate(index, date);
         } else if (columnType.contains("float")) {
             if (columnType.contains("32")) {
                 ps.setFloat(index, Float.parseFloat(value));
