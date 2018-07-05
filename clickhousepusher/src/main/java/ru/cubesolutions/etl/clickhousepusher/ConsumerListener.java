@@ -107,7 +107,8 @@ public class ConsumerListener extends DefaultConsumer {
         try {
             log.info("Restoration: " + eventsWithDeliveryTags.size() + " messages");
             this.getChannel().basicNack(maxTag(eventsWithDeliveryTags.keySet()), true, true);
-            log.info("Restored " + eventsWithDeliveryTags.size());
+            log.info("Restored ");
+            counter -= eventsWithDeliveryTags.size();
         } catch (IOException e) {
             ++currentAttempt;
             log.error("Can't restore input events, try " + currentAttempt, e);

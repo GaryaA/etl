@@ -12,7 +12,7 @@
     <modules>
         <module>dbreader</module>
         <module>clickhousepusher</module>
-        <module>controller</module>
+        <module>etl-controller</module>
     </modules>
 
     <dependencies>
