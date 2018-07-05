@@ -11,41 +11,37 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Created by Garya on 10.02.2018.
  */
-public class ConsumerJob implements Runnable {
+public class ConsumerJob {
 
     private final static Logger log = Logger.getLogger(ConsumerJob.class);
 
-    public final static ConsumerJob INSTANCE;
-
-    static {
-        try {
-            INSTANCE = new ConsumerJob(new EndpointWrapper(new RabbitConfig(
-                    AppConfig.getInstance().getMqHost(),
-                    AppConfig.getInstance().getMqPort(),
-                    AppConfig.getInstance().getMqVHost(),
-                    AppConfig.getInstance().getMqUser(),
-                    AppConfig.getInstance().getMqPassword()
-            )));
-            INSTANCE.getEndpoint().getChannel().basicQos(AppConfig.getInstance().getFlushCount() * 2, false);
-        } catch (IOException e) {
-            log.error("", e);
-            throw new RuntimeException(e);
-        }
-    }
-
+    private DestConfig appConfig;
     private EndpointWrapper endpoint;
     private ConsumerListener consumerListener;
     private Lock lock;
 
-    private ConsumerJob(EndpointWrapper endpoint) {
-        this.endpoint = endpoint;
+    public ConsumerJob(DestConfig appConfig) {
+        this.appConfig = appConfig;
+        try {
+            this.endpoint = new EndpointWrapper(new RabbitConfig(
+                    appConfig.getMqHost(),
+                    appConfig.getMqPort(),
+                    appConfig.getMqVHost(),
+                    appConfig.getMqUser(),
+                    appConfig.getMqPassword()
+            ));
+            this.endpoint.getChannel().basicQos(appConfig.getFlushCount() * 2, false);
+        } catch (IOException e) {
+            log.error("", e);
+            throw new RuntimeException(e);
+        }
         this.lock = new ReentrantLock();
-        this.consumerListener = new ConsumerListener(endpoint.getChannel(), lock);
+        this.consumerListener = new ConsumerListener(endpoint.getChannel(), lock, appConfig);
     }
 
     public synchronized void start() {
         try {
-            endpoint.getChannel().basicConsume(AppConfig.getInstance().getQueue(), false, consumerListener);
+            endpoint.getChannel().basicConsume(this.appConfig.getQueue(), false, consumerListener);
         } catch (Exception e) {
             log.error("Can't start consuming", e);
         }
@@ -95,8 +91,4 @@ public class ConsumerJob implements Runnable {
         return endpoint;
     }
 
-    @Override
-    public void run() {
-        start();
-    }
 }

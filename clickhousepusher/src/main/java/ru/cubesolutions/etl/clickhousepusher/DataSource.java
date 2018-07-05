@@ -10,14 +10,15 @@ import java.sql.SQLException;
  * Created by Garya on 02.02.2018.
  */
 public class DataSource {
-    private static HikariConfig config = new HikariConfig();
-    private static HikariDataSource ds;
 
-    static {
-        config.setDriverClassName(AppConfig.getInstance().getJdbcDriver());
-        config.setJdbcUrl(AppConfig.getInstance().getJdbcUrl());
-        config.setUsername(AppConfig.getInstance().getJdbcUser());
-        config.setPassword(AppConfig.getInstance().getJdbcPassword());
+    private HikariConfig config = new HikariConfig();
+    private HikariDataSource ds;
+
+    public DataSource(DestConfig appConfig) {
+        config.setDriverClassName(appConfig.getJdbcDriver());
+        config.setJdbcUrl(appConfig.getJdbcUrl());
+        config.setUsername(appConfig.getJdbcUser());
+        config.setPassword(appConfig.getJdbcPassword());
         config.setMaximumPoolSize(1);
         config.setReadOnly(false);
 //        config.addDataSourceProperty("cachePrepStmts", "false");
@@ -26,10 +27,7 @@ public class DataSource {
         ds = new HikariDataSource(config);
     }
 
-    public DataSource() {
-    }
-
-    public static Connection getConnection() throws SQLException {
+    public Connection getConnection() throws SQLException {
         return ds.getConnection();
     }
 }

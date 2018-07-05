@@ -14,16 +14,18 @@ public class MQPusher {
     private final static Logger log = Logger.getLogger(MQPusher.class);
 
     private Producer producer;
+    private SrcConfig appConfig;
 
-    public MQPusher() {
+    public MQPusher(SrcConfig appConfig) {
+        this.appConfig = appConfig;
     }
 
     public void initMqProducer() {
-        RabbitConfig rabbitConfig = new RabbitConfig(Config.MQ_HOST, Config.MQ_PORT, Config.MQ_V_HOST, Config.MQ_USER, Config.MQ_PASSWORD);
+        RabbitConfig rabbitConfig = new RabbitConfig(this.appConfig.getMqHost(), this.appConfig.getMqPort(), this.appConfig.getMqVHost(), this.appConfig.getMqUser(), this.appConfig.getMqPassword());
         Producer producer;
         try {
             producer = new Producer(rabbitConfig);
-            producer.queueDeclare(Config.QUEUE);
+            producer.queueDeclare(this.appConfig.getQueue());
         } catch (IOException e) {
             log.error("Can't connect to rabbitmq", e);
             throw new RuntimeException("Can't connect to rabbitmq", e);
@@ -42,7 +44,7 @@ public class MQPusher {
 
     public void push(byte[] bytes) {
         try {
-            this.producer.sendMessage(bytes, "", Config.QUEUE);
+            this.producer.sendMessage(bytes, "", this.appConfig.getQueue());
         } catch (IOException e) {
             log.error("", e);
             throw new RuntimeException(e);

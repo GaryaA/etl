@@ -27,12 +27,15 @@ public class ConsumerListener extends DefaultConsumer {
     private static int counter = 0;
 
     private ObjectMapper mapper = new ObjectMapper();
-    private ClickhouseSupport clickhouseSupport = new ClickhouseSupport();
+    private ClickhouseSupport clickhouseSupport;
     private Lock lock;
+    private DestConfig appConfig;
 
-    public ConsumerListener(Channel channel, Lock lock) {
+    public ConsumerListener(Channel channel, Lock lock, DestConfig appConfig) {
         super(channel);
         this.lock = lock;
+        this.appConfig = appConfig;
+        this.clickhouseSupport = new ClickhouseSupport(appConfig);
     }
 
     @Override
@@ -44,7 +47,7 @@ public class ConsumerListener extends DefaultConsumer {
         eventsWithDeliveryTags.put(envelope.getDeliveryTag(), event);
 
         ++counter;
-        if (counter % AppConfig.getInstance().getFlushCount() == 0) {
+        if (counter % this.appConfig.getFlushCount() == 0) {
             Counter.INSTANCE.nullify();
             flush();
             Counter.INSTANCE.nullify();

@@ -19,14 +19,21 @@ public class ClickhouseSupport {
 
     private final static Logger log = Logger.getLogger(ClickhouseSupport.class);
 
+    private DestConfig appConfig;
+    private DataSource dataSource;
+
+    public ClickhouseSupport(DestConfig appConfig) {
+        this.appConfig = appConfig;
+        this.dataSource = new DataSource(appConfig);
+    }
+
     public void insertEvents(List<Event> events) {
         if (isNullOrEmpty(events)) {
             return;
         }
         Set<String> paramNames = events.get(0).getParams().keySet();
-        AppConfig appConfig = AppConfig.getInstance();
         TableMapHolder tableMapHolder = appConfig.getTableMapHolder();
-        try (Connection connection = DataSource.getConnection()) {
+        try (Connection connection = dataSource.getConnection()) {
             StringBuilder sql = new StringBuilder("insert into "
                     + tableMapHolder.getDbName() + "." + tableMapHolder.getTable().getTableName()
                     + " (");
@@ -61,35 +68,47 @@ public class ClickhouseSupport {
             ps.executeBatch();
             connection.commit();
         } catch (Exception e) {
-            log.error(e);
+            log.error("", e);
             throw new RuntimeException(e);
         }
-
     }
 
-    private static void appendColumnName(StringBuilder sql, String eventParamName) {
-        Column column = AppConfig.getInstance().getTableMapHolder().getColumnByParamName(eventParamName);
+    public void truncateTable(String tableName) {
+        checkTableOrColumnNameForSqlInjection(tableName);
+        try (Connection connection = dataSource.getConnection()) {
+            String sql = "truncate table " + tableName;
+            connection.setAutoCommit(true);
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            log.error("", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void appendColumnName(StringBuilder sql, String eventParamName) {
+        Column column = appConfig.getTableMapHolder().getColumnByParamName(eventParamName);
         if (isNotNull(column)) {
             sql.append(column.getName()).append(",");
         }
     }
 
-    private static void appendValue(StringBuilder sql, String eventParamName, String value) {
-        Column column = AppConfig.getInstance().getTableMapHolder().getColumnByParamName(eventParamName);
+    private void appendValue(StringBuilder sql, String eventParamName, String value) {
+        Column column = appConfig.getTableMapHolder().getColumnByParamName(eventParamName);
         if (isNotNull(column)) {
             sql.append(value).append(",");
         }
     }
 
-    private static void appendQuestionMark(StringBuilder sql, String eventParamName, int index) {
-        Column column = AppConfig.getInstance().getTableMapHolder().getColumnByParamName(eventParamName);
+    private void appendQuestionMark(StringBuilder sql, String eventParamName, int index) {
+        Column column = appConfig.getTableMapHolder().getColumnByParamName(eventParamName);
         if (isNotNull(column)) {
             sql.append("?").append(",");
         }
     }
 
-    private static void setValue(PreparedStatement ps, String eventParamName, String value, int index) throws SQLException {
-        Column column = AppConfig.getInstance().getTableMapHolder().getColumnByParamName(eventParamName);
+    private void setValue(PreparedStatement ps, String eventParamName, String value, int index) throws SQLException {
+        Column column = appConfig.getTableMapHolder().getColumnByParamName(eventParamName);
         if (isNull(column)) {
             return;
         }
