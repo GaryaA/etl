@@ -39,13 +39,13 @@ public class SrcConfig {
             try (InputStream input = SrcConfig.class.getResourceAsStream("/" + fileNameProperties)) {
                 props.load(input);
             } catch (Throwable t) {
-                log.error("File config" + fileNameProperties + " not found", e);
-                System.out.println("File config" + fileNameProperties + " not found");
+                log.error("File config " + fileNameProperties + " not found", e);
+                System.out.println("File config " + fileNameProperties + " not found");
                 throw new RuntimeException(t);
             }
         } catch (Throwable t) {
-            log.error("File config" + fileNameProperties + " not found", t);
-            System.out.println("File config" + fileNameProperties + " not found");
+            log.error("File config " + fileNameProperties + " not found", t);
+            System.out.println("File config " + fileNameProperties + " not found");
             throw new RuntimeException(t);
         }
         jdbcDriver = props.getProperty("jdbc-driver");

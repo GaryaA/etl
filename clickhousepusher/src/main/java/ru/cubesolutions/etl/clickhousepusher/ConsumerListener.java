@@ -47,7 +47,7 @@ public class ConsumerListener extends DefaultConsumer {
         eventsWithDeliveryTags.put(envelope.getDeliveryTag(), event);
 
         ++counter;
-        if (counter % this.appConfig.getFlushCount() == 0) {
+        if (counter % this.appConfig.getFetchSize() == 0) {
             Counter.INSTANCE.nullify();
             flush();
             Counter.INSTANCE.nullify();

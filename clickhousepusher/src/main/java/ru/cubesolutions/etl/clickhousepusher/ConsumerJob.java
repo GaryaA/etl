@@ -30,7 +30,7 @@ public class ConsumerJob {
                     appConfig.getMqUser(),
                     appConfig.getMqPassword()
             ));
-            this.endpoint.getChannel().basicQos(appConfig.getFlushCount() * 2, false);
+            this.endpoint.getChannel().basicQos(appConfig.getFetchSize() * 2, false);
         } catch (IOException e) {
             log.error("", e);
             throw new RuntimeException(e);

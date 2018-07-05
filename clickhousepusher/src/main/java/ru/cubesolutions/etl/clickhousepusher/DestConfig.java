@@ -21,7 +21,7 @@ public class DestConfig {
     private String mqUser;
     private String mqPassword;
     private String queue;
-    private int flushCount;
+    private int fetchSize;
     private int timeToStopInSeconds;
 
     private String jdbcDriver;
@@ -61,14 +61,14 @@ public class DestConfig {
         String mqPassword = props.getProperty("mq-password");
         String queue = props.getProperty("queue");
 
-        int flushCount = Integer.parseInt(props.getProperty("flush-count"));
+        int fetchSize = Integer.parseInt(props.getProperty("fetch-size"));
         int timeToStopInSeconds = Integer.parseInt(props.getProperty("time-to-stop-in-seconds"));
 
         TableMapHolder tableMapHolder = new TableMapHolder(filePropertiesName);
-        init(mqHost, mqPort, mqVHost, mqUser, mqPassword, queue, jdbcDriver, jdbcUrl, jdbcUser, jdbcPassword, flushCount, timeToStopInSeconds, tableMapHolder);
+        init(mqHost, mqPort, mqVHost, mqUser, mqPassword, queue, jdbcDriver, jdbcUrl, jdbcUser, jdbcPassword, fetchSize, timeToStopInSeconds, tableMapHolder);
     }
 
-    private void init(String mqHost, int mqPort, String mqVHost, String mqUser, String mqPassword, String queue, String jdbcDriver, String jdbcUrl, String jdbcUser, String jdbcPassword, int flushCount, int timeToStopInSeconds, TableMapHolder tableMapHolder) {
+    private void init(String mqHost, int mqPort, String mqVHost, String mqUser, String mqPassword, String queue, String jdbcDriver, String jdbcUrl, String jdbcUser, String jdbcPassword, int fetchSize, int timeToStopInSeconds, TableMapHolder tableMapHolder) {
         this.mqHost = mqHost;
         this.mqPort = mqPort;
         this.mqVHost = mqVHost;
@@ -80,7 +80,7 @@ public class DestConfig {
         this.jdbcUser = jdbcUser;
         this.jdbcPassword = jdbcPassword;
         this.tableMapHolder = tableMapHolder;
-        this.flushCount = flushCount;
+        this.fetchSize = fetchSize;
         this.timeToStopInSeconds = timeToStopInSeconds;
     }
 
@@ -128,8 +128,8 @@ public class DestConfig {
         return queue;
     }
 
-    public int getFlushCount() {
-        return flushCount;
+    public int getFetchSize() {
+        return fetchSize;
     }
 
     public int getTimeToStopInSeconds() {
