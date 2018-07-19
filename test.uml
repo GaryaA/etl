@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>31d78474-d2a3-41eb-a592-01feb86ad09a.DATABASE:testSmp</OriginalElement>
+  <nodes>
+    <node x="3185.1566723382234" y="3268.5">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.negative_information</node>
+    <node x="3285.1566723382234" y="1774.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_msb</node>
+    <node x="2793.0397650433893" y="985.5">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_history</node>
+    <node x="307.6265404057083" y="3114.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.deposit_contract</node>
+    <node x="2778.2017080745336" y="2082.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.reactions</node>
+    <node x="761.8762634355321" y="4205.5">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.deposit_history</node>
+    <node x="3037.0397650433893" y="974.5">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_msb_history</node>
+    <node x="1467.256788247215" y="2038.5">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.passport</node>
+    <node x="2053.5519880732136" y="1983.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.participants</node>
+    <node x="1718.5836909717636" y="3037.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.preapproved</node>
+    <node x="461.33333333333303" y="1062.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.credit_contract</node>
+    <node x="1199.3223737390415" y="1205.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.source</node>
+    <node x="2816.4773245121364" y="3246.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_result_other</node>
+    <node x="505.52689694286664" y="156.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.filial</node>
+    <node x="1628.256788247215" y="1928.5">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.address</node>
+    <node x="1107.039396942867" y="3147.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.card</node>
+    <node x="815.8541666666664" y="2016.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.insurance</node>
+    <node x="2221.0397650433893" y="1150.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.offers</node>
+    <node x="2599.0397650433893" y="1194.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.iom_system</node>
+    <node x="2418.0397650433893" y="1194.5">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_contact</node>
+    <node x="911.0393969428668" y="3235.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.application_history</node>
+    <node x="1041.8541666666665" y="1917.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.application</node>
+    <node x="3585.018737060041" y="1194.5">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_refuse</node>
+    <node x="653.333333333333" y="400.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.branches</node>
+    <node x="2219.9767080745337" y="433.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup</node>
+    <node x="3327.740005671557" y="864.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client</node>
+    <node x="2298.2186547398796" y="3180.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_result_call</node>
+    <node x="1945.5836909717636" y="2652.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_summary</node>
+    <node x="592.8188405797096" y="2005.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.account</node>
+    <node x="215.33333333333303" y="2027.5">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.credit_history</node>
+    <node x="3.33333333333303" y="455.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.product</node>
+    <node x="1356.2095967688654" y="4150.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.TRANSACTION</node>
+    <node x="832.8396739130429" y="0.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.bank</node>
+    <node x="2289.5519880732136" y="1928.0">31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.iom_campaigns</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.deposit_history" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.source">
+      <point x="26.0" y="-124.5" />
+      <point x="891.8762634355321" y="4120.0" />
+      <point x="1369.652173913043" y="4120.0" />
+      <point x="1369.652173913043" y="1724.0" />
+      <point x="1271.3223737390415" y="1724.0" />
+      <point x="8.0" y="59.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_result_call" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.iom_campaigns">
+      <point x="0.0" y="-191.0" />
+      <point x="15.166666666666629" y="235.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.credit_contract" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.filial">
+      <point x="-21.375" y="-202.0" />
+      <point x="525.458333333333" y="380.0" />
+      <point x="546.3268969428668" y="380.0" />
+      <point x="-27.199999999999818" y="92.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.preapproved" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.offers">
+      <point x="-25.875" y="-334.0" />
+      <point x="1796.2086909717636" y="2632.0" />
+      <point x="1793.756788247215" y="2632.0" />
+      <point x="1793.756788247215" y="1734.0" />
+      <point x="2258.968336471961" y="1734.0" />
+      <point x="-50.571428571428555" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_result_call" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.reactions">
+      <point x="78.0" y="-191.0" />
+      <point x="2473.7186547398796" y="2632.0" />
+      <point x="2820.9517080745336" y="2632.0" />
+      <point x="-42.75" y="81.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.account" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.credit_contract">
+      <point x="-80.83333333333348" y="-158.0" />
+      <point x="608.9855072463761" y="1754.0" />
+      <point x="525.458333333333" y="1754.0" />
+      <point x="-21.375" y="202.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_result_other" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.offers">
+      <point x="38.40000000000009" y="-125.0" />
+      <point x="2950.8773245121365" y="2622.0" />
+      <point x="2990.9767080745332" y="2622.0" />
+      <point x="2990.9767080745332" y="1744.0" />
+      <point x="2385.396907900532" y="1744.0" />
+      <point x="75.85714285714278" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.deposit_contract" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.branches">
+      <point x="0.0" y="-257.0" />
+      <point x="413.1265404057083" y="2612.0" />
+      <point x="450.83333333333303" y="2612.0" />
+      <point x="450.83333333333303" y="724.0" />
+      <point x="675.708333333333" y="724.0" />
+      <point x="-67.125" y="147.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.deposit_contract" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="84.40000000000009" y="-257.0" />
+      <point x="497.5265404057084" y="2632.0" />
+      <point x="1450.148092595041" y="2632.0" />
+      <point x="1450.148092595041" y="784.0" />
+      <point x="2249.715838509316" y="784.0" />
+      <point x="-46.26086956521749" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_result_other" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.reactions">
+      <point x="0.0" y="-125.0" />
+      <point x="2912.4773245121364" y="2632.0" />
+      <point x="2906.4517080745336" y="2632.0" />
+      <point x="42.75" y="81.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.passport" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="35.25" y="-124.5" />
+      <point x="1573.006788247215" y="804.0" />
+      <point x="2262.933229813664" y="804.0" />
+      <point x="-33.043478260869506" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.TRANSACTION" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="63.666666666666515" y="-180.0" />
+      <point x="1515.3762634355319" y="4130.0" />
+      <point x="3562.240005671557" y="4130.0" />
+      <point x="3562.240005671557" y="744.0" />
+      <point x="2362.0636645962727" y="744.0" />
+      <point x="66.08695652173924" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.iom_campaigns" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.iom_campaigns">
+      <point x="-75.83333333333337" y="235.0" />
+      <point x="2304.71865473988" y="2418.0" />
+      <point x="2269.5519880732136" y="2418.0" />
+      <point x="2269.5519880732136" y="2163.0" />
+      <point x="-91.0" y="-0.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_result_other" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.iom_campaigns">
+      <point x="-38.40000000000009" y="-125.0" />
+      <point x="2874.0773245121363" y="2582.0" />
+      <point x="2426.0519880732136" y="2582.0" />
+      <point x="45.5" y="235.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_msb_history" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="0.0" y="-289.5" />
+      <point x="3133.0397650433893" y="794.0" />
+      <point x="2329.020186335403" y="794.0" />
+      <point x="33.043478260869506" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.address" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.source">
+      <point x="-36.0" y="-234.5" />
+      <point x="1664.256788247215" y="1694.0" />
+      <point x="1319.3223737390415" y="1694.0" />
+      <point x="56.0" y="59.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.insurance" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.branches">
+      <point x="-77.25" y="-147.0" />
+      <point x="841.6041666666664" y="1694.0" />
+      <point x="776.2083333333331" y="1694.0" />
+      <point x="776.2083333333331" y="734.0" />
+      <point x="809.958333333333" y="734.0" />
+      <point x="67.125" y="147.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.application" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.source">
+      <point x="0.0" y="-246.0" />
+      <point x="1146.3541666666665" y="1734.0" />
+      <point x="1239.3223737390415" y="1734.0" />
+      <point x="-24.0" y="59.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_msb" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="-65.33333333333326" y="-389.0" />
+      <point x="3317.240005671557" y="764.0" />
+      <point x="2348.846273291925" y="764.0" />
+      <point x="52.86956521739148" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.participants" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="-48.75" y="-180.0" />
+      <point x="2102.3019880732136" y="844.0" />
+      <point x="2289.3680124223597" y="844.0" />
+      <point x="-6.608695652173992" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.negative_information" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.bank">
+      <point x="59.66666666666674" y="-102.5" />
+      <point x="3334.32333900489" y="2632.0" />
+      <point x="3574.518737060041" y="2632.0" />
+      <point x="3574.518737060041" y="126.0" />
+      <point x="921.3396739130429" y="126.0" />
+      <point x="29.5" y="48.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.negative_information" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="0.0" y="-102.5" />
+      <point x="3274.6566723382234" y="774.0" />
+      <point x="2342.237577639751" y="774.0" />
+      <point x="46.26086956521749" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.deposit_history" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.deposit_contract">
+      <point x="-26.0" y="-124.5" />
+      <point x="839.8762634355321" y="4120.0" />
+      <point x="413.1265404057083" y="4120.0" />
+      <point x="0.0" y="257.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_refuse" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="-37.75" y="-69.5" />
+      <point x="3622.768737060041" y="734.0" />
+      <point x="2368.6723602484467" y="734.0" />
+      <point x="72.695652173913" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_summary" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.iom_campaigns">
+      <point x="61.0" y="-719.0" />
+      <point x="2128.5836909717636" y="2632.0" />
+      <point x="2365.3853214065466" y="2632.0" />
+      <point x="-15.166666666666629" y="235.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.credit_contract" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="64.125" y="-202.0" />
+      <point x="610.958333333333" y="744.0" />
+      <point x="2223.2810559006207" y="744.0" />
+      <point x="-72.695652173913" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.application" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.credit_contract">
+      <point x="-69.66666666666652" y="-246.0" />
+      <point x="1076.6875" y="1684.0" />
+      <point x="610.958333333333" y="1684.0" />
+      <point x="64.125" y="202.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.branches" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.filial">
+      <point x="-44.75" y="-147.0" />
+      <point x="698.083333333333" y="370.0" />
+      <point x="600.7268969428665" y="370.0" />
+      <point x="27.199999999999818" y="92.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_refuse" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.bank">
+      <point x="37.75" y="-69.5" />
+      <point x="3698.268737060041" y="116.0" />
+      <point x="941.0063405797094" y="116.0" />
+      <point x="49.166666666666515" y="48.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.account" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.filial">
+      <point x="-16.166666666666515" y="-158.0" />
+      <point x="673.652173913043" y="1734.0" />
+      <point x="642.833333333333" y="1734.0" />
+      <point x="642.833333333333" y="380.0" />
+      <point x="573.5268969428666" y="380.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.offers" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.iom_campaigns">
+      <point x="50.571428571428555" y="114.0" />
+      <point x="2360.1111936148177" y="1754.0" />
+      <point x="2426.0519880732136" y="1754.0" />
+      <point x="45.5" y="-235.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.branches" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.bank">
+      <point x="44.75" y="-147.0" />
+      <point x="787.583333333333" y="380.0" />
+      <point x="883.6765404057082" y="380.0" />
+      <point x="883.6765404057082" y="136.0" />
+      <point x="882.0063405797094" y="136.0" />
+      <point x="-9.833333333333485" y="48.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.account" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.source">
+      <point x="80.83333333333348" y="-158.0" />
+      <point x="770.652173913043" y="1714.0" />
+      <point x="1207.3223737390415" y="1714.0" />
+      <point x="-56.0" y="59.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.offers" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.offers">
+      <point x="-75.85714285714289" y="114.0" />
+      <point x="2233.6826221862466" y="1398.0" />
+      <point x="2201.0397650433893" y="1398.0" />
+      <point x="2201.0397650433893" y="1264.0" />
+      <point x="-88.5" y="-0.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.preapproved" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.iom_campaigns">
+      <point x="77.625" y="-334.0" />
+      <point x="1899.7086909717636" y="2622.0" />
+      <point x="2335.0519880732136" y="2622.0" />
+      <point x="-45.5" y="235.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.deposit_contract" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.filial">
+      <point x="-42.19999999999982" y="-257.0" />
+      <point x="370.92654040570847" y="2622.0" />
+      <point x="204.83333333333303" y="2622.0" />
+      <point x="204.83333333333303" y="380.0" />
+      <point x="519.1268969428666" y="380.0" />
+      <point x="-54.40000000000009" y="92.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.credit_history" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.credit_contract">
+      <point x="0.0" y="-135.5" />
+      <point x="327.83333333333303" y="1754.0" />
+      <point x="482.70833333333303" y="1754.0" />
+      <point x="-64.125" y="202.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.iom_campaigns" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.offers">
+      <point x="-45.5" y="-235.0" />
+      <point x="25.285714285714334" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.deposit_contract" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.product">
+      <point x="-84.40000000000009" y="-257.0" />
+      <point x="328.7265404057082" y="2632.0" />
+      <point x="72.5" y="2632.0" />
+      <point x="72.5" y="844.0" />
+      <point x="98.83333333333303" y="844.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_result_call" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="39.0" y="-191.0" />
+      <point x="2434.7186547398796" y="2622.0" />
+      <point x="2588.5397650433893" y="2622.0" />
+      <point x="2588.5397650433893" y="824.0" />
+      <point x="2309.194099378881" y="824.0" />
+      <point x="13.217391304347757" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.account" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.branches">
+      <point x="16.166666666666515" y="-158.0" />
+      <point x="705.9855072463761" y="1694.0" />
+      <point x="765.2083333333331" y="1694.0" />
+      <point x="22.375" y="147.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.filial" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.bank">
+      <point x="0.0" y="-92.0" />
+      <point x="573.5268969428666" y="136.0" />
+      <point x="862.3396739130429" y="136.0" />
+      <point x="-29.5" y="48.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.account" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="48.5" y="-158.0" />
+      <point x="738.3188405797096" y="1704.0" />
+      <point x="787.2083333333331" y="1704.0" />
+      <point x="787.2083333333331" y="754.0" />
+      <point x="2229.889751552794" y="754.0" />
+      <point x="-66.08695652173924" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.deposit_history" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="78.0" y="-124.5" />
+      <point x="943.8762634355321" y="4130.0" />
+      <point x="1456.756788247215" y="4130.0" />
+      <point x="1456.756788247215" y="794.0" />
+      <point x="2256.32453416149" y="794.0" />
+      <point x="-39.6521739130435" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.insurance" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.filial">
+      <point x="-25.75" y="-147.0" />
+      <point x="893.1041666666664" y="1704.0" />
+      <point x="870.1041666666664" y="1704.0" />
+      <point x="870.1041666666664" y="360.0" />
+      <point x="627.9268969428667" y="360.0" />
+      <point x="54.40000000000009" y="92.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.product" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.bank">
+      <point x="0.0" y="-92.0" />
+      <point x="98.83333333333303" y="126.0" />
+      <point x="842.6730072463764" y="126.0" />
+      <point x="-49.166666666666515" y="48.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.deposit_contract" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.account">
+      <point x="42.19999999999982" y="-257.0" />
+      <point x="455.3265404057081" y="2622.0" />
+      <point x="641.3188405797096" y="2622.0" />
+      <point x="-48.5" y="158.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.participants" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.offers">
+      <point x="48.75" y="-180.0" />
+      <point x="2199.8019880732136" y="1744.0" />
+      <point x="2284.254050757675" y="1744.0" />
+      <point x="-25.285714285714334" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_history" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="0.0" y="-278.5" />
+      <point x="2905.0397650433893" y="804.0" />
+      <point x="2322.411490683229" y="804.0" />
+      <point x="26.43478260869574" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.TRANSACTION" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.source">
+      <point x="0.0" y="-180.0" />
+      <point x="1451.7095967688654" y="4120.0" />
+      <point x="1412.789396942867" y="4120.0" />
+      <point x="1412.789396942867" y="1714.0" />
+      <point x="1287.3223737390415" y="1714.0" />
+      <point x="24.0" y="59.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_contact" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="0.0" y="-69.5" />
+      <point x="2498.0397650433893" y="834.0" />
+      <point x="2302.5854037267077" y="834.0" />
+      <point x="6.608695652173992" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.iom_system" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="0.0" y="-70.0" />
+      <point x="2686.0397650433893" y="814.0" />
+      <point x="2315.802795031055" y="814.0" />
+      <point x="19.82608695652175" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.credit_contract" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.product">
+      <point x="-64.125" y="-202.0" />
+      <point x="482.70833333333303" y="714.0" />
+      <point x="162.49999999999955" y="714.0" />
+      <point x="63.666666666666515" y="92.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.card" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.account">
+      <point x="-48.25" y="-224.0" />
+      <point x="1155.289396942867" y="2612.0" />
+      <point x="738.3188405797096" y="2612.0" />
+      <point x="48.5" y="158.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.credit_contract" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.account">
+      <point x="21.375" y="202.0" />
+      <point x="568.208333333333" y="1744.0" />
+      <point x="641.3188405797096" y="1744.0" />
+      <point x="-48.5" y="-158.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_result_other" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.participants">
+      <point x="-76.80000000000007" y="-125.0" />
+      <point x="2835.6773245121362" y="2592.0" />
+      <point x="2216.0519880732136" y="2592.0" />
+      <point x="65.0" y="180.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="0.0" y="-400.0" />
+      <point x="3439.740005671557" y="754.0" />
+      <point x="2355.4549689440987" y="754.0" />
+      <point x="59.47826086956525" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_result_call" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.offers">
+      <point x="-39.0" y="-191.0" />
+      <point x="2356.7186547398796" y="2602.0" />
+      <point x="2259.0519880732136" y="2602.0" />
+      <point x="2259.0519880732136" y="1754.0" />
+      <point x="2309.5397650433893" y="1754.0" />
+      <point x="0.0" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.credit_contract" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.branches">
+      <point x="21.375" y="-202.0" />
+      <point x="568.208333333333" y="734.0" />
+      <point x="720.458333333333" y="734.0" />
+      <point x="-22.375" y="147.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.application" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="69.66666666666652" y="-246.0" />
+      <point x="1216.020833333333" y="1754.0" />
+      <point x="1344.4310693912155" y="1754.0" />
+      <point x="1344.4310693912155" y="774.0" />
+      <point x="2243.107142857142" y="774.0" />
+      <point x="-52.869565217391255" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.address" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="36.0" y="-234.5" />
+      <point x="1736.256788247215" y="814.0" />
+      <point x="2269.5419254658377" y="814.0" />
+      <point x="-26.43478260869574" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_result_call" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.participants">
+      <point x="-78.0" y="-191.0" />
+      <point x="2317.7186547398796" y="2612.0" />
+      <point x="2151.0519880732136" y="2612.0" />
+      <point x="0.0" y="180.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.source" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.bank">
+      <point x="0.0" y="-59.0" />
+      <point x="1263.3223737390415" y="136.0" />
+      <point x="901.6730072463764" y="136.0" />
+      <point x="9.833333333333485" y="48.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.insurance" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="77.25" y="-147.0" />
+      <point x="996.1041666666664" y="1744.0" />
+      <point x="1337.8223737390415" y="1744.0" />
+      <point x="1337.8223737390415" y="764.0" />
+      <point x="2236.498447204968" y="764.0" />
+      <point x="-59.47826086956525" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.preapproved" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="-77.625" y="-334.0" />
+      <point x="1744.4586909717636" y="2632.0" />
+      <point x="1782.756788247215" y="2632.0" />
+      <point x="1782.756788247215" y="824.0" />
+      <point x="2276.1506211180117" y="824.0" />
+      <point x="-19.82608695652175" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.deposit_history" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.product">
+      <point x="-78.0" y="-124.5" />
+      <point x="787.8762634355321" y="4130.0" />
+      <point x="61.5" y="4130.0" />
+      <point x="61.5" y="844.0" />
+      <point x="35.166666666666515" y="844.0" />
+      <point x="-63.666666666666515" y="92.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_summary" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="-61.0" y="-719.0" />
+      <point x="2006.5836909717636" y="834.0" />
+      <point x="2282.7593167701857" y="834.0" />
+      <point x="-13.217391304347757" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.communication_result_other" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="76.79999999999995" y="-125.0" />
+      <point x="2989.277324512136" y="2632.0" />
+      <point x="3239.5397650433893" y="2632.0" />
+      <point x="3239.5397650433893" y="784.0" />
+      <point x="2335.628881987577" y="784.0" />
+      <point x="39.6521739130435" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.insurance" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.source">
+      <point x="25.75" y="-147.0" />
+      <point x="944.6041666666664" y="1724.0" />
+      <point x="1223.3223737390415" y="1724.0" />
+      <point x="-40.0" y="59.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.card" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.source">
+      <point x="48.25" y="-224.0" />
+      <point x="1251.789396942867" y="2622.0" />
+      <point x="1334.777173913043" y="2622.0" />
+      <point x="1334.777173913043" y="1734.0" />
+      <point x="1255.3223737390415" y="1734.0" />
+      <point x="-8.0" y="59.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.passport" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.source">
+      <point x="-35.25" y="-124.5" />
+      <point x="1502.506788247215" y="1704.0" />
+      <point x="1303.3223737390415" y="1704.0" />
+      <point x="40.0" y="59.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.TRANSACTION" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.card">
+      <point x="-63.666666666666515" y="-180.0" />
+      <point x="1388.0429301021989" y="4110.0" />
+      <point x="1203.539396942867" y="4110.0" />
+      <point x="0.0" y="224.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.offers" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_dedup">
+      <point x="1.1368683772161603E-13" y="-114.0" />
+      <point x="2309.5397650433893" y="844.0" />
+      <point x="2295.9767080745337" y="844.0" />
+      <point x="0.0" y="114.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.application_history" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.application">
+      <point x="0.0" y="-136.0" />
+      <point x="999.0393969428668" y="2622.0" />
+      <point x="1146.3541666666665" y="2622.0" />
+      <point x="0.0" y="246.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_msb" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client">
+      <point x="0.0" y="-389.0" />
+      <point x="-56.0" y="400.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.preapproved" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.participants">
+      <point x="25.875" y="-334.0" />
+      <point x="1847.9586909717636" y="2612.0" />
+      <point x="2086.0519880732136" y="2612.0" />
+      <point x="-65.0" y="180.0" />
+    </edge>
+    <edge source="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.negative_information" target="31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.iom_campaigns">
+      <point x="-59.66666666666666" y="-102.5" />
+      <point x="3214.990005671557" y="2572.0" />
+      <point x="2456.3853214065466" y="2572.0" />
+      <point x="75.83333333333326" y="235.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.1" x="3195.0" y="2622.4950322901163" />
+  <SelectedNodes>
+    <node>31d78474-d2a3-41eb-a592-01feb86ad09a.TABLE:testSmp.public.client_msb</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+
