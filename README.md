@@ -1,740 +1,803 @@
-369
-column-name-0=CIF_ID
-column-name-1=CU_CUSTOMER_STATUS
-column-name-2=CU_BANK_TYPE
-column-name-3=CU_CUSTOMER_NUMBER_IN_A_BANK
-column-name-4=CU_CUSTOMER_NUMBER_IN_B_BANK
-column-name-5=CU_BUSINESS_SEGM_TYPE
-column-name-6=CU_BUSINESS_SEGM_NAME
-column-name-7=CU_CS_CLIENT_TYPE
-column-name-8=CU_LEGAL_STATUS
-column-name-9=CU_INN
-column-name-10=CU_IS_RAIFFEISEN_GR_EMP_F
-column-name-11=CU_IS_PEP_F
-column-name-12=CU_IS_COMPLIANCE_F
-column-name-13=CU_FATCA_STATUS
-column-name-14=CU_CITIZENSHIP
-column-name-15=CU_CITIZENSHIP_COUNTRY_CODE
-column-name-16=CU_GENDER
-column-name-17=CU_BIRTHDATE
-column-name-18=CU_AGE
-column-name-19=CU_AGE_M
-column-name-20=CU_PLACE_OF_BIRTH
-column-name-21=CU_BIRTH_COUNTRY
-column-name-22=CU_ID_CATEGORY
-column-name-23=CU_MARITAL_STATUS
-column-name-24=CU_CHILDREN_COUNT
-column-name-25=CU_RESIDENCE_OWN_TYPE
-column-name-26=CU_EDUCATION_LEVEL
-column-name-27=CU_DECEASE_DATE
-column-name-28=CU_IS_PROPERTY_OWNER_F
-column-name-29=CU_IS_CAR_OWNER_F
-column-name-30=CU_HAS_CRIME_HISTORY_F
-column-name-31=CU_COMPANY_EML_ID
-column-name-32=CU_PARENT_CODE
-column-name-33=CU_POSITION
-column-name-34=CU_EMPL_EMPLOYER_NAME
-column-name-35=CU_OGRN
-column-name-36=CU_EMP_START_DATE
-column-name-37=CU_JOB_EMP_LEGAL_STR
-column-name-38=CU_JOB_EMP_ACTIVITY_SPHERE
-column-name-39=CU_JOB_OCCUPATION_TYPE
-column-name-40=CU_JOB_SINCE_DATE
-column-name-41=CU_APPL_LAST_M
-column-name-42=CU_APPL_ML_LAST_D
-column-name-43=CU_APPL_PL_LAST_D
-column-name-44=CU_APPL_AL_LAST_D
-column-name-45=CU_APPL_CC_LAST_D
-column-name-46=CU_APPL_LAST_REJ_M
-column-name-47=CU_APPL_ML_REJ_LAST_D
-column-name-48=CU_APPL_PL_REJ_LAST_D
-column-name-49=CU_APPL_AL_REJ_LAST_D
-column-name-50=CU_APPL_CC_REJ_LAST_D
-column-name-51=CU_APPL_LCS_F
-column-name-52=CU_APPL_DEPENDANTS_C
-column-name-53=CU_APPL_EMPL_SIZE
-column-name-54=CU_BU_TYPE
-column-name-55=CU_BU_OPEN_DATE
-column-name-56=CU_BU_CLOSE_DATE
-column-name-57=CU_BU_LPC_CODE
-column-name-58=CU_BU_PRODUCT_GROUP
-column-name-59=CU_BU_GRACE_F
-column-name-60=CU_BU_GRACE_END_DATE
-column-name-61=CU_BU_ANNUAL_FEE_DATE
-column-name-62=CU_BU_ANNUAL_FEE_C
-column-name-63=CU_FIRST_OPEN_ACC_DATE
-column-name-64=CU_MOB
-column-name-65=CU_MOB_CCA
-column-name-66=CU_TD_OPEN_EVER_C
-column-name-67=CU_MG_OPEN_EVER_C
-column-name-68=CU_LOAN_OPEN_EVER_C
-column-name-69=CU_AL_OPEN_EVER_C
-column-name-70=CU_CA_OPEN_EVER_C
-column-name-71=CU_SO_OPEN_EVER_C
-column-name-72=CU_CC_SUPPLEMENTARY_OWN_F
-column-name-73=CU_CC_SUPPLIMENTARY_OTHER_F
-column-name-74=CU_DC_SUPPLEMENTARY_OWN_F
-column-name-75=CU_DC_SUPPLIMENTARY_OTHER_F
-column-name-76=CU_CA_C
-column-name-77=CU_DC_C
-column-name-78=CU_CC_C
-column-name-79=CU_SO_C
-column-name-80=CU_SA_C
-column-name-81=CU_ML_C
-column-name-82=CU_AL_C
-column-name-83=CU_PL_C
-column-name-84=CU_TD_C
-column-name-85=CU_OPS_F
-column-name-86=CU_NPF_F
-column-name-87=CU_CREDIT_C
-column-name-88=CU_CA_CLOSED_EVER_C
-column-name-89=CU_TD_CLOSED_EVER_C
-column-name-90=CU_MIF_CLOSED_EVER_C
-column-name-91=CU_CC_CLOSED_EVER_C
-column-name-92=CU_ML_CLOSED_EVER_C
-column-name-93=CU_PL_CLOSED_EVER_C
-column-name-94=CU_AL_CLOSED_EVER_C
-column-name-95=CU_CREDIT_CLOSED_EVER_C
-column-name-96=CU_LOAN_EARLY_REPAY_EVER_C
-column-name-97=CU_MORT_EARLY_REPAY_EVER_C
-column-name-98=CU_AL_EARLY_REPAY_EVER_C
-column-name-99=CU_RC_NOLOG_F
-column-name-100=CU_RC_LOG_NOACT_F
-column-name-101=CU_RC_LOG_ACT_NOUSE_F
-column-name-102=CU_RC_EVER_F
-column-name-103=CU_SB_OPEN_DATE
-column-name-104=CU_SB_CLOSE_DATE
-column-name-105=CU_SB_DESCRIPTION
-column-name-106=CU_LAST_CLIP_MONTHS_C
-column-name-107=CU_CCA_LIMIT_V
-column-name-108=CU_BAL_PL_0M_V
-column-name-109=CU_LIAB_INV_AVG1E_V
-column-name-110=CU_LIAB_INV_AVG3E_V
-column-name-111=CU_LIAB_INV_AVG6E_V
-column-name-112=CU_LIAB_INV_AVG12E_V
-column-name-113=CU_LIAB_INV_AVG3M_V
-column-name-114=CU_LIAB_INV_AVG6M_V
-column-name-115=CU_LIAB_INV_AVG12M_V
-column-name-116=CU_BAL_MIF_0M_V
-column-name-117=CU_BAL_MIF_1E_V
-column-name-118=CU_BAL_MIF_AVG2M_V
-column-name-119=CU_BAL_MIF_AVG3M_V
-column-name-120=CU_BAL_MIF_AVG6M_V
-column-name-121=CU_BAL_MIF_AVG12M_V
-column-name-122=CU_BAL_TD_0M_V
-column-name-123=CU_BAL_TD_AVG2E_V
-column-name-124=CU_BAL_TD_AVG3E_V
-column-name-125=CU_BAL_TD_AVG6E_V
-column-name-126=CU_BAL_TD_AVG12E_V
-column-name-127=CU_GROSS_INCOME
-column-name-128=CU_DPD_DAY_C
-column-name-129=CU_DPD_MAX_DPD_DAY_6M_C
-column-name-130=CU_DPD_MAX_DPD_DAY_12M_C
-column-name-131=CU_MAX_DPD_DAY_C
-column-name-132=CU_DPD_V
-column-name-133=CU_DPD_F
-column-name-134=CU_CARD_TO_CARD_PAYMENT_F
-column-name-135=CU_ATM_FOREIGN_PAYMENT_F
-column-name-136=CU_POS_FOREIGN_PAYMENT_F
-column-name-137=CU_UBP_PAYMENT_F
-column-name-138=CU_TRX_DC_POS_AVG3M_V
-column-name-139=CU_TRX_DC_POS_AVG6M_V
-column-name-140=CU_TRX_DC_POS_AVG12M_V
-column-name-141=CU_TRX_CC_POS_AVG3M_V
-column-name-142=CU_TRX_CC_POS_AVG6M_V
-column-name-143=CU_TRX_CC_POS_AVG12M_V
-column-name-144=CU_TRX_DC_CASH_AVG3M_V
-column-name-145=CU_TRX_DC_CASH_AVG6M_V
-column-name-146=CU_TRX_DC_CASH_AVG12M_V
-column-name-147=CU_TRX_CC_CASH_AVG3M_V
-column-name-148=CU_TRX_CC_CASH_AVG6M_V
-column-name-149=CU_TRX_CC_CASH_AVG12M_V
-column-name-150=CU_TRX_CA_INC_0M_V
-column-name-151=CU_TRX_CA_INC_AVG3M_V
-column-name-152=CU_TRX_CA_INC_AVG6M_V
-column-name-153=CU_TRX_CA_INC_AVG12M_V
-column-name-154=CU_TRX_ML_INC_0M
-column-name-155=CU_TRX_PL_INC_0M
-column-name-156=CU_TRX_AL_INC_0M
-column-name-157=CU_TRX_CC_INC_0M
-column-name-158=CU_PAYRL_V
-column-name-159=CU_POB
-column-name-160=CU_PAYRL_FIRST_DATE
-column-name-161=CU_PAYRL_LAST_DATE
-column-name-162=CU_PAYRL_MOB
-column-name-163=CU_PAYRL_EMPLYR_FIRST_DATE
-column-name-164=CU_PAYRL_EMPLYR_LAST_DATE
-column-name-165=CU_PAYRL_LAST_30DAYS_F
-column-name-166=CU_PAYRL_IND_V
-column-name-167=CU_POB_IND
-column-name-168=CU_PAYRL_IND_LAST_DATE
-column-name-169=CU_PAYRL_IND_MOB
-column-name-170=CU_PAYRL_IND_LAST_30DAYS_F
-column-name-171=CU_OFFICIAL_SALARY
-column-name-172=CU_OFFICIAL_VALIDITY_DATE
-column-name-173=CU_CONFIRMED_SALARY
-column-name-174=CU_CONFIRMED_VALIDITY_DATE
-column-name-175=CU_SURROGATE_SALARY
-column-name-176=CU_SURROGATE_VALIDITY_DATE
-column-name-177=CU_DECLARED_SALARY
-column-name-178=CU_DECLARED_VALIDITY_DATE
-column-name-179=CU_SALARY_V
-column-name-180=CU_SALARY_TYPE
-column-name-181=CU_SALARY_FIRST_M
-column-name-182=CU_SALARY_FINAL_AVG3M_V
-column-name-183=CU_SALARY_FINAL_AVG6M_V
-column-name-184=CU_SALARY_FINAL_AVG12M_V
-column-name-185=CU_DOCUMENT_TYPE
-column-name-186=CU_DOCUMENT_SERIE
-column-name-187=CU_DOCUMENT_NUMBER
-column-name-188=CU_ISSUED_BY_NAME
-column-name-189=CU_ISSUED_BY_CODE
-column-name-190=CU_ISSUE_DATE
-column-name-191=CU_FULL_NAME
-column-name-192=CU_NAME
-column-name-193=CU_PATRONYMIC_NAME
-column-name-194=CU_SURNAME
-column-name-195=CU_SALUTATION
-column-name-196=CU_FULLNAME_LAT
-column-name-197=CU_FIRSTNAME_LAT
-column-name-198=CU_PATRONYMIC_LAT
-column-name-199=CU_SURNAME_LAT
-column-name-200=CU_SPECIAL_INFO
-column-name-201=CU_CURRENT_ADDR_SINCE_DATE
-column-name-202=CU_LEGALAD_ADDR_RU_LINE
-column-name-203=CU_LEGALAD_COUNTRY
-column-name-204=CU_LEGALAD_ZIP_CODE
-column-name-205=CU_LEGALAD_FULL_KLADR_CODE
-column-name-206=CU_LEGALAD_REGION
-column-name-207=CU_LEGALAD_REGION_KLADR_CODE
-column-name-208=CU_LEGALAD_AREA
-column-name-209=CU_LEGALAD_AREA_KLADR_CODE
-column-name-210=CU_LEGALAD_CITY
-column-name-211=CU_LEGALAD_CITY_KLADR_CODE
-column-name-212=CU_LEGALAD_LOCALITY
-column-name-213=CU_LEGALAD_LOCALITY_KLADR_CODE
-column-name-214=CU_LEGALAD_STREET
-column-name-215=CU_LEGALAD_STREET_KLADR_CODE
-column-name-216=CU_LEGALAD_HOUSE
-column-name-217=CU_LEGALAD_HOUSE_KLADR_CODE
-column-name-218=CU_LEGALAD_BLOCK_NR
-column-name-219=CU_LEGALAD_BUILDING
-column-name-220=CU_LEGALAD_BUILDING_KLADR_CODE
-column-name-221=CU_LEGALAD_APARTMENT_OFFICE
-column-name-222=CU_CURRAD_ADDR_RU_LINE1
-column-name-223=CU_CURRAD_COUNTRY
-column-name-224=CU_CURRAD_ZIP_CODE
-column-name-225=CU_CURRAD_FULL_KLADR_CODE
-column-name-226=CU_CURRAD_REGION
-column-name-227=CU_CURRAD_REGION_KLADR_CODE
-column-name-228=CU_CURRAD_AREA
-column-name-229=CU_CURRAD_AREA_KLADR_CODE
-column-name-230=CU_CURRAD_CITY
-column-name-231=CU_CURRAD_CITY_KLADR_CODE
-column-name-232=CU_CURRAD_LOCALITY
-column-name-233=CU_CURRAD_LOCALITY_KLADR_CODE
-column-name-234=CU_CURRAD_STREET
-column-name-235=CU_CURRAD_STREET_KLADR_CODE
-column-name-236=CU_CURRAD_HOUSE
-column-name-237=CU_CURRAD_HOUSE_KLADR_CODE
-column-name-238=CU_CURRAD_BLOCK_NR
-column-name-239=CU_CURRAD_BUILDING
-column-name-240=CU_CURRAD_BUILDING_KLADR_CODE
-column-name-241=CU_CURRAD_APARTMENT_OFFICE
-column-name-242=CU_POSTAD_ADDR_RU_LINE1
-column-name-243=CU_POSTAD_COUNTRY
-column-name-244=CU_POSTAD_ZIP_CODE
-column-name-245=CU_POSTAD_FULL_KLADR_CODE
-column-name-246=CU_POSTAD_REGION
-column-name-247=CU_POSTAD_REGION_KLADR_CODE
-column-name-248=CU_POSTAD_AREA
-column-name-249=CU_POSTAD_AREA_KLADR_CODE
-column-name-250=CU_POSTAD_CITY
-column-name-251=CU_POSTAD_CITY_KLADR_CODE
-column-name-252=CU_POSTAD_LOCALITY
-column-name-253=CU_POSTAD_LOCALITY_KLADR_CODE
-column-name-254=CU_POSTAD_STREET
-column-name-255=CU_POSTAD_STREET_KLADR_CODE
-column-name-256=CU_POSTAD_HOUSE
-column-name-257=CU_POSTAD_HOUSE_KLADR_CODE
-column-name-258=CU_POSTAD_BLOCK_NR
-column-name-259=CU_POSTAD_BUILDING
-column-name-260=CU_POSTAD_BUILDING_KLADR_CODE
-column-name-261=CU_POSTAD_APARTMENT_OFFICE
-column-name-262=CU_BUSAD_ADDR_RU_LINE1
-column-name-263=CU_BUSAD_COUNTRY
-column-name-264=CU_BUSAD_ZIP_CODE
-column-name-265=CU_BUSAD_FULL_KLADR_CODE
-column-name-266=CU_BUSAD_REGION
-column-name-267=CU_BUSAD_REGION_KLADR_CODE
-column-name-268=CU_BUSAD_AREA
-column-name-269=CU_BUSAD_AREA_KLADR_CODE
-column-name-270=CU_BUSAD_CITY
-column-name-271=CU_BUSAD_CITY_KLADR_CODE
-column-name-272=CU_BUSAD_LOCALITY
-column-name-273=CU_BUSAD_LOCALITY_KLADR_CODE
-column-name-274=CU_BUSAD_STREET
-column-name-275=CU_BUSAD_STREET_KLADR_CODE
-column-name-276=CU_BUSAD_HOUSE
-column-name-277=CU_BUSAD_HOUSE_KLADR_CODE
-column-name-278=CU_BUSAD_BLOCK_NR
-column-name-279=CU_BUSAD_BUILDING
-column-name-280=CU_BUSAD_BUILDING_KLADR_CODE
-column-name-281=CU_BUSAD_APARTMENT_OFFICE
-column-name-282=CU_LEGAL_PHONE
-column-name-283=CU_MOBILE_PHONE
-column-name-284=CU_CURRENT_PHONE
-column-name-285=CU_EMPLOYEE_PHONE
-column-name-286=CU_R_MOBILE_PHONE
-column-name-287=CU_EMAIL
-column-name-288=CU_AVAIL_CH_EMAIL_F
-column-name-289=CU_BRANCH_CODE
-column-name-290=CU_BRANCH_CITY_TOWN
-column-name-291=CU_BRANCH_NAME
-column-name-292=CU_BRANCH_NAME_SHORT
-column-name-293=CU_LOCATION
-column-name-294=CU_BRANCH_FULLNAME
-column-name-295=CU_HUB_CODE
-column-name-296=CU_IS_FRAUDLISTED_F
-column-name-297=CU_IS_FRAUDLISTED_POT_F
-column-name-298=CU_IS_RESTRICTED_F
-column-name-299=CU_EXPOSED_F
-column-name-300=CU_AL_BEH_SCORE_MIN
-column-name-301=CU_ML_BEH_SCORE_MIN
-column-name-302=CU_PL_BEH_SCORE_MIN
-column-name-303=CU_CC_BEH_SCORE_MIN
-column-name-304=CUS_GROUP_LAST_CHANGE_DATE
-column-name-305=AS_OF_DATE
-column-name-306=CU_DPD_MAX_DPD_DAY_3M_C
-column-name-307=CU_BU_STATUS_INDICATOR
-column-name-308=CU_XSELL_CC_SCORE
-column-name-309=CU_XSELL_PL_SCORE
-column-name-310=CU_CLIP_SCORE
-column-name-311=CU_CIF_CHANGE_DATE
-column-name-312=CU_DPD_TOD_DAY_C
-column-name-313=CU_DPD_TOD_MAX_DPD_DAY_3M_C
-column-name-314=CU_DPD_TOD_MAX_DPD_DAY_6M_C
-column-name-315=CU_DPD_TOD_MAX_DPD_DAY_12M_C
-column-name-316=CU_DPD_TOD_DAY_MAX_EVER_C
-column-name-317=CU_DPD_TOD_V
-column-name-318=CU_DPD_TOD_F
-column-name-319=CU_SALARY_FINAL_WOAPP_AVG3M_V
-column-name-320=CU_SALARY_FINAL_WOAPP_AVG6M_V
-column-name-321=CU_SALARY_FINAL_WOAPP_AVG12M_V
-column-name-322=CU_AGAINST_SPAM_TM_F
-column-name-323=CU_AGAINST_SPAM_EMAIL_F
-column-name-324=CU_AGAINST_SPAM_SMS_F
-column-name-325=CU_AGAINST_SPAM_POST_F
-column-name-326=CU_NO_INCREASE_CARD_LIMIT_F
-column-name-327=CU_RMOBILE_F
-column-name-328=CU_SALARY_AVG3M_V
-column-name-329=CU_SALARY_AVG6M_V
-column-name-330=CU_SALARY_AVG12M_V
-column-name-331=CU_PAYRL_IND_FIRST_DATE
-column-name-332=CU_RISK_SCORE_DATE
-column-name-333=FIRST_PAYROLL_3M_TRX
-column-name-334=FIRST_PAYROLL_6M_TRX
-column-name-335=FIRST_PAYROLL_12M_TRX
-column-name-336=FIRST_IND_SAL_3M_TRX
-column-name-337=FIRST_IND_SAL_6M_TRX
-column-name-338=FIRST_IND_SAL_12M_TRX
-column-name-339=CU_UNREPORTED_SALARY
-column-name-340=CU_RATE_PLAN_GROUP
-column-name-341=CU_IPAYRL_DECLINE_REASON
-column-name-342=CU_TRX_CHANNEL_PI_3M_F
-column-name-343=CU_TRX_CHANNEL_PI_6M_F
-column-name-344=CU_TRX_CHANNEL_PI_12M_F
-column-name-345=CU_TRX_CHANNEL_LE_3M_F
-column-name-346=CU_TRX_CHANNEL_LE_6M_F
-column-name-347=CU_TRX_CHANNEL_LE_12M_F
-column-name-348=CU_TRX_CHANNEL_ND_3M_F
-column-name-349=CU_TRX_CHANNEL_ND_6M_F
-column-name-350=CU_TRX_CHANNEL_ND_12M_F
-column-name-351=CU_TRX_CHANNEL_PAYRL_3M_F
-column-name-352=CU_TRX_CHANNEL_PAYRL_6M_F
-column-name-353=CU_TRX_CHANNEL_PAYRL_12M_F
-column-name-354=CU_SALARY_ALL_AVG3M_V
-column-name-355=CU_SALARY_ALL_AVG6M_V
-column-name-356=CU_SALARY_ALL_AVG12M_V
-column-name-357=CU_PAYRL_ALL_IND_3M_F
-column-name-358=CU_FIRST_SALARY_3M_TRX
-column-name-359=CU_FIRST_SALARY_6M_TRX
-column-name-360=CU_FIRST_SALARY_12M_TRX
-column-name-361=CU_TRX_SPEND_1M_V
-column-name-362=CU_TRX_SPEND_2M_V
-column-name-363=CU_TRX_SPEND_3M_V
-column-name-364=CU_TRX_SPEND_4M_V
-column-name-365=CU_TRX_SPEND_5M_V
-column-name-366=CU_CUSTOMER_CREATION_MOB
-column-name-367=CU_SPEND_AVG
-column-name-368=CU_BANKRUPT_F
+create table ACCOUNT (
+IDAccount text primary key,
+ID_Client text,
+ID_Contract text,
+ID_Source text,
+ID_Branch text,
+ID_Filial text,
+Client_type text,
+Number text,
+Name text,
+Currency text,
+Action_Start_Date text,
+Action_End_Date_Fact text,
+Action_End_Date_Plan text
+);
 
-event-param-name-0=CIF_ID
-event-param-name-1=CU_CUSTOMER_STATUS
-event-param-name-2=CU_BANK_TYPE
-event-param-name-3=CU_CUSTOMER_NUMBER_IN_A_BANK
-event-param-name-4=CU_CUSTOMER_NUMBER_IN_B_BANK
-event-param-name-5=CU_BUSINESS_SEGM_TYPE
-event-param-name-6=CU_BUSINESS_SEGM_NAME
-event-param-name-7=CU_CS_CLIENT_TYPE
-event-param-name-8=CU_LEGAL_STATUS
-event-param-name-9=CU_INN
-event-param-name-10=CU_IS_RAIFFEISEN_GR_EMP_F
-event-param-name-11=CU_IS_PEP_F
-event-param-name-12=CU_IS_COMPLIANCE_F
-event-param-name-13=CU_FATCA_STATUS
-event-param-name-14=CU_CITIZENSHIP
-event-param-name-15=CU_CITIZENSHIP_COUNTRY_CODE
-event-param-name-16=CU_GENDER
-event-param-name-17=CU_BIRTHDATE
-event-param-name-18=CU_AGE
-event-param-name-19=CU_AGE_M
-event-param-name-20=CU_PLACE_OF_BIRTH
-event-param-name-21=CU_BIRTH_COUNTRY
-event-param-name-22=CU_ID_CATEGORY
-event-param-name-23=CU_MARITAL_STATUS
-event-param-name-24=CU_CHILDREN_COUNT
-event-param-name-25=CU_RESIDENCE_OWN_TYPE
-event-param-name-26=CU_EDUCATION_LEVEL
-event-param-name-27=CU_DECEASE_DATE
-event-param-name-28=CU_IS_PROPERTY_OWNER_F
-event-param-name-29=CU_IS_CAR_OWNER_F
-event-param-name-30=CU_HAS_CRIME_HISTORY_F
-event-param-name-31=CU_COMPANY_EML_ID
-event-param-name-32=CU_PARENT_CODE
-event-param-name-33=CU_POSITION
-event-param-name-34=CU_EMPL_EMPLOYER_NAME
-event-param-name-35=CU_OGRN
-event-param-name-36=CU_EMP_START_DATE
-event-param-name-37=CU_JOB_EMP_LEGAL_STR
-event-param-name-38=CU_JOB_EMP_ACTIVITY_SPHERE
-event-param-name-39=CU_JOB_OCCUPATION_TYPE
-event-param-name-40=CU_JOB_SINCE_DATE
-event-param-name-41=CU_APPL_LAST_M
-event-param-name-42=CU_APPL_ML_LAST_D
-event-param-name-43=CU_APPL_PL_LAST_D
-event-param-name-44=CU_APPL_AL_LAST_D
-event-param-name-45=CU_APPL_CC_LAST_D
-event-param-name-46=CU_APPL_LAST_REJ_M
-event-param-name-47=CU_APPL_ML_REJ_LAST_D
-event-param-name-48=CU_APPL_PL_REJ_LAST_D
-event-param-name-49=CU_APPL_AL_REJ_LAST_D
-event-param-name-50=CU_APPL_CC_REJ_LAST_D
-event-param-name-51=CU_APPL_LCS_F
-event-param-name-52=CU_APPL_DEPENDANTS_C
-event-param-name-53=CU_APPL_EMPL_SIZE
-event-param-name-54=CU_BU_TYPE
-event-param-name-55=CU_BU_OPEN_DATE
-event-param-name-56=CU_BU_CLOSE_DATE
-event-param-name-57=CU_BU_LPC_CODE
-event-param-name-58=CU_BU_PRODUCT_GROUP
-event-param-name-59=CU_BU_GRACE_F
-event-param-name-60=CU_BU_GRACE_END_DATE
-event-param-name-61=CU_BU_ANNUAL_FEE_DATE
-event-param-name-62=CU_BU_ANNUAL_FEE_C
-event-param-name-63=CU_FIRST_OPEN_ACC_DATE
-event-param-name-64=CU_MOB
-event-param-name-65=CU_MOB_CCA
-event-param-name-66=CU_TD_OPEN_EVER_C
-event-param-name-67=CU_MG_OPEN_EVER_C
-event-param-name-68=CU_LOAN_OPEN_EVER_C
-event-param-name-69=CU_AL_OPEN_EVER_C
-event-param-name-70=CU_CA_OPEN_EVER_C
-event-param-name-71=CU_SO_OPEN_EVER_C
-event-param-name-72=CU_CC_SUPPLEMENTARY_OWN_F
-event-param-name-73=CU_CC_SUPPLIMENTARY_OTHER_F
-event-param-name-74=CU_DC_SUPPLEMENTARY_OWN_F
-event-param-name-75=CU_DC_SUPPLIMENTARY_OTHER_F
-event-param-name-76=CU_CA_C
-event-param-name-77=CU_DC_C
-event-param-name-78=CU_CC_C
-event-param-name-79=CU_SO_C
-event-param-name-80=CU_SA_C
-event-param-name-81=CU_ML_C
-event-param-name-82=CU_AL_C
-event-param-name-83=CU_PL_C
-event-param-name-84=CU_TD_C
-event-param-name-85=CU_OPS_F
-event-param-name-86=CU_NPF_F
-event-param-name-87=CU_CREDIT_C
-event-param-name-88=CU_CA_CLOSED_EVER_C
-event-param-name-89=CU_TD_CLOSED_EVER_C
-event-param-name-90=CU_MIF_CLOSED_EVER_C
-event-param-name-91=CU_CC_CLOSED_EVER_C
-event-param-name-92=CU_ML_CLOSED_EVER_C
-event-param-name-93=CU_PL_CLOSED_EVER_C
-event-param-name-94=CU_AL_CLOSED_EVER_C
-event-param-name-95=CU_CREDIT_CLOSED_EVER_C
-event-param-name-96=CU_LOAN_EARLY_REPAY_EVER_C
-event-param-name-97=CU_MORT_EARLY_REPAY_EVER_C
-event-param-name-98=CU_AL_EARLY_REPAY_EVER_C
-event-param-name-99=CU_RC_NOLOG_F
-event-param-name-100=CU_RC_LOG_NOACT_F
-event-param-name-101=CU_RC_LOG_ACT_NOUSE_F
-event-param-name-102=CU_RC_EVER_F
-event-param-name-103=CU_SB_OPEN_DATE
-event-param-name-104=CU_SB_CLOSE_DATE
-event-param-name-105=CU_SB_DESCRIPTION
-event-param-name-106=CU_LAST_CLIP_MONTHS_C
-event-param-name-107=CU_CCA_LIMIT_V
-event-param-name-108=CU_BAL_PL_0M_V
-event-param-name-109=CU_LIAB_INV_AVG1E_V
-event-param-name-110=CU_LIAB_INV_AVG3E_V
-event-param-name-111=CU_LIAB_INV_AVG6E_V
-event-param-name-112=CU_LIAB_INV_AVG12E_V
-event-param-name-113=CU_LIAB_INV_AVG3M_V
-event-param-name-114=CU_LIAB_INV_AVG6M_V
-event-param-name-115=CU_LIAB_INV_AVG12M_V
-event-param-name-116=CU_BAL_MIF_0M_V
-event-param-name-117=CU_BAL_MIF_1E_V
-event-param-name-118=CU_BAL_MIF_AVG2M_V
-event-param-name-119=CU_BAL_MIF_AVG3M_V
-event-param-name-120=CU_BAL_MIF_AVG6M_V
-event-param-name-121=CU_BAL_MIF_AVG12M_V
-event-param-name-122=CU_BAL_TD_0M_V
-event-param-name-123=CU_BAL_TD_AVG2E_V
-event-param-name-124=CU_BAL_TD_AVG3E_V
-event-param-name-125=CU_BAL_TD_AVG6E_V
-event-param-name-126=CU_BAL_TD_AVG12E_V
-event-param-name-127=CU_GROSS_INCOME
-event-param-name-128=CU_DPD_DAY_C
-event-param-name-129=CU_DPD_MAX_DPD_DAY_6M_C
-event-param-name-130=CU_DPD_MAX_DPD_DAY_12M_C
-event-param-name-131=CU_MAX_DPD_DAY_C
-event-param-name-132=CU_DPD_V
-event-param-name-133=CU_DPD_F
-event-param-name-134=CU_CARD_TO_CARD_PAYMENT_F
-event-param-name-135=CU_ATM_FOREIGN_PAYMENT_F
-event-param-name-136=CU_POS_FOREIGN_PAYMENT_F
-event-param-name-137=CU_UBP_PAYMENT_F
-event-param-name-138=CU_TRX_DC_POS_AVG3M_V
-event-param-name-139=CU_TRX_DC_POS_AVG6M_V
-event-param-name-140=CU_TRX_DC_POS_AVG12M_V
-event-param-name-141=CU_TRX_CC_POS_AVG3M_V
-event-param-name-142=CU_TRX_CC_POS_AVG6M_V
-event-param-name-143=CU_TRX_CC_POS_AVG12M_V
-event-param-name-144=CU_TRX_DC_CASH_AVG3M_V
-event-param-name-145=CU_TRX_DC_CASH_AVG6M_V
-event-param-name-146=CU_TRX_DC_CASH_AVG12M_V
-event-param-name-147=CU_TRX_CC_CASH_AVG3M_V
-event-param-name-148=CU_TRX_CC_CASH_AVG6M_V
-event-param-name-149=CU_TRX_CC_CASH_AVG12M_V
-event-param-name-150=CU_TRX_CA_INC_0M_V
-event-param-name-151=CU_TRX_CA_INC_AVG3M_V
-event-param-name-152=CU_TRX_CA_INC_AVG6M_V
-event-param-name-153=CU_TRX_CA_INC_AVG12M_V
-event-param-name-154=CU_TRX_ML_INC_0M
-event-param-name-155=CU_TRX_PL_INC_0M
-event-param-name-156=CU_TRX_AL_INC_0M
-event-param-name-157=CU_TRX_CC_INC_0M
-event-param-name-158=CU_PAYRL_V
-event-param-name-159=CU_POB
-event-param-name-160=CU_PAYRL_FIRST_DATE
-event-param-name-161=CU_PAYRL_LAST_DATE
-event-param-name-162=CU_PAYRL_MOB
-event-param-name-163=CU_PAYRL_EMPLYR_FIRST_DATE
-event-param-name-164=CU_PAYRL_EMPLYR_LAST_DATE
-event-param-name-165=CU_PAYRL_LAST_30DAYS_F
-event-param-name-166=CU_PAYRL_IND_V
-event-param-name-167=CU_POB_IND
-event-param-name-168=CU_PAYRL_IND_LAST_DATE
-event-param-name-169=CU_PAYRL_IND_MOB
-event-param-name-170=CU_PAYRL_IND_LAST_30DAYS_F
-event-param-name-171=CU_OFFICIAL_SALARY
-event-param-name-172=CU_OFFICIAL_VALIDITY_DATE
-event-param-name-173=CU_CONFIRMED_SALARY
-event-param-name-174=CU_CONFIRMED_VALIDITY_DATE
-event-param-name-175=CU_SURROGATE_SALARY
-event-param-name-176=CU_SURROGATE_VALIDITY_DATE
-event-param-name-177=CU_DECLARED_SALARY
-event-param-name-178=CU_DECLARED_VALIDITY_DATE
-event-param-name-179=CU_SALARY_V
-event-param-name-180=CU_SALARY_TYPE
-event-param-name-181=CU_SALARY_FIRST_M
-event-param-name-182=CU_SALARY_FINAL_AVG3M_V
-event-param-name-183=CU_SALARY_FINAL_AVG6M_V
-event-param-name-184=CU_SALARY_FINAL_AVG12M_V
-event-param-name-185=CU_DOCUMENT_TYPE
-event-param-name-186=CU_DOCUMENT_SERIE
-event-param-name-187=CU_DOCUMENT_NUMBER
-event-param-name-188=CU_ISSUED_BY_NAME
-event-param-name-189=CU_ISSUED_BY_CODE
-event-param-name-190=CU_ISSUE_DATE
-event-param-name-191=CU_FULL_NAME
-event-param-name-192=CU_NAME
-event-param-name-193=CU_PATRONYMIC_NAME
-event-param-name-194=CU_SURNAME
-event-param-name-195=CU_SALUTATION
-event-param-name-196=CU_FULLNAME_LAT
-event-param-name-197=CU_FIRSTNAME_LAT
-event-param-name-198=CU_PATRONYMIC_LAT
-event-param-name-199=CU_SURNAME_LAT
-event-param-name-200=CU_SPECIAL_INFO
-event-param-name-201=CU_CURRENT_ADDR_SINCE_DATE
-event-param-name-202=CU_LEGALAD_ADDR_RU_LINE
-event-param-name-203=CU_LEGALAD_COUNTRY
-event-param-name-204=CU_LEGALAD_ZIP_CODE
-event-param-name-205=CU_LEGALAD_FULL_KLADR_CODE
-event-param-name-206=CU_LEGALAD_REGION
-event-param-name-207=CU_LEGALAD_REGION_KLADR_CODE
-event-param-name-208=CU_LEGALAD_AREA
-event-param-name-209=CU_LEGALAD_AREA_KLADR_CODE
-event-param-name-210=CU_LEGALAD_CITY
-event-param-name-211=CU_LEGALAD_CITY_KLADR_CODE
-event-param-name-212=CU_LEGALAD_LOCALITY
-event-param-name-213=CU_LEGALAD_LOCALITY_KLADR_CODE
-event-param-name-214=CU_LEGALAD_STREET
-event-param-name-215=CU_LEGALAD_STREET_KLADR_CODE
-event-param-name-216=CU_LEGALAD_HOUSE
-event-param-name-217=CU_LEGALAD_HOUSE_KLADR_CODE
-event-param-name-218=CU_LEGALAD_BLOCK_NR
-event-param-name-219=CU_LEGALAD_BUILDING
-event-param-name-220=CU_LEGALAD_BUILDING_KLADR_CODE
-event-param-name-221=CU_LEGALAD_APARTMENT_OFFICE
-event-param-name-222=CU_CURRAD_ADDR_RU_LINE1
-event-param-name-223=CU_CURRAD_COUNTRY
-event-param-name-224=CU_CURRAD_ZIP_CODE
-event-param-name-225=CU_CURRAD_FULL_KLADR_CODE
-event-param-name-226=CU_CURRAD_REGION
-event-param-name-227=CU_CURRAD_REGION_KLADR_CODE
-event-param-name-228=CU_CURRAD_AREA
-event-param-name-229=CU_CURRAD_AREA_KLADR_CODE
-event-param-name-230=CU_CURRAD_CITY
-event-param-name-231=CU_CURRAD_CITY_KLADR_CODE
-event-param-name-232=CU_CURRAD_LOCALITY
-event-param-name-233=CU_CURRAD_LOCALITY_KLADR_CODE
-event-param-name-234=CU_CURRAD_STREET
-event-param-name-235=CU_CURRAD_STREET_KLADR_CODE
-event-param-name-236=CU_CURRAD_HOUSE
-event-param-name-237=CU_CURRAD_HOUSE_KLADR_CODE
-event-param-name-238=CU_CURRAD_BLOCK_NR
-event-param-name-239=CU_CURRAD_BUILDING
-event-param-name-240=CU_CURRAD_BUILDING_KLADR_CODE
-event-param-name-241=CU_CURRAD_APARTMENT_OFFICE
-event-param-name-242=CU_POSTAD_ADDR_RU_LINE1
-event-param-name-243=CU_POSTAD_COUNTRY
-event-param-name-244=CU_POSTAD_ZIP_CODE
-event-param-name-245=CU_POSTAD_FULL_KLADR_CODE
-event-param-name-246=CU_POSTAD_REGION
-event-param-name-247=CU_POSTAD_REGION_KLADR_CODE
-event-param-name-248=CU_POSTAD_AREA
-event-param-name-249=CU_POSTAD_AREA_KLADR_CODE
-event-param-name-250=CU_POSTAD_CITY
-event-param-name-251=CU_POSTAD_CITY_KLADR_CODE
-event-param-name-252=CU_POSTAD_LOCALITY
-event-param-name-253=CU_POSTAD_LOCALITY_KLADR_CODE
-event-param-name-254=CU_POSTAD_STREET
-event-param-name-255=CU_POSTAD_STREET_KLADR_CODE
-event-param-name-256=CU_POSTAD_HOUSE
-event-param-name-257=CU_POSTAD_HOUSE_KLADR_CODE
-event-param-name-258=CU_POSTAD_BLOCK_NR
-event-param-name-259=CU_POSTAD_BUILDING
-event-param-name-260=CU_POSTAD_BUILDING_KLADR_CODE
-event-param-name-261=CU_POSTAD_APARTMENT_OFFICE
-event-param-name-262=CU_BUSAD_ADDR_RU_LINE1
-event-param-name-263=CU_BUSAD_COUNTRY
-event-param-name-264=CU_BUSAD_ZIP_CODE
-event-param-name-265=CU_BUSAD_FULL_KLADR_CODE
-event-param-name-266=CU_BUSAD_REGION
-event-param-name-267=CU_BUSAD_REGION_KLADR_CODE
-event-param-name-268=CU_BUSAD_AREA
-event-param-name-269=CU_BUSAD_AREA_KLADR_CODE
-event-param-name-270=CU_BUSAD_CITY
-event-param-name-271=CU_BUSAD_CITY_KLADR_CODE
-event-param-name-272=CU_BUSAD_LOCALITY
-event-param-name-273=CU_BUSAD_LOCALITY_KLADR_CODE
-event-param-name-274=CU_BUSAD_STREET
-event-param-name-275=CU_BUSAD_STREET_KLADR_CODE
-event-param-name-276=CU_BUSAD_HOUSE
-event-param-name-277=CU_BUSAD_HOUSE_KLADR_CODE
-event-param-name-278=CU_BUSAD_BLOCK_NR
-event-param-name-279=CU_BUSAD_BUILDING
-event-param-name-280=CU_BUSAD_BUILDING_KLADR_CODE
-event-param-name-281=CU_BUSAD_APARTMENT_OFFICE
-event-param-name-282=CU_LEGAL_PHONE
-event-param-name-283=CU_MOBILE_PHONE
-event-param-name-284=CU_CURRENT_PHONE
-event-param-name-285=CU_EMPLOYEE_PHONE
-event-param-name-286=CU_R_MOBILE_PHONE
-event-param-name-287=CU_EMAIL
-event-param-name-288=CU_AVAIL_CH_EMAIL_F
-event-param-name-289=CU_BRANCH_CODE
-event-param-name-290=CU_BRANCH_CITY_TOWN
-event-param-name-291=CU_BRANCH_NAME
-event-param-name-292=CU_BRANCH_NAME_SHORT
-event-param-name-293=CU_LOCATION
-event-param-name-294=CU_BRANCH_FULLNAME
-event-param-name-295=CU_HUB_CODE
-event-param-name-296=CU_IS_FRAUDLISTED_F
-event-param-name-297=CU_IS_FRAUDLISTED_POT_F
-event-param-name-298=CU_IS_RESTRICTED_F
-event-param-name-299=CU_EXPOSED_F
-event-param-name-300=CU_AL_BEH_SCORE_MIN
-event-param-name-301=CU_ML_BEH_SCORE_MIN
-event-param-name-302=CU_PL_BEH_SCORE_MIN
-event-param-name-303=CU_CC_BEH_SCORE_MIN
-event-param-name-304=CUS_GROUP_LAST_CHANGE_DATE
-event-param-name-305=AS_OF_DATE
-event-param-name-306=CU_DPD_MAX_DPD_DAY_3M_C
-event-param-name-307=CU_BU_STATUS_INDICATOR
-event-param-name-308=CU_XSELL_CC_SCORE
-event-param-name-309=CU_XSELL_PL_SCORE
-event-param-name-310=CU_CLIP_SCORE
-event-param-name-311=CU_CIF_CHANGE_DATE
-event-param-name-312=CU_DPD_TOD_DAY_C
-event-param-name-313=CU_DPD_TOD_MAX_DPD_DAY_3M_C
-event-param-name-314=CU_DPD_TOD_MAX_DPD_DAY_6M_C
-event-param-name-315=CU_DPD_TOD_MAX_DPD_DAY_12M_C
-event-param-name-316=CU_DPD_TOD_DAY_MAX_EVER_C
-event-param-name-317=CU_DPD_TOD_V
-event-param-name-318=CU_DPD_TOD_F
-event-param-name-319=CU_SALARY_FINAL_WOAPP_AVG3M_V
-event-param-name-320=CU_SALARY_FINAL_WOAPP_AVG6M_V
-event-param-name-321=CU_SALARY_FINAL_WOAPP_AVG12M_V
-event-param-name-322=CU_AGAINST_SPAM_TM_F
-event-param-name-323=CU_AGAINST_SPAM_EMAIL_F
-event-param-name-324=CU_AGAINST_SPAM_SMS_F
-event-param-name-325=CU_AGAINST_SPAM_POST_F
-event-param-name-326=CU_NO_INCREASE_CARD_LIMIT_F
-event-param-name-327=CU_RMOBILE_F
-event-param-name-328=CU_SALARY_AVG3M_V
-event-param-name-329=CU_SALARY_AVG6M_V
-event-param-name-330=CU_SALARY_AVG12M_V
-event-param-name-331=CU_PAYRL_IND_FIRST_DATE
-event-param-name-332=CU_RISK_SCORE_DATE
-event-param-name-333=FIRST_PAYROLL_3M_TRX
-event-param-name-334=FIRST_PAYROLL_6M_TRX
-event-param-name-335=FIRST_PAYROLL_12M_TRX
-event-param-name-336=FIRST_IND_SAL_3M_TRX
-event-param-name-337=FIRST_IND_SAL_6M_TRX
-event-param-name-338=FIRST_IND_SAL_12M_TRX
-event-param-name-339=CU_UNREPORTED_SALARY
-event-param-name-340=CU_RATE_PLAN_GROUP
-event-param-name-341=CU_IPAYRL_DECLINE_REASON
-event-param-name-342=CU_TRX_CHANNEL_PI_3M_F
-event-param-name-343=CU_TRX_CHANNEL_PI_6M_F
-event-param-name-344=CU_TRX_CHANNEL_PI_12M_F
-event-param-name-345=CU_TRX_CHANNEL_LE_3M_F
-event-param-name-346=CU_TRX_CHANNEL_LE_6M_F
-event-param-name-347=CU_TRX_CHANNEL_LE_12M_F
-event-param-name-348=CU_TRX_CHANNEL_ND_3M_F
-event-param-name-349=CU_TRX_CHANNEL_ND_6M_F
-event-param-name-350=CU_TRX_CHANNEL_ND_12M_F
-event-param-name-351=CU_TRX_CHANNEL_PAYRL_3M_F
-event-param-name-352=CU_TRX_CHANNEL_PAYRL_6M_F
-event-param-name-353=CU_TRX_CHANNEL_PAYRL_12M_F
-event-param-name-354=CU_SALARY_ALL_AVG3M_V
-event-param-name-355=CU_SALARY_ALL_AVG6M_V
-event-param-name-356=CU_SALARY_ALL_AVG12M_V
-event-param-name-357=CU_PAYRL_ALL_IND_3M_F
-event-param-name-358=CU_FIRST_SALARY_3M_TRX
-event-param-name-359=CU_FIRST_SALARY_6M_TRX
-event-param-name-360=CU_FIRST_SALARY_12M_TRX
-event-param-name-361=CU_TRX_SPEND_1M_V
-event-param-name-362=CU_TRX_SPEND_2M_V
-event-param-name-363=CU_TRX_SPEND_3M_V
-event-param-name-364=CU_TRX_SPEND_4M_V
-event-param-name-365=CU_TRX_SPEND_5M_V
-event-param-name-366=CU_CUSTOMER_CREATION_MOB
-event-param-name-367=CU_SPEND_AVG
-event-param-name-368=CU_BANKRUPT_F
+create table ADDRESS (
+ID_Client text,
+Address_Line text,
+ID_Source text,
+AdrType text,
+PostIndex text,
+RegionName text,
+RegionSocr text,
+RaionName text,
+RaionSocr text,
+CityName text,
+CitySocr text,
+SettlName text,
+SettlSocr text,
+StreetName text,
+StreetSocr text,
+House text,
+Vladenie text,
+Korpus text,
+Stroenie text,
+Flat text
+);
+
+create table APPLICATION (
+ID_App text primary key,
+ID_Client text,
+ID_Source text,
+Product text,
+Currency text,
+Loan_Amount_Requested text,
+Loan_Term_Requested text,
+Interest_Rate_Requested text,
+Payment_Requested text,
+App_Last_Status text,
+Interest_Rate_Approved text,
+Payment_Approved text,
+Term_Approved text,
+Amount_Approved text,
+Reject_Reason text,
+Last_Status_Date text,
+Issue_Date text,
+App_Date text,
+Approval_Due_Date text,
+Branch text,
+ID_Contract text
+);
+
+create table APPLICATION_HISTORY (
+ID_StageApp text primary key,
+ID_Application text,
+ModifiedOn text,
+ModifiedBy text,
+StageName text,
+StatusName text,
+Desision text,
+MaxCreditSum text,
+MaxTerm text,
+StageDatetimeIn text,
+StageDatetimeOut text
+);
+
+create table CARD (
+ID_Card text primary key,
+ID_Source text,
+IDAccount text,
+Is_Blocked text,
+Is_Active text,
+Is_Main text,
+Issue_Date text,
+Close_Date text,
+Close_Plan_Date text,
+PAN text,
+Is_overdraft text,
+Is_salary text,
+CreditLimit text,
+CreditLimitRUR text,
+Currency text,
+Card_type text,
+Pay_system text,
+Plastic_type text,
+Last_transaction_date text
+);
+
+create table CLIENT (
+ID_Client text primary key,
+Surname text,
+Name text,
+Partronymic text,
+Gender text,
+Birthdate text,
+Age text,
+Citizenship text,
+BankName text,
+Branch text,
+Filial text,
+Is_Office_Within_City text,
+Region_Fact text,
+City_Fact text,
+Region_Reg text,
+City_Reg text,
+POMK text,
+Phone text,
+Email text,
+Is_Vip text,
+Is_Affilated text,
+Is_Resident text,
+Is_employee text,
+Is_Salary_Client text,
+Segment_Income text,
+Segment_Inc_Criteria text,
+Is_Balcklisted text,
+Is_Negative text,
+is_communication_refused text,
+Is_Dead text,
+Product_Penetration text,
+Service_Penetration text,
+Salary_Org text,
+Segment_Product text,
+Segment_Activity text
+);
+
+create table CLIENT_CONTACT (
+ID_Contact text,
+ID_Client text,
+Phone_Number text,
+Phone_Type text,
+is_actual text
+);
+
+create table CLIENT_DEDUP (
+ID_Client text primary key,
+ID_Client_SMP text,
+ID_Client_IKB text,
+ID_Client_MOB text,
+ID_Client_N text,
+INN text,
+FIO text,
+Birthdate text,
+Passport text
+);
+
+create table CLIENT_HISTORY (
+ID_Client text,
+Update_dt text,
+BankName text,
+Is_Vip text,
+Is_Affilated text,
+Is_Resident text,
+Is_employee text,
+Segment_Income text,
+Segment_Inc_Criteria text,
+Is_Borrower text,
+Is_Salary text,
+Is_Depositor text,
+POMK text,
+Is_Blacklisted text,
+Is_Negative text,
+is_communication_refused text,
+Is_Dead text,
+Is_New text,
+First_Product text,
+Month_On_Book text,
+Is_churn text,
+Segment_Product text,
+Segment_Activity text,
+Last_product text
+);
+
+create table CLIENT_MSB (
+ID_Client text primary key,
+Client_Name text,
+Client_INN text,
+Bank text,
+Director_FIO text,
+Book_Keeper_FIO text,
+Director_ID_Client text,
+Book_Keeper_ID_Client text,
+Decision_Maker text,
+Delinquency text,
+Email text,
+Client_Type text,
+City text,
+Branch text,
+Org_Phone_Number text,
+Is_RKO text,
+Is_RKO_Active text,
+Is_Cred text,
+Is_Cred_Active text,
+Is_Depos text,
+Is_Depos_Active text,
+Is_Grnt text,
+Is_Grnt_Active text,
+Credit_Limit text,
+First_Prod_Issue_Date text,
+Month_On_Book text,
+Is_DBO text,
+Is_DBO_Active_3m text,
+RKO_Expences_3m text,
+DBO_Expences_3m text,
+Floating_Debit_1m text,
+Floating_Credit_1m text,
+Eom_Balance text,
+Product_Segment text
+);
+
+create table CLIENT_MSB_HISTORY (
+ID_Client text,
+Update_dt text,
+Client_Name text,
+Client_INN text,
+Bank text,
+Delinquency text,
+Is_RKO text,
+Is_RKO_Active text,
+Is_Cred text,
+Is_Cred_Active text,
+Is_Depos text,
+Is_Depos_Active text,
+Is_Grnt text,
+Is_Grnt_Active text,
+Credit_Limit text,
+First_Prod_Issue_Date text,
+Month_On_Book text,
+Is_DBO text,
+Is_DBO_Active_3m text,
+RKO_Expences_3m text,
+DBO_Expences_3m text,
+Floating_Debit_1m text,
+Floating_Credit_1m text,
+Eom_Balance text,
+Product_Segment text
+);
+
+create table CLIENT_SUMMARY (
+ID_Client text primary key,
+First_Product_Start_Date text,
+Last_Product_End_Date text,
+First_Credit_Start_Date text,
+Last_Credit_End_Date text,
+First_Debit_Start_Date text,
+Last_Debit_End_Date text,
+First_Salary_Card_Date text,
+Last_Salary_Card_End_Date text,
+First_CrCard_Date text,
+Last_CrCard_End_Date text,
+First_Debit_C_Date text,
+Last_Debit_C_End_Date text,
+Month_on_book text,
+Active_Products_num text,
+Active_Deposits_num text,
+Active_Mortgage_num text,
+Closed_Mortgage_num text,
+Active_Credits_num text,
+Close_Credits_num text,
+Active_Cards_num text,
+Active_Cards_Trans_3m text,
+Closed_Cards_num text,
+Transactions_Onbank_6m_num text,
+Transactions_Onbank_6m_amt text,
+Salary_count_3m text,
+Salary_count_6m text,
+DVS_Accounts_num text,
+Current_Accounts_num text,
+Sms_delivered_12m text,
+Outbound_Calls_12m text,
+Total_Card_Acc_balance text,
+Total_Deposit_Acc_Balance text,
+Total_Current_Acc_Balance text,
+Total_Loan_Sum text,
+Overdue_Loan_Sum text,
+Monthly_Payment text,
+DTI text,
+Total_Cards_Turnover_6m text,
+Avg_Salary_6m text,
+Avg_salary_3m text,
+Last_Application_Income text,
+Is_Salary_Cardholder text,
+Is_Mir_Cardholder text,
+Is_Aeroflot_Carвholder text,
+Is_Onbank_User text,
+Is_Sms_Inform text,
+Is_Other_Products text,
+Is_Borrower text,
+Is_Salary_Client text,
+Is_Debitor text,
+Is_Appl_3m text,
+Is_Appl_Wo_Cl_Refuse_6m text,
+Is_Appl_Refused_12m text,
+Is_Arrears_0_3m text,
+Is_Closed_Cred_Arrs_30m_plus text,
+Active_Cred_Arriars text,
+Active_Credits_3m text,
+Last_Called_Date text,
+Last_Contacted_Date text,
+Last_Sms_Sent_Date text,
+Last_Sms_Deliver_Date text,
+Last_CampaignID text,
+Channel_Last text
+);
+
+create table COMMUNICATION_REFUSE (
+ID_Client text,
+ID_Bank text,
+FIO text,
+Phone text,
+Comment text
+);
+
+create table COMMUNICATION_RESULT_CALL (
+ID_Communication text primary key,
+ID_Client text,
+CampaignID text,
+Client_Phone_Number text,
+ID_Reaction text,
+Comment text,
+Phone_Call_Date text,
+DateVisit text,
+TimeVisit text,
+Branch text,
+Is_Contacted text,
+Is_Interested text,
+ID_Offer text,
+ID_Participants text,
+Login_eployee text,
+Is_outbound text
+);
+
+create table COMMUNICATION_RESULT_OTHER (
+ID_Communication text primary key,
+ID_Client text,
+CampaignID text,
+Contact_information text,
+ID_Reaction text,
+Communication_Date text,
+Is_Contact text,
+ID_Offer text,
+ID_Participants text,
+Channel text
+);
+
+create table CREDIT_CONTRACT (
+ID_Contract text primary key,
+ID_Client text,
+IDAccount text,
+Client_type text,
+ID_Branch text,
+ID_Filial text,
+Contract_Number text,
+Contract_Amnt text,
+Currency text,
+ID_Product text,
+Start_Date text,
+Real_Start_Date text,
+End_Date_Plan text,
+End_Date_Fact text,
+Interest_Rate text,
+Is_Open text,
+Current_sum text
+);
+
+create table CREDIT_HISTORY (
+ID_Contract text,
+Update_dt text,
+Credit_Balance text,
+Arrears_Balance text,
+Fifo_Deliquency_Days text,
+Curr_Month_Payment text,
+Credit_Limit text,
+Credit_Limit_Dated text,
+Is_Active_Contract text,
+Max_Deliquency_Days text,
+Max_Deliquency_Days_12m text
+);
+
+create table Bank (
+ID_Bank text primary key,
+Code text,
+Name text
+);
+
+create table Filial (
+ID_Filial text primary key,
+ID_Bank text,
+Name text,
+NameShort text,
+Is_Primary text,
+DateFrom text,
+DateTo text
+);
+
+create table SOURCE (
+ID_Source  text primary key,
+ID_Bank text,
+Code text,
+Name text
+);
+
+create table BRANCHES (
+ID_Branch text primary key,
+ID_Bank text,
+Filial_ID text,
+Bank_Name text,
+Filial_Name text,
+Branch_Name text,
+City_Name text,
+Branch_Format text,
+Branch_Type text,
+Branch_Status text,
+Branch_Name_MSB text,
+Branch_Adress text
+);
+
+create table DEPOSIT_CONTRACT (
+ID_Contract text primary key,
+ID_Client text,
+IDAccount text,
+Client_type text,
+ID_Branch text,
+ID_Filial text,
+Contract_Number text,
+Currency text,
+ID_Product text,
+Start_Date text,
+Real_Start_Date text,
+End_Date_Plan text,
+End_Date_Fact text,
+Contract_Extension_Date text,
+Account_Number text,
+Interest_Rate text,
+Balance text,
+Is_Allowed_Dep_Replen text,
+Min_Balance text,
+Is_Auto_Extended text,
+Amount_Payed text,
+Is_Open text
+);
+
+create table DEPOSIT_HISTORY (
+ID_Contract text,
+Update_dt text,
+ID_Source text,
+ID_Client text,
+Incoming_Amount_1m text,
+Outcoming_Amount_1m text,
+Interest_Rate text,
+Balance text,
+ID_Product text,
+Is_Open text
+);
+
+create table INSURANCE  (
+Envelope_ID text primary key,
+Envelope_Number text,
+ID_Client text,
+ID_Source text,
+ID_Filial text,
+ID_Branch text,
+Sold_DT text,
+Product text,
+Amount text,
+Bank_Commiss_Amount text,
+Category text,
+Company text
+);
+
+create table IOM_CAMPAIGNS (
+CampaignID text primary key,
+ID_Template text,
+ID_Correlation text,
+Type text,
+Status text,
+Proposed_Product text,
+Channel text,
+Short_Name text,
+Campaign_Name text,
+ID_Offer text,
+Start_Date text,
+End_Date text,
+Change_Timestamp text,
+Creator_Userid text,
+Is_Regular text,
+Is_Child_Campaign text,
+Parent_CampaignID text,
+Schedule text,
+ID_Audience text,
+Is_Preapproved text
+);
+
+create table IOM_SYSTEM (
+ID_Sequence text primary key,
+ID_Client text,
+Event_Code text,
+Event_Timestamp text,
+Event_Description text
+);
+
+create table NEGATIVE_INFORMATION (
+ID_Client text,
+ID_Bank text,
+FIO text,
+Phone text,
+Comment text,
+Comment_Detailed text,
+Date_of_call text,
+CampaignID text
+);
+
+create table OFFERS (
+ID_Offer text primary key,
+ID_Client text,
+CampaignID text,
+Proposed_Product text,
+Channel text,
+Text text,
+Lead_Source text,
+Is_Child_Offer text,
+ID_Parent_Offer text
+);
+
+create table PARTICIPANTS (
+ID_Participant text primary key,
+ID_Offer text,
+ID_Client text,
+Client_Full_Name text,
+Client_Phone_Number text,
+BankName text,
+Branch text,
+Filial text,
+Region_Fact text,
+City_Fact text,
+Region_Reg text,
+City_Reg text,
+Segment_Income text,
+Segment_Product text,
+Segment_Activity text
+);
+
+create table PASSPORT (
+ID_Client text,
+ID_Source text,
+DocType text,
+DocSeries text,
+DocNumber text,
+DocVDate text,
+DocVydan text,
+DocPodr text,
+DocEndDate text,
+IsActual text
+);
+
+create table PREAPPROVED (
+ID_Preapproved text primary key,
+ID_Offer text,
+ID_Client text,
+ID_Participant text,
+Main_Loan_Sum_now text,
+Curr_Month_Payment text,
+Salary text,
+DTI_max text,
+DTI_max_FZ text,
+Payment text,
+Payment_FZ text,
+Payment_max_loan text,
+Payment_max_loan_FZ text,
+Interest1_sum text,
+Interest2_sum text,
+Interest3_sum text,
+Interest4_sum text,
+Interest1_sum_FZ text,
+Interest2_sum_FZ text,
+Interest3_sum_FZ text,
+Interest4_sum_FZ text,
+Max_loan_sum text,
+Max_loan_sum_FZ text,
+Interest text,
+Interest_FZ text,
+Max_loan_sum_temp text,
+Max_loan_sum_temp_FZ text,
+CampaignID text,
+DateCount text
+);
+
+create table PRODUCT (
+ID_Product text primary key,
+Product_MacroName text,
+Client_type text,
+ProductName text,
+DateStart text,
+DateFinish text,
+ID_Bank text
+);
+
+create table REACTIONS (
+ID_Reaction text primary key,
+Is_Interested text,
+Comment text,
+Comment_Details text,
+Channel text,
+Is_Contact text
+);
+
+create table TRANSACTION (
+ID_Transaction text primary key,
+ID_Card text,
+ID_Source text,
+ID_Client text,
+Transaction_Date text,
+Processing_Date text,
+Type text,
+ID_Merchant text,
+Status text,
+Withdrawal_Amnt text,
+Comission_Amnt text,
+Withdrawal_Currency text,
+Comission_Currency text,
+Withdrawal_Rub text,
+Comission_Rub text
+);
+
+ALTER TABLE ACCOUNT ADD CONSTRAINT ACCOUNT_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE ACCOUNT ADD CONSTRAINT ACCOUNT_ID_Contract_idx FOREIGN KEY (ID_Contract) REFERENCES CREDIT_CONTRACT(ID_Contract);
+ALTER TABLE ACCOUNT ADD CONSTRAINT ACCOUNT_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE ACCOUNT ADD CONSTRAINT ACCOUNT_ID_Branch_idx FOREIGN KEY (ID_Branch) REFERENCES BRANCHES(ID_Branch);
+ALTER TABLE ACCOUNT ADD CONSTRAINT ACCOUNT_ID_Filial_idx FOREIGN KEY (ID_Filial) REFERENCES Filial(ID_Filial);
+ALTER TABLE ADDRESS ADD CONSTRAINT ADDRESS_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE ADDRESS ADD CONSTRAINT ADDRESS_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE APPLICATION ADD CONSTRAINT APPLICATION_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE APPLICATION ADD CONSTRAINT APPLICATION_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE APPLICATION ADD CONSTRAINT APPLICATION_ID_Contract_idx FOREIGN KEY (ID_Contract) REFERENCES CREDIT_CONTRACT(ID_Contract);
+ALTER TABLE APPLICATION_HISTORY ADD CONSTRAINT APPLICATION_HISTORY_ID_Application_idx FOREIGN KEY (ID_Application) REFERENCES APPLICATION(ID_Application);
+ALTER TABLE CARD ADD CONSTRAINT CARD_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE CARD ADD CONSTRAINT CARD_IDAccount_idx FOREIGN KEY (IDAccount) REFERENCES ACCOUNT(IDAccount);
+ALTER TABLE CLIENT ADD CONSTRAINT CLIENT_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CLIENT_CONTACT ADD CONSTRAINT CLIENT_CONTACT_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CLIENT_DEDUP ADD CONSTRAINT CLIENT_DEDUP_ID_Client_SMP_idx FOREIGN KEY (ID_Client_SMP) REFERENCES (ID_Client_SMP);
+ALTER TABLE CLIENT_DEDUP ADD CONSTRAINT CLIENT_DEDUP_ID_Client_IKB_idx FOREIGN KEY (ID_Client_IKB) REFERENCES (ID_Client_IKB);
+ALTER TABLE CLIENT_DEDUP ADD CONSTRAINT CLIENT_DEDUP_ID_Client_MOB_idx FOREIGN KEY (ID_Client_MOB) REFERENCES (ID_Client_MOB);
+ALTER TABLE CLIENT_DEDUP ADD CONSTRAINT CLIENT_DEDUP_ID_Client_N_idx FOREIGN KEY (ID_Client_N) REFERENCES (ID_Client_N);
+ALTER TABLE CLIENT_HISTORY ADD CONSTRAINT CLIENT_HISTORY_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CLIENT_MSB ADD CONSTRAINT CLIENT_MSB_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CLIENT_MSB ADD CONSTRAINT CLIENT_MSB_Director_ID_Client_idx FOREIGN KEY (Director_ID_Client) REFERENCES CLIENT(Director_ID_Client);
+ALTER TABLE CLIENT_MSB ADD CONSTRAINT CLIENT_MSB_Book_Keeper_ID_Client_idx FOREIGN KEY (Book_Keeper_ID_Client) REFERENCES CLIENT(Book_Keeper_ID_Client);
+ALTER TABLE CLIENT_MSB_HISTORY ADD CONSTRAINT CLIENT_MSB_HISTORY_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CLIENT_SUMMARY ADD CONSTRAINT CLIENT_SUMMARY_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CLIENT_SUMMARY ADD CONSTRAINT CLIENT_SUMMARY_Last_CampaignID_idx FOREIGN KEY (Last_CampaignID) REFERENCES IOM_CAMPAIGNS(Last_CampaignID);
+ALTER TABLE COMMUNICATION_REFUSE ADD CONSTRAINT COMMUNICATION_REFUSE_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE COMMUNICATION_REFUSE ADD CONSTRAINT COMMUNICATION_REFUSE_ID_Bank_idx FOREIGN KEY (ID_Bank) REFERENCES BANK(ID_Bank);
+ALTER TABLE COMMUNICATION_RESULT_CALL ADD CONSTRAINT COMMUNICATION_RESULT_CALL_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE COMMUNICATION_RESULT_CALL ADD CONSTRAINT COMMUNICATION_RESULT_CALL_CampaignID_idx FOREIGN KEY (CampaignID) REFERENCES IOM_CAMPAIGN(CampaignID);
+ALTER TABLE COMMUNICATION_RESULT_CALL ADD CONSTRAINT COMMUNICATION_RESULT_CALL_ID_Reaction_idx FOREIGN KEY (ID_Reaction) REFERENCES REACTIONS(ID_Reaction);
+ALTER TABLE COMMUNICATION_RESULT_CALL ADD CONSTRAINT COMMUNICATION_RESULT_CALL_ID_Offer_idx FOREIGN KEY (ID_Offer) REFERENCES OFFERS(ID_Offer);
+ALTER TABLE COMMUNICATION_RESULT_CALL ADD CONSTRAINT COMMUNICATION_RESULT_CALL_ID_Participants_idx FOREIGN KEY (ID_Participants) REFERENCES PARTICIPANTS(ID_Participants);
+ALTER TABLE COMMUNICATION_RESULT_OTHER ADD CONSTRAINT COMMUNICATION_RESULT_OTHER_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE COMMUNICATION_RESULT_OTHER ADD CONSTRAINT COMMUNICATION_RESULT_OTHER_CampaignID_idx FOREIGN KEY (CampaignID) REFERENCES IOM_CAMPAIGN(CampaignID);
+ALTER TABLE COMMUNICATION_RESULT_OTHER ADD CONSTRAINT COMMUNICATION_RESULT_OTHER_ID_Reaction_idx FOREIGN KEY (ID_Reaction) REFERENCES REACTIONS(ID_Reaction);
+ALTER TABLE COMMUNICATION_RESULT_OTHER ADD CONSTRAINT COMMUNICATION_RESULT_OTHER_ID_Offer_idx FOREIGN KEY (ID_Offer) REFERENCES OFFERS(ID_Offer);
+ALTER TABLE COMMUNICATION_RESULT_OTHER ADD CONSTRAINT COMMUNICATION_RESULT_OTHER_ID_Participants_idx FOREIGN KEY (ID_Participants) REFERENCES PARTICIPANTS(ID_Participants);
+ALTER TABLE CREDIT_CONTRACT ADD CONSTRAINT CREDIT_CONTRACT_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CREDIT_CONTRACT ADD CONSTRAINT CREDIT_CONTRACT_IDAccount_idx FOREIGN KEY (IDAccount) REFERENCES ACCOUNT(IDAccount);
+ALTER TABLE CREDIT_CONTRACT ADD CONSTRAINT CREDIT_CONTRACT_ID_Branch_idx FOREIGN KEY (ID_Branch) REFERENCES BRANCHES(ID_Branch);
+ALTER TABLE CREDIT_CONTRACT ADD CONSTRAINT CREDIT_CONTRACT_ID_Filial_idx FOREIGN KEY (ID_Filial) REFERENCES Filial(ID_Filial);
+ALTER TABLE CREDIT_CONTRACT ADD CONSTRAINT CREDIT_CONTRACT_ID_Product_idx FOREIGN KEY (ID_Product) REFERENCES PRODUCT(ID_Product);
+ALTER TABLE CREDIT_HISTORY ADD CONSTRAINT CREDIT_HISTORY_ID_Contract_idx FOREIGN KEY (ID_Contract) REFERENCES CREDIT_CONTRACT(ID_Contract);
+ALTER TABLE Filial ADD CONSTRAINT Filial_ID_Bank_idx FOREIGN KEY (ID_Bank) REFERENCES BANK(ID_Bank);
+ALTER TABLE SOURCE ADD CONSTRAINT SOURCE_ID_Bank_idx FOREIGN KEY (ID_Bank) REFERENCES BANK(ID_Bank);
+ALTER TABLE BRANCHES ADD CONSTRAINT BRANCHES_ID_Bank_idx FOREIGN KEY (ID_Bank) REFERENCES BANK(ID_Bank);
+ALTER TABLE BRANCHES ADD CONSTRAINT BRANCHES_Filial_ID_idx FOREIGN KEY (Filial_ID) REFERENCES Filial(Filial_ID);
+ALTER TABLE DEPOSIT_CONTRACT ADD CONSTRAINT DEPOSIT_CONTRACT_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE DEPOSIT_CONTRACT ADD CONSTRAINT DEPOSIT_CONTRACT_IDAccount_idx FOREIGN KEY (IDAccount) REFERENCES ACCOUNT(IDAccount);
+ALTER TABLE DEPOSIT_CONTRACT ADD CONSTRAINT DEPOSIT_CONTRACT_ID_Branch_idx FOREIGN KEY (ID_Branch) REFERENCES BRANCHES(ID_Branch);
+ALTER TABLE DEPOSIT_CONTRACT ADD CONSTRAINT DEPOSIT_CONTRACT_ID_Filial_idx FOREIGN KEY (ID_Filial) REFERENCES Filial(ID_Filial);
+ALTER TABLE DEPOSIT_CONTRACT ADD CONSTRAINT DEPOSIT_CONTRACT_ID_Product_idx FOREIGN KEY (ID_Product) REFERENCES PRODUCT(ID_Product);
+ALTER TABLE DEPOSIT_HISTORY ADD CONSTRAINT DEPOSIT_HISTORY_ID_Contract_idx FOREIGN KEY (ID_Contract) REFERENCES DEPOSIT_CONTRACT(ID_Contract);
+ALTER TABLE DEPOSIT_HISTORY ADD CONSTRAINT DEPOSIT_HISTORY_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE DEPOSIT_HISTORY ADD CONSTRAINT DEPOSIT_HISTORY_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE DEPOSIT_HISTORY ADD CONSTRAINT DEPOSIT_HISTORY_ID_Product_idx FOREIGN KEY (ID_Product) REFERENCES PRODUCT(ID_Product);
+ALTER TABLE INSURANCE  ADD CONSTRAINT INSURANCE _ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE INSURANCE  ADD CONSTRAINT INSURANCE _ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE INSURANCE  ADD CONSTRAINT INSURANCE _ID_Filial_idx FOREIGN KEY (ID_Filial) REFERENCES Filial(ID_Filial);
+ALTER TABLE INSURANCE  ADD CONSTRAINT INSURANCE _ID_Branch_idx FOREIGN KEY (ID_Branch) REFERENCES BRANCHES(ID_Branch);
+ALTER TABLE IOM_CAMPAIGNS ADD CONSTRAINT IOM_CAMPAIGNS_ID_Offer_idx FOREIGN KEY (ID_Offer) REFERENCES OFFERS(ID_Offer);
+ALTER TABLE IOM_CAMPAIGNS ADD CONSTRAINT IOM_CAMPAIGNS_Parent_CampaignID_idx FOREIGN KEY (Parent_CampaignID) REFERENCES IOM_CAMPAIGNS(Parent_CampaignID);
+ALTER TABLE IOM_SYSTEM ADD CONSTRAINT IOM_SYSTEM_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE NEGATIVE_INFORMATION ADD CONSTRAINT NEGATIVE_INFORMATION_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE NEGATIVE_INFORMATION ADD CONSTRAINT NEGATIVE_INFORMATION_ID_Bank_idx FOREIGN KEY (ID_Bank) REFERENCES BANK(ID_Bank);
+ALTER TABLE NEGATIVE_INFORMATION ADD CONSTRAINT NEGATIVE_INFORMATION_CampaignID_idx FOREIGN KEY (CampaignID) REFERENCES IOM_CAMPAIGNS(CampaignID);
+ALTER TABLE OFFERS ADD CONSTRAINT OFFERS_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE OFFERS ADD CONSTRAINT OFFERS_CampaignID_idx FOREIGN KEY (CampaignID) REFERENCES IOM_CAMPAIGN(CampaignID);
+ALTER TABLE OFFERS ADD CONSTRAINT OFFERS_ID_Parent_Offer_idx FOREIGN KEY (ID_Parent_Offer) REFERENCES OFFERS(ID_Parent_Offer);
+ALTER TABLE PARTICIPANTS ADD CONSTRAINT PARTICIPANTS_ID_Offer_idx FOREIGN KEY (ID_Offer) REFERENCES OFFERS(ID_Offer);
+ALTER TABLE PARTICIPANTS ADD CONSTRAINT PARTICIPANTS_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE PASSPORT ADD CONSTRAINT PASSPORT_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE PASSPORT ADD CONSTRAINT PASSPORT_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE PREAPPROVED ADD CONSTRAINT PREAPPROVED_ID_Offer_idx FOREIGN KEY (ID_Offer) REFERENCES OFFERS(ID_Offer);
+ALTER TABLE PREAPPROVED ADD CONSTRAINT PREAPPROVED_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE PREAPPROVED ADD CONSTRAINT PREAPPROVED_ID_Participant_idx FOREIGN KEY (ID_Participant) REFERENCES PARTICIPANTS(ID_Participant);
+ALTER TABLE PREAPPROVED ADD CONSTRAINT PREAPPROVED_CampaignID_idx FOREIGN KEY (CampaignID) REFERENCES IOM_CAMPAIGN(CampaignID);
+ALTER TABLE PRODUCT ADD CONSTRAINT PRODUCT_ID_Bank_idx FOREIGN KEY (ID_Bank) REFERENCES BANK(ID_Bank);
+ALTER TABLE TRANSACTION ADD CONSTRAINT TRANSACTION_ID_Transaction_idx FOREIGN KEY (ID_Transaction) REFERENCES TRANSACTIONS(ID_Transaction);
+ALTER TABLE TRANSACTION ADD CONSTRAINT TRANSACTION_ID_Card_idx FOREIGN KEY (ID_Card) REFERENCES CARD(ID_Card);
+ALTER TABLE TRANSACTION ADD CONSTRAINT TRANSACTION_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE TRANSACTION ADD CONSTRAINT TRANSACTION_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+
+
+ALTER TABLE ACCOUNT ADD CONSTRAINT ACCOUNT_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE ACCOUNT ADD CONSTRAINT ACCOUNT_ID_Contract_idx FOREIGN KEY (ID_Contract) REFERENCES CREDIT_CONTRACT(ID_Contract);
+ALTER TABLE ACCOUNT ADD CONSTRAINT ACCOUNT_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE ACCOUNT ADD CONSTRAINT ACCOUNT_ID_Branch_idx FOREIGN KEY (ID_Branch) REFERENCES BRANCHES(ID_Branch);
+ALTER TABLE ACCOUNT ADD CONSTRAINT ACCOUNT_ID_Filial_idx FOREIGN KEY (ID_Filial) REFERENCES Filial(ID_Filial);
+ALTER TABLE ADDRESS ADD CONSTRAINT ADDRESS_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE ADDRESS ADD CONSTRAINT ADDRESS_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE APPLICATION ADD CONSTRAINT APPLICATION_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE APPLICATION ADD CONSTRAINT APPLICATION_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE APPLICATION ADD CONSTRAINT APPLICATION_ID_Contract_idx FOREIGN KEY (ID_Contract) REFERENCES CREDIT_CONTRACT(ID_Contract);
+ALTER TABLE APPLICATION_HISTORY ADD CONSTRAINT APPLICATION_HISTORY_ID_Application_idx FOREIGN KEY (ID_Application) REFERENCES APPLICATION(ID_Application);
+ALTER TABLE CARD ADD CONSTRAINT CARD_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE CARD ADD CONSTRAINT CARD_IDAccount_idx FOREIGN KEY (IDAccount) REFERENCES ACCOUNT(IDAccount);
+ALTER TABLE CLIENT ADD CONSTRAINT CLIENT_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CLIENT_CONTACT ADD CONSTRAINT CLIENT_CONTACT_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CLIENT_DEDUP ADD CONSTRAINT CLIENT_DEDUP_ID_Client_SMP_idx FOREIGN KEY (ID_Client_SMP) REFERENCES (ID_Client_SMP);
+ALTER TABLE CLIENT_DEDUP ADD CONSTRAINT CLIENT_DEDUP_ID_Client_IKB_idx FOREIGN KEY (ID_Client_IKB) REFERENCES (ID_Client_IKB);
+ALTER TABLE CLIENT_DEDUP ADD CONSTRAINT CLIENT_DEDUP_ID_Client_MOB_idx FOREIGN KEY (ID_Client_MOB) REFERENCES (ID_Client_MOB);
+ALTER TABLE CLIENT_DEDUP ADD CONSTRAINT CLIENT_DEDUP_ID_Client_N_idx FOREIGN KEY (ID_Client_N) REFERENCES (ID_Client_N);
+ALTER TABLE CLIENT_HISTORY ADD CONSTRAINT CLIENT_HISTORY_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CLIENT_MSB ADD CONSTRAINT CLIENT_MSB_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CLIENT_MSB ADD CONSTRAINT CLIENT_MSB_Director_ID_Client_idx FOREIGN KEY (Director_ID_Client) REFERENCES CLIENT(Director_ID_Client);
+ALTER TABLE CLIENT_MSB ADD CONSTRAINT CLIENT_MSB_Book_Keeper_ID_Client_idx FOREIGN KEY (Book_Keeper_ID_Client) REFERENCES CLIENT(Book_Keeper_ID_Client);
+ALTER TABLE CLIENT_MSB_HISTORY ADD CONSTRAINT CLIENT_MSB_HISTORY_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CLIENT_SUMMARY ADD CONSTRAINT CLIENT_SUMMARY_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CLIENT_SUMMARY ADD CONSTRAINT CLIENT_SUMMARY_Last_CampaignID_idx FOREIGN KEY (Last_CampaignID) REFERENCES IOM_CAMPAIGNS(Last_CampaignID);
+ALTER TABLE COMMUNICATION_REFUSE ADD CONSTRAINT COMMUNICATION_REFUSE_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE COMMUNICATION_REFUSE ADD CONSTRAINT COMMUNICATION_REFUSE_ID_Bank_idx FOREIGN KEY (ID_Bank) REFERENCES BANK(ID_Bank);
+ALTER TABLE COMMUNICATION_RESULT_CALL ADD CONSTRAINT COMMUNICATION_RESULT_CALL_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE COMMUNICATION_RESULT_CALL ADD CONSTRAINT COMMUNICATION_RESULT_CALL_CampaignID_idx FOREIGN KEY (CampaignID) REFERENCES IOM_CAMPAIGN(CampaignID);
+ALTER TABLE COMMUNICATION_RESULT_CALL ADD CONSTRAINT COMMUNICATION_RESULT_CALL_ID_Reaction_idx FOREIGN KEY (ID_Reaction) REFERENCES REACTIONS(ID_Reaction);
+ALTER TABLE COMMUNICATION_RESULT_CALL ADD CONSTRAINT COMMUNICATION_RESULT_CALL_ID_Offer_idx FOREIGN KEY (ID_Offer) REFERENCES OFFERS(ID_Offer);
+ALTER TABLE COMMUNICATION_RESULT_CALL ADD CONSTRAINT COMMUNICATION_RESULT_CALL_ID_Participants_idx FOREIGN KEY (ID_Participants) REFERENCES PARTICIPANTS(ID_Participants);
+ALTER TABLE COMMUNICATION_RESULT_OTHER ADD CONSTRAINT COMMUNICATION_RESULT_OTHER_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE COMMUNICATION_RESULT_OTHER ADD CONSTRAINT COMMUNICATION_RESULT_OTHER_CampaignID_idx FOREIGN KEY (CampaignID) REFERENCES IOM_CAMPAIGN(CampaignID);
+ALTER TABLE COMMUNICATION_RESULT_OTHER ADD CONSTRAINT COMMUNICATION_RESULT_OTHER_ID_Reaction_idx FOREIGN KEY (ID_Reaction) REFERENCES REACTIONS(ID_Reaction);
+ALTER TABLE COMMUNICATION_RESULT_OTHER ADD CONSTRAINT COMMUNICATION_RESULT_OTHER_ID_Offer_idx FOREIGN KEY (ID_Offer) REFERENCES OFFERS(ID_Offer);
+ALTER TABLE COMMUNICATION_RESULT_OTHER ADD CONSTRAINT COMMUNICATION_RESULT_OTHER_ID_Participants_idx FOREIGN KEY (ID_Participants) REFERENCES PARTICIPANTS(ID_Participants);
+ALTER TABLE CREDIT_CONTRACT ADD CONSTRAINT CREDIT_CONTRACT_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE CREDIT_CONTRACT ADD CONSTRAINT CREDIT_CONTRACT_IDAccount_idx FOREIGN KEY (IDAccount) REFERENCES ACCOUNT(IDAccount);
+ALTER TABLE CREDIT_CONTRACT ADD CONSTRAINT CREDIT_CONTRACT_ID_Branch_idx FOREIGN KEY (ID_Branch) REFERENCES BRANCHES(ID_Branch);
+ALTER TABLE CREDIT_CONTRACT ADD CONSTRAINT CREDIT_CONTRACT_ID_Filial_idx FOREIGN KEY (ID_Filial) REFERENCES Filial(ID_Filial);
+ALTER TABLE CREDIT_CONTRACT ADD CONSTRAINT CREDIT_CONTRACT_ID_Product_idx FOREIGN KEY (ID_Product) REFERENCES PRODUCT(ID_Product);
+ALTER TABLE CREDIT_HISTORY ADD CONSTRAINT CREDIT_HISTORY_ID_Contract_idx FOREIGN KEY (ID_Contract) REFERENCES CREDIT_CONTRACT(ID_Contract);
+ALTER TABLE Filial ADD CONSTRAINT Filial_ID_Bank_idx FOREIGN KEY (ID_Bank) REFERENCES BANK(ID_Bank);
+ALTER TABLE SOURCE ADD CONSTRAINT SOURCE_ID_Bank_idx FOREIGN KEY (ID_Bank) REFERENCES BANK(ID_Bank);
+ALTER TABLE BRANCHES ADD CONSTRAINT BRANCHES_ID_Bank_idx FOREIGN KEY (ID_Bank) REFERENCES BANK(ID_Bank);
+ALTER TABLE BRANCHES ADD CONSTRAINT BRANCHES_Filial_ID_idx FOREIGN KEY (Filial_ID) REFERENCES Filial(Filial_ID);
+ALTER TABLE DEPOSIT_CONTRACT ADD CONSTRAINT DEPOSIT_CONTRACT_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE DEPOSIT_CONTRACT ADD CONSTRAINT DEPOSIT_CONTRACT_IDAccount_idx FOREIGN KEY (IDAccount) REFERENCES ACCOUNT(IDAccount);
+ALTER TABLE DEPOSIT_CONTRACT ADD CONSTRAINT DEPOSIT_CONTRACT_ID_Branch_idx FOREIGN KEY (ID_Branch) REFERENCES BRANCHES(ID_Branch);
+ALTER TABLE DEPOSIT_CONTRACT ADD CONSTRAINT DEPOSIT_CONTRACT_ID_Filial_idx FOREIGN KEY (ID_Filial) REFERENCES Filial(ID_Filial);
+ALTER TABLE DEPOSIT_CONTRACT ADD CONSTRAINT DEPOSIT_CONTRACT_ID_Product_idx FOREIGN KEY (ID_Product) REFERENCES PRODUCT(ID_Product);
+ALTER TABLE DEPOSIT_HISTORY ADD CONSTRAINT DEPOSIT_HISTORY_ID_Contract_idx FOREIGN KEY (ID_Contract) REFERENCES DEPOSIT_CONTRACT(ID_Contract);
+ALTER TABLE DEPOSIT_HISTORY ADD CONSTRAINT DEPOSIT_HISTORY_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE DEPOSIT_HISTORY ADD CONSTRAINT DEPOSIT_HISTORY_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE DEPOSIT_HISTORY ADD CONSTRAINT DEPOSIT_HISTORY_ID_Product_idx FOREIGN KEY (ID_Product) REFERENCES PRODUCT(ID_Product);
+ALTER TABLE INSURANCE  ADD CONSTRAINT INSURANCE _ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE INSURANCE  ADD CONSTRAINT INSURANCE _ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE INSURANCE  ADD CONSTRAINT INSURANCE _ID_Filial_idx FOREIGN KEY (ID_Filial) REFERENCES Filial(ID_Filial);
+ALTER TABLE INSURANCE  ADD CONSTRAINT INSURANCE _ID_Branch_idx FOREIGN KEY (ID_Branch) REFERENCES BRANCHES(ID_Branch);
+ALTER TABLE IOM_CAMPAIGNS ADD CONSTRAINT IOM_CAMPAIGNS_ID_Offer_idx FOREIGN KEY (ID_Offer) REFERENCES OFFERS(ID_Offer);
+ALTER TABLE IOM_CAMPAIGNS ADD CONSTRAINT IOM_CAMPAIGNS_Parent_CampaignID_idx FOREIGN KEY (Parent_CampaignID) REFERENCES IOM_CAMPAIGNS(Parent_CampaignID);
+ALTER TABLE IOM_SYSTEM ADD CONSTRAINT IOM_SYSTEM_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE NEGATIVE_INFORMATION ADD CONSTRAINT NEGATIVE_INFORMATION_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE NEGATIVE_INFORMATION ADD CONSTRAINT NEGATIVE_INFORMATION_ID_Bank_idx FOREIGN KEY (ID_Bank) REFERENCES BANK(ID_Bank);
+ALTER TABLE NEGATIVE_INFORMATION ADD CONSTRAINT NEGATIVE_INFORMATION_CampaignID_idx FOREIGN KEY (CampaignID) REFERENCES IOM_CAMPAIGNS(CampaignID);
+ALTER TABLE OFFERS ADD CONSTRAINT OFFERS_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE OFFERS ADD CONSTRAINT OFFERS_CampaignID_idx FOREIGN KEY (CampaignID) REFERENCES IOM_CAMPAIGN(CampaignID);
+ALTER TABLE OFFERS ADD CONSTRAINT OFFERS_ID_Parent_Offer_idx FOREIGN KEY (ID_Parent_Offer) REFERENCES OFFERS(ID_Parent_Offer);
+ALTER TABLE PARTICIPANTS ADD CONSTRAINT PARTICIPANTS_ID_Offer_idx FOREIGN KEY (ID_Offer) REFERENCES OFFERS(ID_Offer);
+ALTER TABLE PARTICIPANTS ADD CONSTRAINT PARTICIPANTS_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE PASSPORT ADD CONSTRAINT PASSPORT_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE PASSPORT ADD CONSTRAINT PASSPORT_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE PREAPPROVED ADD CONSTRAINT PREAPPROVED_ID_Offer_idx FOREIGN KEY (ID_Offer) REFERENCES OFFERS(ID_Offer);
+ALTER TABLE PREAPPROVED ADD CONSTRAINT PREAPPROVED_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
+ALTER TABLE PREAPPROVED ADD CONSTRAINT PREAPPROVED_ID_Participant_idx FOREIGN KEY (ID_Participant) REFERENCES PARTICIPANTS(ID_Participant);
+ALTER TABLE PREAPPROVED ADD CONSTRAINT PREAPPROVED_CampaignID_idx FOREIGN KEY (CampaignID) REFERENCES IOM_CAMPAIGN(CampaignID);
+ALTER TABLE PRODUCT ADD CONSTRAINT PRODUCT_ID_Bank_idx FOREIGN KEY (ID_Bank) REFERENCES BANK(ID_Bank);
+ALTER TABLE TRANSACTION ADD CONSTRAINT TRANSACTION_ID_Transaction_idx FOREIGN KEY (ID_Transaction) REFERENCES TRANSACTIONS(ID_Transaction);
+ALTER TABLE TRANSACTION ADD CONSTRAINT TRANSACTION_ID_Card_idx FOREIGN KEY (ID_Card) REFERENCES CARD(ID_Card);
+ALTER TABLE TRANSACTION ADD CONSTRAINT TRANSACTION_ID_Source_idx FOREIGN KEY (ID_Source) REFERENCES SOURCE(ID_Source);
+ALTER TABLE TRANSACTION ADD CONSTRAINT TRANSACTION_ID_Client_idx FOREIGN KEY (ID_Client) REFERENCES CLIENT_DEDUP(ID_Client);
