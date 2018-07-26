@@ -78,9 +78,13 @@ public class Utils {
         Pattern p = Pattern.compile("\\w+");
         Matcher m = p.matcher(name);
         if (!m.matches()) {
-            log.error("table name or column name must contains letters or digits only (or symbol _)");
-            throw new RuntimeException("table name or column name must contains letters or digits only (or symbol _)");
+            log.error("table name or column name must contains letters or digits only (or symbol _): " + name);
+            throw new RuntimeException("table name or column name must contains letters or digits only (or symbol _): " + name);
         }
+    }
+
+    public static void main(String[] args) {
+        checkTableOrColumnNameForSqlInjection("ACTIVE_CARDS_TRANS_3M");
     }
 
 }

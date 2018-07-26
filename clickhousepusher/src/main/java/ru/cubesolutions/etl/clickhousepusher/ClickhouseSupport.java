@@ -58,8 +58,12 @@ public class ClickhouseSupport {
             for (Event event : events) {
                 i = 0;
                 for (String paramName : paramNames) {
+                    String value = event.getValue(paramName);
+                    if ("null".equals(value) || "NULL".equals(value)) {
+                        value = null;
+                    }
                     if (tableMapHolder.existsEventParam(paramName)) {
-                        setValue(ps, paramName, event.getValue(paramName), ++i);
+                        setValue(ps, paramName, value, ++i);
                     }
                 }
                 ps.addBatch();
@@ -107,6 +111,10 @@ public class ClickhouseSupport {
         }
     }
 
+    private void setNull(PreparedStatement ps, int index, int type) throws SQLException {
+        ps.setNull(index, type);
+    }
+
     private void setValue(PreparedStatement ps, String eventParamName, String value, int index) throws SQLException {
         Column column = appConfig.getTableMapHolder().getColumnByParamName(eventParamName);
         if (isNull(column)) {
@@ -115,17 +123,41 @@ public class ClickhouseSupport {
         String columnType = column.getType().toLowerCase();
         if (columnType.contains("int")) {
             if (columnType.contains("8")) {
+                if (isNull(value)) {
+                    setNull(ps, index, Types.TINYINT);
+                    return;
+                }
                 ps.setByte(index, Byte.parseByte(value));
             } else if (columnType.contains("16")) {
+                if (isNull(value)) {
+                    setNull(ps, index, Types.SMALLINT);
+                    return;
+                }
                 ps.setShort(index, Short.parseShort(value));
             } else if (columnType.contains("32")) {
+                if (isNull(value)) {
+                    setNull(ps, index, Types.INTEGER);
+                    return;
+                }
                 ps.setInt(index, Integer.parseInt(value));
             } else if (columnType.contains("64")) {
+                if (isNull(value)) {
+                    setNull(ps, index, Types.BIGINT);
+                    return;
+                }
                 ps.setLong(index, Long.parseLong(value));
             }
         } else if (columnType.equals("string")) {
+            if (isNull(value)) {
+                setNull(ps, index, Types.VARCHAR);
+                return;
+            }
             ps.setString(index, value);
         } else if (columnType.equals("datetime")) {
+            if (isNull(value)) {
+                setNull(ps, index, Types.TIMESTAMP);
+                return;
+            }
             Timestamp timestamp;
             try {
                 timestamp = Timestamp.valueOf(LocalDateTime.parse(value, DateTimeFormatter.ofPattern(column.getValueFormat())));
@@ -135,6 +167,10 @@ public class ClickhouseSupport {
             }
             ps.setTimestamp(index, timestamp);
         } else if (columnType.equals("date")) {
+            if (isNull(value)) {
+                setNull(ps, index, Types.DATE);
+                return;
+            }
             Date date;
             try {
                 date = Date.valueOf(LocalDate.parse(value, DateTimeFormatter.ofPattern(column.getValueFormat())));
@@ -145,11 +181,25 @@ public class ClickhouseSupport {
             ps.setDate(index, date);
         } else if (columnType.contains("float")) {
             if (columnType.contains("32")) {
+                if (isNull(value)) {
+                    setNull(ps, index, Types.FLOAT);
+                    return;
+                }
                 ps.setFloat(index, Float.parseFloat(value));
             } else if (columnType.contains("64")) {
+                if (isNull(value)) {
+                    setNull(ps, index, Types.DOUBLE);
+                    return;
+                }
                 ps.setDouble(index, Double.parseDouble(value));
             }
         }
+    }
+
+    public static void main(String[] args) {
+        Timestamp date = Timestamp.valueOf(LocalDateTime.parse("1969-02-16 00:00:00.0", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S")));
+
+        System.out.println(date);
     }
 
     private static void removeLastSymbol(StringBuilder sql) {

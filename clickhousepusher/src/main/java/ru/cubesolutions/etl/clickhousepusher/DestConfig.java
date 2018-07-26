@@ -1,12 +1,10 @@
 package ru.cubesolutions.etl.clickhousepusher;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.Properties;
+
+import static ru.cubesolutions.evam.utils.CommonUtils.getProps;
 
 /**
  * Created by Garya on 12.11.2017.
@@ -31,24 +29,7 @@ public class DestConfig {
     private TableMapHolder tableMapHolder;
 
     public DestConfig(String filePropertiesName) {
-        Properties props = new Properties();
-        try (InputStream is = new FileInputStream(filePropertiesName)) {
-            props.load(is);
-            PropertyConfigurator.configure("log4j.properties");
-            log.debug(filePropertiesName + " is found");
-        } catch (FileNotFoundException e) {
-            try (InputStream input = DestConfig.class.getResourceAsStream("/" + filePropertiesName)) {
-                props.load(input);
-            } catch (Throwable t) {
-                log.error("File config " + filePropertiesName + " not found", e);
-                System.out.println("File config " + filePropertiesName + " not found");
-                throw new RuntimeException(t);
-            }
-        } catch (Throwable t) {
-            log.error("File config " + filePropertiesName + " not found", t);
-            System.out.println("File config " + filePropertiesName + " not found");
-            throw new RuntimeException(t);
-        }
+        Properties props = getProps(filePropertiesName);
         String jdbcDriver = props.getProperty("jdbc-driver");
         String jdbcUrl = props.getProperty("jdbc-url");
         String jdbcUser = props.getProperty("jdbc-user");

@@ -8,6 +8,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import static ru.cubesolutions.evam.utils.CommonUtils.getProps;
+
 /**
  * Created by Garya on 12.11.2017.
  */
@@ -31,23 +33,7 @@ public class SrcConfig {
     private String queue;
 
     public SrcConfig(String fileNameProperties) {
-        Properties props = new Properties();
-        try (InputStream input = new FileInputStream(fileNameProperties)) {
-            props.load(input);
-            PropertyConfigurator.configure("log4j.properties");
-        } catch (FileNotFoundException e) {
-            try (InputStream input = SrcConfig.class.getResourceAsStream("/" + fileNameProperties)) {
-                props.load(input);
-            } catch (Throwable t) {
-                log.error("File config " + fileNameProperties + " not found", e);
-                System.out.println("File config " + fileNameProperties + " not found");
-                throw new RuntimeException(t);
-            }
-        } catch (Throwable t) {
-            log.error("File config " + fileNameProperties + " not found", t);
-            System.out.println("File config " + fileNameProperties + " not found");
-            throw new RuntimeException(t);
-        }
+        Properties props = getProps(fileNameProperties);
         jdbcDriver = props.getProperty("jdbc-driver");
         jdbcUrl = props.getProperty("jdbc-url");
         jdbcUser = props.getProperty("jdbc-user");
