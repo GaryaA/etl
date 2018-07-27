@@ -77,13 +77,32 @@ public class ClickhouseSupport {
         }
     }
 
-    public void truncateTable(String tableName) {
+    public void replaceTable(String dbName, String tableName) {
+        checkTableOrColumnNameForSqlInjection(dbName);
         checkTableOrColumnNameForSqlInjection(tableName);
+        String tableNameWithDbName = dbName + "." + tableName;
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "truncate table " + tableName;
-            connection.setAutoCommit(true);
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.executeUpdate();
+            String sql = "show create table " + tableNameWithDbName;
+            PreparedStatement psShowCreateTable = connection.prepareStatement(sql);
+            ResultSet rsShowCreateTable = psShowCreateTable.executeQuery();
+            if (rsShowCreateTable == null) {
+                return;
+            }
+            String createTableSql;
+            if (rsShowCreateTable.next()) {
+                createTableSql = rsShowCreateTable.getString(1);
+                log.debug("table ddl: " + createTableSql);
+            } else {
+                log.warn("table " + tableNameWithDbName + " doesn't exist");
+                return;
+            }
+            String newTableName = tableNameWithDbName + "_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy_MM_dd_HHmm"));
+            PreparedStatement psRename = connection.prepareStatement("RENAME TABLE " + tableNameWithDbName + " TO " + newTableName);
+            psRename.executeUpdate();
+            log.info(tableNameWithDbName + " renamed to " + newTableName);
+            PreparedStatement psCreateTable = connection.prepareStatement(createTableSql);
+            psCreateTable.executeUpdate();
+            log.info(tableNameWithDbName + " is created");
         } catch (Exception e) {
             log.error("", e);
             throw new RuntimeException(e);
@@ -198,7 +217,6 @@ public class ClickhouseSupport {
 
     public static void main(String[] args) {
         Timestamp date = Timestamp.valueOf(LocalDateTime.parse("1969-02-16 00:00:00.0", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S")));
-
         System.out.println(date);
     }
 

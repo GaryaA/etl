@@ -31,11 +31,11 @@ public class ConsumerListener extends DefaultConsumer {
     private Lock lock;
     private DestConfig appConfig;
 
-    public ConsumerListener(Channel channel, Lock lock, DestConfig appConfig) {
+    public ConsumerListener(Channel channel, Lock lock, DestConfig appConfig, ClickhouseSupport clickhouseSupport) {
         super(channel);
         this.lock = lock;
         this.appConfig = appConfig;
-        this.clickhouseSupport = new ClickhouseSupport(appConfig);
+        this.clickhouseSupport = clickhouseSupport;
     }
 
     @Override

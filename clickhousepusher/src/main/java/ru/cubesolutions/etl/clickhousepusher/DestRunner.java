@@ -25,9 +25,12 @@ public class DestRunner {
     }
 
     public void run() {
-        ConsumerJob consumerJob = new ConsumerJob(appConfig);
+        ClickhouseSupport clickhouseSupport = new ClickhouseSupport(appConfig);
+        ConsumerJob consumerJob = new ConsumerJob(appConfig, clickhouseSupport);
         ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
         exec.scheduleWithFixedDelay(Counter.INSTANCE, 0, 1, TimeUnit.SECONDS);
+
+        clickhouseSupport.replaceTable(appConfig.getTableMapHolder().getDbName(), appConfig.getTableMapHolder().getTable().getTableName());
 
         consumerJob.start();
         while (true) {

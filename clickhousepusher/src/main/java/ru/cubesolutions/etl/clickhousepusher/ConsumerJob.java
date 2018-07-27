@@ -20,7 +20,7 @@ public class ConsumerJob {
     private ConsumerListener consumerListener;
     private Lock lock;
 
-    public ConsumerJob(DestConfig appConfig) {
+    public ConsumerJob(DestConfig appConfig, ClickhouseSupport clickhouseSupport) {
         this.appConfig = appConfig;
         try {
             this.endpoint = new EndpointWrapper(new RabbitConfig(
@@ -36,7 +36,7 @@ public class ConsumerJob {
             throw new RuntimeException(e);
         }
         this.lock = new ReentrantLock();
-        this.consumerListener = new ConsumerListener(endpoint.getChannel(), lock, appConfig);
+        this.consumerListener = new ConsumerListener(endpoint.getChannel(), lock, appConfig, clickhouseSupport);
     }
 
     public synchronized void start() {
