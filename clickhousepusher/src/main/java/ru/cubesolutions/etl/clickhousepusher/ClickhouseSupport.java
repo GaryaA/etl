@@ -82,9 +82,7 @@ public class ClickhouseSupport {
         checkTableOrColumnNameForSqlInjection(tableName);
         String tableNameWithDbName = dbName + "." + tableName;
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "show create table " + tableNameWithDbName;
-            PreparedStatement psShowCreateTable = connection.prepareStatement(sql);
-            ResultSet rsShowCreateTable = psShowCreateTable.executeQuery();
+            ResultSet rsShowCreateTable = connection.prepareStatement("show create table " + tableNameWithDbName).executeQuery();
             if (rsShowCreateTable == null) {
                 return;
             }
@@ -97,11 +95,9 @@ public class ClickhouseSupport {
                 return;
             }
             String newTableName = tableNameWithDbName + "_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy_MM_dd_HHmm"));
-            PreparedStatement psRename = connection.prepareStatement("RENAME TABLE " + tableNameWithDbName + " TO " + newTableName);
-            psRename.executeUpdate();
+            connection.prepareStatement("RENAME TABLE " + tableNameWithDbName + " TO " + newTableName).executeUpdate();
             log.info(tableNameWithDbName + " renamed to " + newTableName);
-            PreparedStatement psCreateTable = connection.prepareStatement(createTableSql);
-            psCreateTable.executeUpdate();
+            connection.prepareStatement(createTableSql).executeUpdate();
             log.info(tableNameWithDbName + " is created");
         } catch (Exception e) {
             log.error("", e);

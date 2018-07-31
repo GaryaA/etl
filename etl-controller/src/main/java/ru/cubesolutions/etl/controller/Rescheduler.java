@@ -14,7 +14,7 @@ import static ru.cubesolutions.evam.utils.CommonUtils.getProps;
 /**
  * Created by Garya on 26.07.2018.
  */
-public class Rescheduler implements Runnable {
+public class Rescheduler extends Thread {
 
     private final static Logger log = Logger.getLogger(Rescheduler.class);
 
@@ -24,6 +24,7 @@ public class Rescheduler implements Runnable {
     public Rescheduler(Scheduler scheduler, TriggerKey currentKey) {
         this.scheduler = scheduler;
         this.triggerKey = currentKey;
+        this.setDaemon(true);
     }
 
     public void start() {
