@@ -26,6 +26,7 @@ public class MQPusher {
         try {
             producer = new Producer(rabbitConfig);
             producer.queueDeclare(this.appConfig.getQueue());
+            producer.queuePurge(this.appConfig.getQueue());
         } catch (IOException e) {
             log.error("Can't connect to rabbitmq", e);
             throw new RuntimeException("Can't connect to rabbitmq", e);
