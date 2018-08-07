@@ -26,17 +26,28 @@ public class DestRunner {
 
     public void run() {
         ClickhouseSupport clickhouseSupport = new ClickhouseSupport(appConfig);
+
+        String originalTableName = null;
+        String tableForLoading = null;
+        boolean pushToClickhouse = appConfig.getJdbcDriver().contains("clickhouse");
+        if (pushToClickhouse) {
+            originalTableName = appConfig.getTableMapHolder().getDbName() + "." + appConfig.getTableMapHolder().getTable().getTableName();
+            tableForLoading = clickhouseSupport.createNewTable(appConfig.getTableMapHolder().getDbName(), appConfig.getTableMapHolder().getTable().getTableName());
+            appConfig.getTableMapHolder().getTable().setTableName(tableForLoading.substring(tableForLoading.indexOf(".") + 1));
+        }
+
         ConsumerJob consumerJob = new ConsumerJob(appConfig, clickhouseSupport);
         ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
         exec.scheduleWithFixedDelay(Counter.INSTANCE, 0, 1, TimeUnit.SECONDS);
-
-        clickhouseSupport.replaceTable(appConfig.getTableMapHolder().getDbName(), appConfig.getTableMapHolder().getTable().getTableName());
 
         consumerJob.start();
         while (true) {
             if (Counter.INSTANCE.getC() >= appConfig.getTimeToStopInSeconds()) {
                 consumerJob.stop();
                 exec.shutdownNow();
+                if (pushToClickhouse) {
+                    clickhouseSupport.replaceTable(originalTableName, tableForLoading);
+                }
                 break;
             }
             try {

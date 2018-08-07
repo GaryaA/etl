@@ -33,8 +33,7 @@ public class TableMapHolder {
         } catch (Throwable t) {
             throw new RuntimeException(t);
         }
-        String dbName = props.getProperty("jdbc-url");
-        dbName = dbName.substring(dbName.lastIndexOf("/") + 1);
+        String dbName = props.getProperty("db-name");
         String tableName = props.getProperty("table-name");
         if (tableName != null) {
             tableName = tableName.trim();

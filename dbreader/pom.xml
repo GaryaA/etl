@@ -24,6 +24,11 @@
             <artifactId>ojdbc6</artifactId>
             <version>11.2.0.4</version>
         </dependency>
+        <dependency>
+            <groupId>ru.yandex.clickhouse</groupId>
+            <artifactId>clickhouse-jdbc</artifactId>
+            <version>0.1.39</version>
+        </dependency>
     </dependencies>
 
     <build>

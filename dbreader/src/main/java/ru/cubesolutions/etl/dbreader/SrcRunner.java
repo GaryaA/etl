@@ -19,10 +19,12 @@ public class SrcRunner {
     private final static Logger log = Logger.getLogger(SrcRunner.class);
     private SrcConfig appConfig;
     private DataSource dataSource;
+    private MQPusher mqPusher;
 
     public SrcRunner(SrcConfig appConfig) {
         this.appConfig = appConfig;
         this.dataSource = new DataSource(appConfig);
+        this.mqPusher = new MQPusher(this.appConfig);
     }
 
     public static void main(String[] args) throws IOException {
@@ -32,13 +34,12 @@ public class SrcRunner {
     }
 
     public void run() {
-        MQPusher mqPusher = new MQPusher(this.appConfig);
         mqPusher.initMqProducer();
-        push(mqPusher);
+        readAndPushAll();
         mqPusher.closeMqProducer();
     }
 
-    private void push(MQPusher mqPusher) {
+    private void readAndPushAll() {
         try {
             try (Connection connection = this.dataSource.getConnection()) {
                 log.info("sql: " + this.appConfig.getSql());
@@ -72,6 +73,10 @@ public class SrcRunner {
             log.error(e);
             throw new RuntimeException(e);
         }
+    }
+
+    private void readAndPushByRows() {
+
     }
 
 }

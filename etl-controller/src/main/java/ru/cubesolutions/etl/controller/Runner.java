@@ -24,6 +24,7 @@ public class Runner implements Job {
     private final static Logger log = Logger.getLogger(Runner.class);
 
     public static void main(String[] args) {
+        Properties props = getProps("etl-controller.properties");
         if (args == null || args.length == 1) {
             log.info("type:");
             log.info("-src <file properties name of source> (optional)");
@@ -41,7 +42,6 @@ public class Runner implements Job {
             }
         }
 
-        Properties props = getProps("etl-controller.properties");
         if (Boolean.parseBoolean(props.getProperty("run-one-time"))) {
             Runner runner = new Runner();
             runner.run(srcProps, destProps);

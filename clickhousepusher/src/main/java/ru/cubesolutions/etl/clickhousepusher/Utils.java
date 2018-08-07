@@ -75,12 +75,12 @@ public class Utils {
     }
 
     public static void checkTableOrColumnNameForSqlInjection(String name) {
-        Pattern p = Pattern.compile("\\w+");
-        Matcher m = p.matcher(name);
-        if (!m.matches()) {
-            log.error("table name or column name must contains letters or digits only (or symbol _): " + name);
-            throw new RuntimeException("table name or column name must contains letters or digits only (or symbol _): " + name);
-        }
+//        Pattern p = Pattern.compile("\\w+");
+//        Matcher m = p.matcher(name);
+//        if (!m.matches()) {
+//            log.error("table name or column name must contains letters or digits only (or symbol _): " + name);
+//            throw new RuntimeException("table name or column name must contains letters or digits only (or symbol _): " + name);
+//        }
     }
 
     public static void main(String[] args) {

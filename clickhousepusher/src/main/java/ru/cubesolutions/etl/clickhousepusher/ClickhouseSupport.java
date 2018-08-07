@@ -19,6 +19,8 @@ public class ClickhouseSupport {
 
     private final static Logger log = Logger.getLogger(ClickhouseSupport.class);
 
+    public final static DateTimeFormatter END_TABLE_FORMATTER = DateTimeFormatter.ofPattern("yyyy_MM_dd_HHmmss");
+
     private DestConfig appConfig;
     private DataSource dataSource;
 
@@ -34,14 +36,14 @@ public class ClickhouseSupport {
         Set<String> paramNames = events.get(0).getParams().keySet();
         TableMapHolder tableMapHolder = appConfig.getTableMapHolder();
         try (Connection connection = dataSource.getConnection()) {
-            StringBuilder sql = new StringBuilder("insert into "
+            StringBuilder sql = new StringBuilder("INSERT INTO "
                     + tableMapHolder.getDbName() + "." + tableMapHolder.getTable().getTableName()
                     + " (");
             for (String paramName : paramNames) {
                 appendColumnName(sql, paramName);
             }
             removeLastSymbol(sql);
-            sql.append(")values(");
+            sql.append(") VALUES (");
 
             int i = 0;
             for (String paramName : paramNames) {
@@ -77,14 +79,15 @@ public class ClickhouseSupport {
         }
     }
 
-    public void replaceTable(String dbName, String tableName) {
+    public String createNewTable(String dbName, String tableName) {
         checkTableOrColumnNameForSqlInjection(dbName);
         checkTableOrColumnNameForSqlInjection(tableName);
         String tableNameWithDbName = dbName + "." + tableName;
+        String newTableName = tableNameWithDbName + "_" + LocalDateTime.now().format(END_TABLE_FORMATTER);
         try (Connection connection = dataSource.getConnection()) {
             ResultSet rsShowCreateTable = connection.prepareStatement("show create table " + tableNameWithDbName).executeQuery();
             if (rsShowCreateTable == null) {
-                return;
+                return null;
             }
             String createTableSql;
             if (rsShowCreateTable.next()) {
@@ -92,13 +95,27 @@ public class ClickhouseSupport {
                 log.debug("table ddl: " + createTableSql);
             } else {
                 log.warn("table " + tableNameWithDbName + " doesn't exist");
-                return;
+                return null;
             }
-            String newTableName = tableNameWithDbName + "_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy_MM_dd_HHmm"));
-            connection.prepareStatement("RENAME TABLE " + tableNameWithDbName + " TO " + newTableName).executeUpdate();
-            log.info(tableNameWithDbName + " renamed to " + newTableName);
-            connection.prepareStatement(createTableSql).executeUpdate();
-            log.info(tableNameWithDbName + " is created");
+            connection.prepareStatement(createTableSql.replace(tableNameWithDbName, newTableName)).executeUpdate();
+            log.info(newTableName + " is created");
+            return newTableName;
+        } catch (Exception e) {
+            log.error("", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void replaceTable(String originalName, String createdTableName) {
+//        checkTableOrColumnNameForSqlInjection(originalName);
+//        checkTableOrColumnNameForSqlInjection(createdTableName);
+        try (Connection connection = dataSource.getConnection()) {
+            String renameOriginalTable = originalName + "_" + LocalDateTime.now().format(END_TABLE_FORMATTER);
+            connection.prepareStatement("RENAME TABLE " + originalName + " TO " + renameOriginalTable).executeUpdate();
+            log.info(originalName + " renamed to " + renameOriginalTable);
+
+            connection.prepareStatement("RENAME TABLE " + createdTableName + " TO " + originalName).executeUpdate();
+            log.info(createdTableName + " renamed to " + originalName);
         } catch (Exception e) {
             log.error("", e);
             throw new RuntimeException(e);
