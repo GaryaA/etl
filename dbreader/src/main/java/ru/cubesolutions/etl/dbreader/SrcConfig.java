@@ -1,14 +1,11 @@
 package ru.cubesolutions.etl.dbreader;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.Properties;
 
 import static ru.cubesolutions.evam.utils.CommonUtils.getProps;
+import static ru.cubesolutions.evam.utils.CommonUtils.isNullOrEmpty;
 
 /**
  * Created by Garya on 12.11.2017.
@@ -24,6 +21,11 @@ public class SrcConfig {
 
     private int fetchSize;
     private String sql;
+    private boolean readRowsWhichMoreThanFixIdOnly;
+    private String initialSql;
+    private Long idToStop;
+    private String fieldIdName;
+    private int delayBetweenTasksInSeconds;
 
     private String mqHost;
     private int mqPort;
@@ -41,6 +43,11 @@ public class SrcConfig {
 
         fetchSize = Integer.parseInt(props.getProperty("fetch-size"));
         sql = props.getProperty("sql");
+        readRowsWhichMoreThanFixIdOnly = Boolean.parseBoolean(props.getProperty("read-rows-which-more-than-fix-id-only"));
+        initialSql = props.getProperty("initial-sql");
+        idToStop = isNullOrEmpty(props.getProperty("id-to-stop")) ? null : Long.parseLong(props.getProperty("id-to-stop"));
+        fieldIdName = props.getProperty("field-id-name");
+        delayBetweenTasksInSeconds = Integer.parseInt(props.getProperty("delay-between-tasks-in-seconds"));
 
         mqHost = props.getProperty("mq-host");
         mqPort = Integer.parseInt(props.getProperty("mq-port"));
@@ -96,5 +103,25 @@ public class SrcConfig {
 
     public String getQueue() {
         return queue;
+    }
+
+    public boolean isReadRowsWhichMoreThanFixIdOnly() {
+        return readRowsWhichMoreThanFixIdOnly;
+    }
+
+    public String getInitialSql() {
+        return initialSql;
+    }
+
+    public Long getIdToStop() {
+        return idToStop;
+    }
+
+    public String getFieldIdName() {
+        return fieldIdName;
+    }
+
+    public int getDelayBetweenTasksInSeconds() {
+        return delayBetweenTasksInSeconds;
     }
 }

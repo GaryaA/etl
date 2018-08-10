@@ -98,7 +98,7 @@ public class ClickhouseSupport {
                 return null;
             }
             connection.prepareStatement(createTableSql.replace(tableNameWithDbName, newTableName)).executeUpdate();
-            log.info(newTableName + " is created");
+            log.info("table " + newTableName + " is created");
             return newTableName;
         } catch (Exception e) {
             log.error("", e);
