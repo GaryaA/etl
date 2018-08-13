@@ -5,6 +5,8 @@ import org.apache.log4j.Logger;
 import java.util.Collection;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Garya on 16.11.2017.
@@ -70,6 +72,19 @@ public class Utils {
             }
             executor.shutdownNow();
         }
+    }
+
+    public static void checkTableOrColumnNameForSqlInjection(String name) {
+//        Pattern p = Pattern.compile("\\w+");
+//        Matcher m = p.matcher(name);
+//        if (!m.matches()) {
+//            log.error("table name or column name must contains letters or digits only (or symbol _): " + name);
+//            throw new RuntimeException("table name or column name must contains letters or digits only (or symbol _): " + name);
+//        }
+    }
+
+    public static void main(String[] args) {
+        checkTableOrColumnNameForSqlInjection("ACTIVE_CARDS_TRANS_3M");
     }
 
 }

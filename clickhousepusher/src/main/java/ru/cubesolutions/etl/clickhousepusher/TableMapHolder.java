@@ -6,8 +6,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import static ru.cubesolutions.etl.clickhousepusher.Utils.checkTableOrColumnNameForSqlInjection;
 
 /**
  * Created by Garya on 15.11.2017.
@@ -16,24 +16,16 @@ public class TableMapHolder {
 
     private final static Logger log = Logger.getLogger(TableMapHolder.class);
 
-    private final static TableMapHolder INSTANCE;
-
     private String dbName;
     private Table table;
     private EventParam[] eventParams;
 
-    private TableMapHolder(String dbName, Table table, EventParam[] eventParams) {
-        this.dbName = dbName;
-        this.table = table;
-        this.eventParams = eventParams;
-    }
-
-    static {
+    public TableMapHolder(String filePropertiesName) {
         Properties props = new Properties();
-        try (InputStream is = new FileInputStream("./conf/clickhousepusher.properties")) {
+        try (InputStream is = new FileInputStream(filePropertiesName)) {
             props.load(is);
         } catch (FileNotFoundException e) {
-            try (InputStream input = AppConfig.class.getResourceAsStream("/clickhousepusher.properties")) {
+            try (InputStream input = DestConfig.class.getResourceAsStream("/" + filePropertiesName)) {
                 props.load(input);
             } catch (Throwable t) {
                 throw new RuntimeException(t);
@@ -41,8 +33,7 @@ public class TableMapHolder {
         } catch (Throwable t) {
             throw new RuntimeException(t);
         }
-        String dbName = props.getProperty("jdbc-url");
-        dbName = dbName.substring(dbName.lastIndexOf("/") + 1);
+        String dbName = props.getProperty("db-name");
         String tableName = props.getProperty("table-name");
         if (tableName != null) {
             tableName = tableName.trim();
@@ -86,20 +77,13 @@ public class TableMapHolder {
             }
             eventParams.add(eventParam);
         }
-        INSTANCE = new TableMapHolder(dbName, table, eventParams.toArray(new EventParam[]{}));
+        init(dbName, table, eventParams.toArray(new EventParam[]{}));
     }
 
-    private static void checkTableOrColumnNameForSqlInjection(String name) {
-        Pattern p = Pattern.compile("\\w+");
-        Matcher m = p.matcher(name);
-        if (!m.matches()) {
-            log.error("table name or column name must contains letters or digits only (or symbol _)");
-            throw new RuntimeException("table name or column name must contains letters or digits only (or symbol _)");
-        }
-    }
-
-    public static TableMapHolder getInstance() {
-        return INSTANCE;
+    private void init(String dbName, Table table, EventParam[] eventParams) {
+        this.dbName = dbName;
+        this.table = table;
+        this.eventParams = eventParams;
     }
 
     public boolean existsEventParam(String paramName) {

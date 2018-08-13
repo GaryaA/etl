@@ -12,6 +12,7 @@
     <modules>
         <module>dbreader</module>
         <module>clickhousepusher</module>
+        <module>etl-controller</module>
     </modules>
 
     <dependencies>
@@ -21,19 +22,44 @@
             <version>1.2.17</version>
         </dependency>
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
             <groupId>ru.cubesolutions.rabbitmq-adapter</groupId>
             <artifactId>rabbitmq-adapter</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>2.7.6</version>
+            <artifactId>HikariCP-java7</artifactId>
+            <version>2.4.13</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.9.5</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.cubesolutions.evam.utils</groupId>
+            <artifactId>utils</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>oracle.jdbc.driver</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.4</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.yandex.clickhouse</groupId>
+            <artifactId>clickhouse-jdbc</artifactId>
+            <version>0.1.39</version>
         </dependency>
     </dependencies>
 

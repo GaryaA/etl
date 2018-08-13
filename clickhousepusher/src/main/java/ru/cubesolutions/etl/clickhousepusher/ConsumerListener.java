@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.Lock;
 
@@ -23,23 +24,34 @@ public class ConsumerListener extends DefaultConsumer {
 
     private final static Map<Long, Event> eventsWithDeliveryTags = new ConcurrentHashMap<>();
 
-    private Lock lock;
-    private ObjectMapper mapper = new ObjectMapper();
-    private ClickhouseSupport clickhouseSupport = new ClickhouseSupport();
+    private static int counter = 0;
 
-    public ConsumerListener(Channel channel, Lock lock) {
+    private ObjectMapper mapper = new ObjectMapper();
+    private ClickhouseSupport clickhouseSupport;
+    private Lock lock;
+    private DestConfig appConfig;
+
+    public ConsumerListener(Channel channel, Lock lock, DestConfig appConfig, ClickhouseSupport clickhouseSupport) {
         super(channel);
         this.lock = lock;
+        this.appConfig = appConfig;
+        this.clickhouseSupport = clickhouseSupport;
     }
 
     @Override
     public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
             throws IOException {
         String json = new String(body, "UTF-8");
-        Event event = new Event(mapper.readValue(json, new TypeReference<Map<String, String>>() {
+        Event event = new Event(mapper.<Map<String, String>>readValue(json, new TypeReference<Map<String, String>>() {
         }));
         eventsWithDeliveryTags.put(envelope.getDeliveryTag(), event);
-        log.debug("delivery tag:" + envelope.getDeliveryTag());
+
+        ++counter;
+        if (counter % this.appConfig.getFetchSize() == 0) {
+            Counter.INSTANCE.nullify();
+            flush();
+            Counter.INSTANCE.nullify();
+        }
     }
 
     @Override
@@ -50,29 +62,16 @@ public class ConsumerListener extends DefaultConsumer {
 
     @Override
     public void handleCancelOk(String consumerTag) {
-        lock.lock();
         try {
-            try {
-                log.info(eventsWithDeliveryTags.size() + " messages are consumed");
-                if (!eventsWithDeliveryTags.isEmpty()) {
-                    clickhouseSupport.insertEvents(new ArrayList<>(eventsWithDeliveryTags.values()));
-                    log.info(eventsWithDeliveryTags.size() + " events is inserted");
-                    acknowledge();
-                } else {
-                    log.info("0 messages");
-                }
-            } catch (Exception e) {
-                log.error("Can't write to clickhouse", e);
-                negateAcknowledge();
-            }
-            log.info("Queue listening stopped");
-            super.handleCancelOk(consumerTag);
-        } finally {
-            lock.unlock();
+            flush();
+        } catch (IOException e) {
+            log.error("", e);
+            throw new RuntimeException(e);
         }
+        log.info("Queue listening stopped");
     }
 
-    private synchronized void acknowledge() {
+    private void acknowledge() {
         try {
             acknowledge(4, 0);
         } catch (IOException e) {
@@ -81,19 +80,13 @@ public class ConsumerListener extends DefaultConsumer {
         }
     }
 
-    private synchronized void acknowledge(int attempts, int currentAttempt) throws IOException {
+    private void acknowledge(int attempts, int currentAttempt) throws IOException {
         try {
-            log.info("Acknowledgement: " + eventsWithDeliveryTags.size() + " messages");
-            for (Long tag : eventsWithDeliveryTags.keySet()) {
-                log.debug("tag to acknowledge: " + tag);
-                this.getChannel().basicAck(tag, true);
-                log.debug("success");
-            }
-            log.info("Acknowledged " + eventsWithDeliveryTags.size() + " messages");
-            eventsWithDeliveryTags.clear();
+            this.getChannel().basicAck(maxTag(eventsWithDeliveryTags.keySet()), true);
+            log.info("Acknowledged");
         } catch (IOException e) {
             ++currentAttempt;
-            log.error("Can't acknowledge input events, try " + currentAttempt, e);
+            log.error("Can't acknowledge events, try " + currentAttempt, e);
             if (currentAttempt > attempts) {
                 throw e;
             }
@@ -101,7 +94,7 @@ public class ConsumerListener extends DefaultConsumer {
         }
     }
 
-    private synchronized void negateAcknowledge() {
+    private void negateAcknowledge() {
         try {
             negateAcknowledge(4, 0);
         } catch (IOException e) {
@@ -110,14 +103,12 @@ public class ConsumerListener extends DefaultConsumer {
         }
     }
 
-    private synchronized void negateAcknowledge(int attempts, int currentAttempt) throws IOException {
+    private void negateAcknowledge(int attempts, int currentAttempt) throws IOException {
         try {
             log.info("Restoration: " + eventsWithDeliveryTags.size() + " messages");
-            for (Long tag : eventsWithDeliveryTags.keySet()) {
-                this.getChannel().basicNack(tag, true, true);
-            }
-            log.info("Restored " + eventsWithDeliveryTags.size() + " messages");
-            eventsWithDeliveryTags.clear();
+            this.getChannel().basicNack(maxTag(eventsWithDeliveryTags.keySet()), true, true);
+            log.info("Restored ");
+            counter -= eventsWithDeliveryTags.size();
         } catch (IOException e) {
             ++currentAttempt;
             log.error("Can't restore input events, try " + currentAttempt, e);
@@ -127,5 +118,40 @@ public class ConsumerListener extends DefaultConsumer {
             negateAcknowledge(attempts, currentAttempt);
         }
     }
+
+    private void flush() throws IOException {
+        lock.lock();
+        try {
+            log.info(counter + " messages are consumed");
+            if (!eventsWithDeliveryTags.isEmpty()) {
+                long start = System.currentTimeMillis();
+                clickhouseSupport.insertEvents(new ArrayList<>(eventsWithDeliveryTags.values()));
+                log.info(counter + " events are inserted, " + (System.currentTimeMillis() - start) + "ms");
+                acknowledge();
+            } else {
+                log.info("0 messages");
+            }
+        } catch (Exception e) {
+            log.error("", e);
+            negateAcknowledge();
+        } finally {
+            lock.unlock();
+        }
+        eventsWithDeliveryTags.clear();
+    }
+
+    private long maxTag(Set<Long> tags) {
+        if (tags == null || tags.isEmpty()) {
+            return -1;
+        }
+        long max = -1;
+        for (Long tag : tags) {
+            if (tag > max) {
+                max = tag;
+            }
+        }
+        return max;
+    }
+
 
 }
